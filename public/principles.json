@@ -77,5 +77,407 @@
       "subtitle": "The Glutamate Hypothesis of Schizophrenia",
       "content": "认为NMDA受体功能减退是精神分裂症发病机制中的原发性改变，导致多巴胺系统的继发性功能异常。"
     }
-  ]
+  ],
+  "drugs": [
+  {
+    "id": "alprazolam",
+    "name_cn": "阿普唑仑",
+    "name_en": "Alprazolam",
+    "category": "Benzodiazepine",
+    "tags": ["惊恐发作", "短效", "高成瘾性"],
+    "stahl_radar": {
+      "labels": ["GABA-A", "Alpha1", "Alpha2", "Alpha3", "Alpha5"],
+      "values": [9.5, 9.0, 9.0, 9.0, 9.0],
+      "link_ids": ["gabaa", "alpha1", "alpha2", "alpha3", "alpha5"]
+    },
+    "pearls": [
+      {
+        "title": "惊恐阻断剂",
+        "type": "success",
+        "content": "起效极快（口服20分钟），是惊恐发作（Panic Attack）急性期的首选“灭火器”。"
+      },
+      {
+        "title": "“钟摆”效应",
+        "type": "danger",
+        "content": "由于半衰期短（12-15h），药效过后焦虑症状可能出现“反跳”（Rebound），导致患者产生强烈的心理依赖和频繁服药需求。"
+      },
+      {
+        "title": "抑郁伴焦虑",
+        "type": "info",
+        "content": "说明书提示对伴有精神抑郁的病人应慎用，因可能加重抑郁或导致自杀倾向（去抑制效应）。"
+      }
+    ],
+    "pk_data": {
+      "half_life": "12-15h",
+      "protein_binding": "80%",
+      "metabolism": "CYP3A4",
+      "peak_time": "1-2h"
+    },
+    "market_info": {
+      "price": "$",
+      "insurance": "甲类医保",
+      "pregnancy": "D类"
+    }
+  },
+  {
+    "id": "clonazepam",
+    "name_cn": "氯硝西泮",
+    "name_en": "Clonazepam",
+    "category": "Benzodiazepine",
+    "tags": ["长效", "强效", "躁狂辅助"],
+    "stahl_radar": {
+      "labels": ["GABA-A", "Na+Channel", "T-Type Ca", "5HT", "DA"],
+      "values": [9.8, 3.0, 2.0, 0.0, 0.0],
+      "link_ids": ["gabaa", "nachannel", "ttypeca", "5ht", "da"]
+    },
+    "pearls": [
+      {
+        "title": "药理效价之王",
+        "type": "success",
+        "content": "效价极高，2mg氯硝西泮约等于40mg地西泮。常作为双相躁狂急性期的辅助用药，快速控制激越。"
+      },
+      {
+        "title": "RBD克星",
+        "type": "info",
+        "content": "治疗快动眼睡眠行为障碍（RBD，如睡梦中拳打脚踢）的首选药物，能有效减少梦境扮演行为。"
+      },
+      {
+        "title": "撤药困难",
+        "type": "warning",
+        "content": "虽然半衰期长，撤药反应较短效BZD发生得晚，但长期大剂量使用后的依赖性极难戒除，需数月缓慢减量。"
+      }
+    ],
+    "pk_data": {
+      "half_life": "30-40h",
+      "protein_binding": "85%",
+      "metabolism": "CYP3A4, 硝基还原",
+      "peak_time": "1-4h"
+    },
+    "market_info": {
+      "price": "$",
+      "insurance": "甲类医保",
+      "pregnancy": "D类"
+    }
+  },
+  {
+    "id": "zolpidem",
+    "name_cn": "唑吡坦",
+    "name_en": "Zolpidem",
+    "category": "Z-Drug",
+    "tags": ["入睡困难", "短效", "梦游风险"],
+    "stahl_radar": {
+      "labels": ["GABA-A(α1)", "GABA-A(α2)", "GABA-A(α3)", "H1", "M1"],
+      "values": [9.5, 1.0, 1.0, 0.0, 0.0],
+      "link_ids": ["gabaa_a1", "gabaa_a2", "gabaa_a3", "h1", "m1"]
+    },
+    "pearls": [
+      {
+        "title": "选择性开关",
+        "type": "success",
+        "content": "选择性结合GABA-A受体的α1亚单位（与镇静相关），几乎不结合α2/3（与抗焦虑、肌肉松弛相关）。因此仅用于助眠，无抗焦虑作用。"
+      },
+      {
+        "title": "复杂睡眠行为",
+        "type": "danger",
+        "content": "FDA黑框警告：可能引起梦游、睡驾、睡食等复杂睡眠行为。一旦发生，必须立即停药。"
+      },
+      {
+        "title": "女性减半",
+        "type": "warning",
+        "content": "FDA建议女性起始剂量减半（5mg），因为女性清除药物的速度比男性慢，次日残留困倦风险更高。"
+      }
+    ],
+    "pk_data": {
+      "half_life": "2.5h",
+      "protein_binding": "92%",
+      "metabolism": "CYP3A4",
+      "peak_time": "1.6h"
+    },
+    "market_info": {
+      "price": "$$",
+      "insurance": "甲类医保",
+      "pregnancy": "C类"
+    }
+  },
+  {
+    "id": "eszopiclone",
+    "name_cn": "右佐匹克隆",
+    "name_en": "Eszopiclone",
+    "category": "Z-Drug",
+    "tags": ["早醒", "金属味", "长期使用"],
+    "stahl_radar": {
+      "labels": ["GABA-A(α1)", "GABA-A(α2)", "GABA-A(α3)", "H1", "M1"],
+      "values": [9.0, 4.0, 4.0, 0.0, 0.0],
+      "link_ids": ["gabaa_a1", "gabaa_a2", "gabaa_a3", "h1", "m1"]
+    },
+    "pearls": [
+      {
+        "title": "全夜守护",
+        "type": "success",
+        "content": "半衰期（6h）比唑吡坦长，不仅能诱导如睡，还能维持睡眠，减少夜间觉醒和早醒。是唯一获批可长期（6个月）使用的Z药。"
+      },
+      {
+        "title": "味觉异常",
+        "type": "warning",
+        "content": "约20-30%的患者会出现口腔苦味或金属味（Dysgeusia），这是导致停药的常见原因。晨起漱口可缓解。"
+      },
+      {
+        "title": "老年剂量",
+        "type": "info",
+        "content": "老年人主要经CYP3A4代谢减慢，起始剂量应限制在1mg-2mg，防止次日宿醉效应。"
+      }
+    ],
+    "pk_data": {
+      "half_life": "6h",
+      "protein_binding": "52-59%",
+      "metabolism": "CYP3A4, 2E1",
+      "peak_time": "1h"
+    },
+    "market_info": {
+      "price": "$$",
+      "insurance": "乙类医保",
+      "pregnancy": "C类"
+    }
+  },
+  {
+    "id": "methylphenidate",
+    "name_cn": "哌甲酯",
+    "name_en": "Methylphenidate",
+    "category": "ADHD Stimulant",
+    "tags": ["多巴胺阻断", "专注力", "生长监测"],
+    "stahl_radar": {
+      "labels": ["DAT", "NET", "SERT", "D2", "Alpha2"],
+      "values": [8.5, 7.5, 0.5, 1.0, 0.0],
+      "link_ids": ["dat", "net", "sert", "d2", "alpha2"]
+    },
+    "pearls": [
+      {
+        "title": "前额叶唤醒",
+        "type": "success",
+        "content": "通过阻断DAT和NET，增加前额叶皮层的多巴胺和去甲肾上腺素浓度，显著改善注意力和冲动控制。"
+      },
+      {
+        "title": "控释技术关键",
+        "type": "info",
+        "content": "普通片（利他林）半衰期极短，需一日多次；控释片（专注达）采用OROS技术，模拟一日三次的释放曲线，避免浓度波动的“回弹效应”。"
+      },
+      {
+        "title": "生长发育",
+        "type": "warning",
+        "content": "长期使用可能轻微抑制儿童身高和体重增长。建议在周末或假期“药物假期”（Drug Holiday）以追赶生长。"
+      }
+    ],
+    "pk_data": {
+      "half_life": "3.5h (普通片)",
+      "protein_binding": "15%",
+      "metabolism": "去酯化 (非CYP)",
+      "peak_time": "6-10h (控释)"
+    },
+    "market_info": {
+      "price": "$$$",
+      "insurance": "乙类医保",
+      "pregnancy": "C类"
+    }
+  },
+  {
+    "id": "atomoxetine",
+    "name_cn": "托莫西汀",
+    "name_en": "Atomoxetine",
+    "category": "ADHD Non-Stimulant",
+    "tags": ["非兴奋剂", "全天有效", "自杀警示"],
+    "stahl_radar": {
+      "labels": ["NET", "DAT(PFC)", "SERT", "M1", "H1"],
+      "values": [9.0, 6.0, 1.0, 1.0, 0.5],
+      "link_ids": ["net", "dat_pfc", "sert", "m1", "h1"]
+    },
+    "pearls": [
+      {
+        "title": "前额叶特异性",
+        "type": "info",
+        "content": "作为NRI，它在前额叶（缺乏DAT）通过阻断NET来增加多巴胺，但在纹状体（富含DAT）不增加多巴胺。因此不引起成瘾或抽动。"
+      },
+      {
+        "title": "起效缓冲期",
+        "type": "warning",
+        "content": "与兴奋剂的“即刻起效”不同，托莫西汀需要2-4周甚至更久才能发挥最大疗效。需告知家长耐心等待。"
+      },
+      {
+        "title": "黑框警告",
+        "type": "danger",
+        "content": "说明书提示可能增加儿童和青少年的自杀意念（发生率约0.4%），尤其在治疗初期。极少数病例可能出现严重肝损伤。"
+      }
+    ],
+    "pk_data": {
+      "half_life": "5h (慢代谢者24h)",
+      "protein_binding": "98%",
+      "metabolism": "CYP2D6",
+      "peak_time": "1-2h"
+    },
+    "market_info": {
+      "price": "$$",
+      "insurance": "乙类医保",
+      "pregnancy": "C类"
+    }
+  },
+  {
+    "id": "buspirone",
+    "name_cn": "丁螺环酮",
+    "name_en": "Buspirone",
+    "category": "Anxiolytic",
+    "tags": ["5-HT1A激动", "不镇静", "起效慢"],
+    "stahl_radar": {
+      "labels": ["5HT1A", "D2", "5HT2A", "Alpha1", "H1"],
+      "values": [8.5, 4.0, 1.0, 0.5, 0.0],
+      "link_ids": ["5ht1a", "d2", "5ht2a", "alpha1", "h1"]
+    },
+    "pearls": [
+      {
+        "title": "不一样的抗焦虑药",
+        "type": "success",
+        "content": "与苯二氮卓类不同，它无镇静、无肌肉松弛、无依赖性、无戒断反应。适合需保持清醒的患者（如驾驶员）。"
+      },
+      {
+        "title": "SSRIs的最佳拍档",
+        "type": "info",
+        "content": "作为5-HT1A部分激动剂，常用于增强SSRI的抗抑郁效果，并可缓解SSRI引起的性功能障碍（如布什匹隆效应）。"
+      },
+      {
+        "title": "耐心是关键",
+        "type": "warning",
+        "content": "起效缓慢（2-4周），对急性焦虑或惊恐发作无效。不应作为“按需服用”的药物。"
+      }
+    ],
+    "pk_data": {
+      "half_life": "2-3h",
+      "protein_binding": "95%",
+      "metabolism": "CYP3A4 (首过效应强)",
+      "peak_time": "0.7-1.5h"
+    },
+    "market_info": {
+      "price": "$",
+      "insurance": "甲类医保",
+      "pregnancy": "B类"
+    }
+  },
+  {
+    "id": "pregabalin",
+    "name_cn": "普瑞巴林",
+    "name_en": "Pregabalin",
+    "category": "Anxiolytic/Analgesic",
+    "tags": ["GAD", "神经痛", "肾排泄"],
+    "stahl_radar": {
+      "labels": ["Ca+Channel(α2δ)", "GABA", "Glu", "NE", "Sub-P"],
+      "values": [9.5, 0.0, 6.0, 5.0, 5.0],
+      "link_ids": ["cachannel", "gaba", "glu", "ne", "subp"]
+    },
+    "pearls": [
+      {
+        "title": "非GABA的GABA类似物",
+        "type": "info",
+        "content": "结构类似GABA，但主要通过结合电压门控钙通道的α2δ亚基，减少谷氨酸和去甲肾上腺素的释放。对广泛性焦虑障碍（GAD）疗效确切。"
+      },
+      {
+        "title": "肾脏直通车",
+        "type": "success",
+        "content": "在体内几乎不代谢，98%以原形经肾排出。无肝药物相互作用，是肝病患者治疗焦虑或疼痛的理想选择。"
+      },
+      {
+        "title": "欣快感与滥用",
+        "type": "danger",
+        "content": "部分患者高剂量服用会产生欣快感，具有一定的滥用潜力。突然停药可能出现失眠、恶心等戒断症状。"
+      }
+    ],
+    "pk_data": {
+      "half_life": "6h",
+      "protein_binding": "0%",
+      "metabolism": "肾脏排泄",
+      "peak_time": "1h"
+    },
+    "market_info": {
+      "price": "$$",
+      "insurance": "乙类医保",
+      "pregnancy": "C类"
+    }
+  },
+  {
+    "id": "oxcarbazepine",
+    "name_cn": "奥卡西平",
+    "name_en": "Oxcarbazepine",
+    "category": "Mood Stabilizer",
+    "tags": ["钠通道阻滞", "低钠血症", "耐受性好"],
+    "stahl_radar": {
+      "labels": ["Na+Channel", "Ca+Channel", "Glu", "GABA", "CYP-Induction"],
+      "values": [9.0, 6.0, 5.0, 2.0, 3.0],
+      "link_ids": ["nachannel", "cachannel", "glu", "gaba", "cyp"]
+    },
+    "pearls": [
+      {
+        "title": "卡马西平的进化版",
+        "type": "success",
+        "content": "作为卡马西平的酮类衍生物，无需自身诱导代谢，酶诱导作用大幅减弱，药物相互作用显著减少。"
+      },
+      {
+        "title": "低钠警报",
+        "type": "danger",
+        "content": "引起低钠血症的风险比卡马西平更高（尤其是老年人）。出现头晕、嗜睡、恶心时应立即查电解质。"
+      },
+      {
+        "title": "皮疹交叉",
+        "type": "warning",
+        "content": "虽然皮疹发生率低于卡马西平，但两者有25-30%的交叉过敏反应。对卡马西平过敏者慎用。"
+      }
+    ],
+    "pk_data": {
+      "half_life": "2h (MHD代谢物9h)",
+      "protein_binding": "40%",
+      "metabolism": "胞质酶还原 (非CYP)",
+      "peak_time": "4.5h"
+    },
+    "market_info": {
+      "price": "$$",
+      "insurance": "乙类医保",
+      "pregnancy": "C类"
+    }
+  },
+  {
+    "id": "haloperidol",
+    "name_cn": "氟哌啶醇",
+    "name_en": "Haloperidol",
+    "category": "FGA",
+    "tags": ["高价D2", "谵妄", "EPS"],
+    "stahl_radar": {
+      "labels": ["D2", "Alpha1", "5HT2A", "M1", "H1"],
+      "values": [9.8, 4.0, 1.0, 0.5, 0.5],
+      "link_ids": ["d2", "alpha1", "5ht2a", "m1", "h1"]
+    },
+    "pearls": [
+      {
+        "title": "D2阻断的金标准",
+        "type": "info",
+        "content": "典型的FGA，主要通过强效阻断D2受体发挥抗精神病作用。常用于需要快速镇静（肌肉注射）的急性激越或谵妄患者。"
+      },
+      {
+        "title": "锥体外系风暴",
+        "type": "danger",
+        "content": "EPS（肌张力障碍、静坐不能、帕金森样症状）发生率极高。长期使用迟发性运动障碍（TD）风险大。"
+      },
+      {
+        "title": "静脉给药警告",
+        "type": "warning",
+        "content": "静脉注射时引起QTc间期延长和尖端扭转型室速的风险较高，需心电监护。口服相对安全。"
+      }
+    ],
+    "pk_data": {
+      "half_life": "20h",
+      "protein_binding": "92%",
+      "metabolism": "CYP3A4, 2D6",
+      "peak_time": "3-6h"
+    },
+    "market_info": {
+      "price": "$",
+      "insurance": "甲类医保",
+      "pregnancy": "C类"
+    }
+  }
+]
 }
