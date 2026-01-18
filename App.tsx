@@ -133,6 +133,7 @@ const App: React.FC = () => {
 
   // --- Render Logic ---
   const renderContent = () => {
+
     if (drugsLoading || principlesLoading) {
       return <div className="p-10 text-center text-slate-500 dark:text-slate-400">加载中...</div>;
     }
@@ -158,6 +159,7 @@ const App: React.FC = () => {
   return (
     <div className="flex min-h-screen font-sans bg-slate-50 dark:bg-medical-dark transition-colors duration-300">
       
+      {/* Sidebar */}
       <Sidebar 
         drugs={drugs}
         principles={principles}
