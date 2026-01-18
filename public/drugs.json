@@ -1,47 +1,54 @@
 {
   "_comment": "==================== Psych-Pedia 药物数据库 ====================",
-  "_instructions": "如何添加新的药物条目：1. 复制下方 '示例模板' 中的整个 {} 对象，2. 修改各字段的值，3. 将新对象添加到 'drugs' 数组末尾，4. 保存文件即可。所有字段为必填。radar 数据中的 link_ids 必须与 PRINCIPLES 中的 id 相对应。Category 字段已标准化，请勿随意更改，否则会影响侧边栏分组。特性请写在 tags 中。",
+  "_instructions": "此文件由 Excel 脚本生成。",
   "_template": {
-    "id": "示例药名英文小写（如：fluoxetine）- 用作唯一标识符，不能重复",
-    "name_cn": "示例药名（中文）",
-    "name_en": "示例药名（英文）",
- "category": "SGA / FGA / SSRI / SNRI / NaSSA / Mood Stabilizer",
-    "tags": ["标签1", "标签2", "标签3"],
-    "stahl_radar": {
-      "labels": ["D2", "5HT1A", "5HT2A", "H1", "M1"],
-      "values": [9.5, 8.0, 8.5, 2.0, 0.5],
-      "link_ids": ["d2", "5ht1a", "5ht2a", "h1", "m1"]
-    },
-    "pearls": [
-      {
-        "title": "临床实战笔记的标题",
-        "type": "danger",
-        "content": "注意内容（danger=危险/红色, warning=黄色, success=绿色, info=蓝色）"
-      }
-    ],
-    "pk_data": {
-      "half_life": "半衰期（如：75h）",
-      "protein_binding": "蛋白结合率（如：>99%）",
-      "metabolism": "主要代谢途径（如：CYP2D6, CYP3A4）",
-      "peak_time": "达峰时间（可选，如：3-5h）"
-    },
-    "market_info": {
-      "price": "价格等级（$ / $$ / $$$）",
-      "insurance": "医保状态（如：甲类医保）",
-      "pregnancy": "妊娠分级（如：C类）"
-    }
+    "id": "template_id",
+    "pearls": []
   },
-   "drugs": [
+  "drugs": [
     {
       "id": "aripiprazole",
       "name_cn": "阿立哌唑",
       "name_en": "Aripiprazole",
       "category": "SGA",
-      "tags": ["D2部分激动剂", "不镇静", "代谢友好"],
+      "tags": [
+        "D2部分激动剂",
+        "不镇静",
+        "代谢友好"
+      ],
       "stahl_radar": {
-        "labels": ["D2", "5HT1A", "5HT2A", "H1", "M1"],
-        "values": [9.5, 8.5, 8.0, 2.0, 0.5],
-        "link_ids": ["d2", "5ht1a", "5ht2a", "h1", "m1"]
+        "labels": [
+          "D2",
+          "5HT1A",
+          "5HT2A",
+          "H1",
+          "M1"
+        ],
+        "values": [
+          9.5,
+          8.5,
+          8.0,
+          2.0,
+          0.5
+        ],
+        "link_ids": [
+          "d2",
+          "5ht1a",
+          "5ht2a",
+          "h1",
+          "m1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "75h (脱氢活性代谢物94h)",
+        "protein_binding": ">99%",
+        "metabolism": "CYP2D6, CYP3A4",
+        "peak_time": "3-5h"
+      },
+      "market_info": {
+        "price": "$$ (国产/进口)",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -59,29 +66,51 @@
           "type": "success",
           "content": "由于其D2部分激动特性（内在活性约25%），可用于逆转利培酮或氨磺必利引起的高泌乳素血症。"
         }
-      ],
-      "pk_data": {
-        "half_life": "75h (脱氢活性代谢物94h)",
-        "protein_binding": ">99%",
-        "metabolism": "CYP2D6, CYP3A4",
-        "peak_time": "3-5h"
-      },
-      "market_info": {
-        "price": "$$ (国产/进口)",
-        "insurance": "甲类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "olanzapine",
       "name_cn": "奥氮平",
       "name_en": "Olanzapine",
       "category": "SGA",
-      "tags": ["强效", "镇静", "代谢高危"],
+      "tags": [
+        "强效",
+        "镇静",
+        "代谢高危"
+      ],
       "stahl_radar": {
-        "labels": ["D2", "5HT2A", "H1", "M1", "5HT2C"],
-        "values": [8.0, 9.8, 9.5, 8.5, 9.0],
-        "link_ids": ["d2", "5ht2a", "h1", "m1", "5ht2c"]
+        "labels": [
+          "D2",
+          "5HT2A",
+          "H1",
+          "M1",
+          "5HT2C"
+        ],
+        "values": [
+          8.0,
+          9.8,
+          9.5,
+          8.5,
+          9.0
+        ],
+        "link_ids": [
+          "d2",
+          "5ht2a",
+          "h1",
+          "m1",
+          "5ht2c"
+        ]
+      },
+      "pk_data": {
+        "half_life": "30-33h",
+        "protein_binding": "93%",
+        "metabolism": "CYP1A2 (主), CYP2D6",
+        "peak_time": "6h"
+      },
+      "market_info": {
+        "price": "$ (集采)",
+        "insurance": "甲类医保",
+        "pregnancy": "C类 (慎用)"
       },
       "pearls": [
         {
@@ -99,29 +128,51 @@
           "type": "warning",
           "content": "主要经CYP1A2代谢。吸烟诱导该酶，可使血药浓度降低约50%。住院患者(强制戒烟)出院后(复吸)需大幅调整剂量。"
         }
-      ],
-      "pk_data": {
-        "half_life": "30-33h",
-        "protein_binding": "93%",
-        "metabolism": "CYP1A2 (主), CYP2D6",
-        "peak_time": "6h"
-      },
-      "market_info": {
-        "price": "$ (集采)",
-        "insurance": "甲类医保",
-        "pregnancy": "C类 (慎用)"
-      }
+      ]
     },
     {
       "id": "risperidone",
       "name_cn": "利培酮",
       "name_en": "Risperidone",
       "category": "SGA",
-      "tags": ["经典SGA", "高泌乳素", "剂量依赖EPS"],
+      "tags": [
+        "经典SGA",
+        "高泌乳素",
+        "剂量依赖EPS"
+      ],
       "stahl_radar": {
-        "labels": ["D2", "5HT2A", "Alpha1", "H1", "M1"],
-        "values": [9.0, 9.8, 8.5, 6.0, 0.5],
-        "link_ids": ["d2", "5ht2a", "alpha1", "h1", "m1"]
+        "labels": [
+          "D2",
+          "5HT2A",
+          "Alpha1",
+          "H1",
+          "M1"
+        ],
+        "values": [
+          9.0,
+          9.8,
+          8.5,
+          6.0,
+          0.5
+        ],
+        "link_ids": [
+          "d2",
+          "5ht2a",
+          "alpha1",
+          "h1",
+          "m1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "20h (活性部分)",
+        "protein_binding": "90%",
+        "metabolism": "CYP2D6 (代谢为帕利哌酮)",
+        "peak_time": "1h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -139,29 +190,51 @@
           "type": "info",
           "content": "由于较强的Alpha1受体阻断作用，在起始滴定阶段需防跌倒，尤其是老年患者。"
         }
-      ],
-      "pk_data": {
-        "half_life": "20h (活性部分)",
-        "protein_binding": "90%",
-        "metabolism": "CYP2D6 (代谢为帕利哌酮)",
-        "peak_time": "1h"
-      },
-      "market_info": {
-        "price": "$",
-        "insurance": "甲类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "paliperidone",
       "name_cn": "帕利哌酮",
       "name_en": "Paliperidone",
       "category": "SGA",
-      "tags": ["肝脏安全", "OROS技术", "高泌乳素"],
+      "tags": [
+        "肝脏安全",
+        "OROS技术",
+        "高泌乳素"
+      ],
       "stahl_radar": {
-        "labels": ["D2", "5HT2A", "Alpha1", "H1", "M1"],
-        "values": [9.0, 9.8, 8.5, 5.0, 0.5],
-        "link_ids": ["d2", "5ht2a", "alpha1", "h1", "m1"]
+        "labels": [
+          "D2",
+          "5HT2A",
+          "Alpha1",
+          "H1",
+          "M1"
+        ],
+        "values": [
+          9.0,
+          9.8,
+          8.5,
+          5.0,
+          0.5
+        ],
+        "link_ids": [
+          "d2",
+          "5ht2a",
+          "alpha1",
+          "h1",
+          "m1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "23h",
+        "protein_binding": "74%",
+        "metabolism": "肾脏排泄为主",
+        "peak_time": "24h (缓释)"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -179,29 +252,51 @@
           "type": "success",
           "content": "主要经肾脏排泄（59%原形），几乎不经过肝脏CYP450酶代谢。肝功能受损患者无需调整剂量，但肾功能不全者需减量。"
         }
-      ],
-      "pk_data": {
-        "half_life": "23h",
-        "protein_binding": "74%",
-        "metabolism": "肾脏排泄为主",
-        "peak_time": "24h (缓释)"
-      },
-      "market_info": {
-        "price": "$$",
-        "insurance": "乙类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "lurasidone",
       "name_cn": "鲁拉西酮",
       "name_en": "Lurasidone",
       "category": "SGA",
-      "tags": ["必须餐后", "双相抑郁", "代谢友好"],
+      "tags": [
+        "必须餐后",
+        "双相抑郁",
+        "代谢友好"
+      ],
       "stahl_radar": {
-        "labels": ["D2", "5HT2A", "5HT7", "5HT1A", "H1"],
-        "values": [9.0, 9.5, 9.5, 7.0, 0.5],
-        "link_ids": ["d2", "5ht2a", "5ht7", "5ht1a", "h1"]
+        "labels": [
+          "D2",
+          "5HT2A",
+          "5HT7",
+          "5HT1A",
+          "H1"
+        ],
+        "values": [
+          9.0,
+          9.5,
+          9.5,
+          7.0,
+          0.5
+        ],
+        "link_ids": [
+          "d2",
+          "5ht2a",
+          "5ht7",
+          "5ht1a",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "18h",
+        "protein_binding": "99%",
+        "metabolism": "CYP3A4",
+        "peak_time": "1-3h"
+      },
+      "market_info": {
+        "price": "$$$",
+        "insurance": "乙类医保",
+        "pregnancy": "B类 (相对安全)"
       },
       "pearls": [
         {
@@ -219,29 +314,51 @@
           "type": "success",
           "content": "几乎不结合H1和M1受体，体重增加和血脂异常风险极低，被称为“体重中性”的抗精神病药。"
         }
-      ],
-      "pk_data": {
-        "half_life": "18h",
-        "protein_binding": "99%",
-        "metabolism": "CYP3A4",
-        "peak_time": "1-3h"
-      },
-      "market_info": {
-        "price": "$$$",
-        "insurance": "乙类医保",
-        "pregnancy": "B类 (相对安全)"
-      }
+      ]
     },
     {
       "id": "ziprasidone",
       "name_cn": "齐拉西酮",
       "name_en": "Ziprasidone",
       "category": "SGA",
-      "tags": ["餐后服用", "QTc延长", "不增重"],
+      "tags": [
+        "餐后服用",
+        "QTc延长",
+        "不增重"
+      ],
       "stahl_radar": {
-        "labels": ["D2", "5HT2A", "SERT", "NET", "5HT1A"],
-        "values": [8.5, 9.5, 7.0, 6.0, 8.0],
-        "link_ids": ["d2", "5ht2a", "sert", "net", "5ht1a"]
+        "labels": [
+          "D2",
+          "5HT2A",
+          "SERT",
+          "NET",
+          "5HT1A"
+        ],
+        "values": [
+          8.5,
+          9.5,
+          7.0,
+          6.0,
+          8.0
+        ],
+        "link_ids": [
+          "d2",
+          "5ht2a",
+          "sert",
+          "net",
+          "5ht1a"
+        ]
+      },
+      "pk_data": {
+        "half_life": "7h",
+        "protein_binding": "99%",
+        "metabolism": "CYP3A4, 醛氧化酶",
+        "peak_time": "6-8h"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -259,29 +376,51 @@
           "type": "info",
           "content": "具有独特的SERT和NET阻断作用（类似SNRI），理论上对伴有抑郁或焦虑的精神分裂症患者有效。"
         }
-      ],
-      "pk_data": {
-        "half_life": "7h",
-        "protein_binding": "99%",
-        "metabolism": "CYP3A4, 醛氧化酶",
-        "peak_time": "6-8h"
-      },
-      "market_info": {
-        "price": "$$",
-        "insurance": "甲类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "amisulpride",
       "name_cn": "氨磺必利",
       "name_en": "Amisulpride",
       "category": "SGA",
-      "tags": ["D2/D3阻断", "不经肝脏代谢", "改善阴性症状"],
+      "tags": [
+        "D2/D3阻断",
+        "不经肝脏代谢",
+        "改善阴性症状"
+      ],
       "stahl_radar": {
-        "labels": ["D2", "D3", "5HT2A", "H1", "M1"],
-        "values": [9.0, 9.5, 0.0, 0.0, 0.0],
-        "link_ids": ["d2", "d3", "5ht2a", "h1", "m1"]
+        "labels": [
+          "D2",
+          "D3",
+          "5HT2A",
+          "H1",
+          "M1"
+        ],
+        "values": [
+          9.0,
+          9.5,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "link_ids": [
+          "d2",
+          "d3",
+          "5ht2a",
+          "h1",
+          "m1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "12h",
+        "protein_binding": "16% (极低)",
+        "metabolism": "不经肝脏代谢",
+        "peak_time": "3-4h"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -299,29 +438,51 @@
           "type": "warning",
           "content": "极少经过肝脏代谢，主要以原形经肾排泄。肝病患者首选，但肾功能不全者必须减量。"
         }
-      ],
-      "pk_data": {
-        "half_life": "12h",
-        "protein_binding": "16% (极低)",
-        "metabolism": "不经肝脏代谢",
-        "peak_time": "3-4h"
-      },
-      "market_info": {
-        "price": "$$",
-        "insurance": "甲类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "quetiapine",
       "name_cn": "喹硫平",
       "name_en": "Quetiapine",
       "category": "SGA",
-      "tags": ["镇静", "低EPS", "双相抑郁"],
+      "tags": [
+        "镇静",
+        "低EPS",
+        "双相抑郁"
+      ],
       "stahl_radar": {
-        "labels": ["D2", "5HT2A", "H1", "Alpha1", "NET"],
-        "values": [3.0, 6.0, 9.0, 7.5, 4.0],
-        "link_ids": ["d2", "5ht2a", "h1", "alpha1", "net"]
+        "labels": [
+          "D2",
+          "5HT2A",
+          "H1",
+          "Alpha1",
+          "NET"
+        ],
+        "values": [
+          3.0,
+          6.0,
+          9.0,
+          7.5,
+          4.0
+        ],
+        "link_ids": [
+          "d2",
+          "5ht2a",
+          "h1",
+          "alpha1",
+          "net"
+        ]
+      },
+      "pk_data": {
+        "half_life": "6-7h (需缓释剂型)",
+        "protein_binding": "83%",
+        "metabolism": "CYP3A4",
+        "peak_time": "1.5h (IR)"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -339,29 +500,51 @@
           "type": "danger",
           "content": "长期使用后突然停药可引起严重的撤药反应（恶心、呕吐、失眠），尤其是H1受体反跳。必须缓慢减量。"
         }
-      ],
-      "pk_data": {
-        "half_life": "6-7h (需缓释剂型)",
-        "protein_binding": "83%",
-        "metabolism": "CYP3A4",
-        "peak_time": "1.5h (IR)"
-      },
-      "market_info": {
-        "price": "$",
-        "insurance": "甲类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "clozapine",
       "name_cn": "氯氮平",
       "name_en": "Clozapine",
       "category": "SGA",
-      "tags": ["难治性金标准", "自杀干预", "血液监测"],
+      "tags": [
+        "难治性金标准",
+        "自杀干预",
+        "血液监测"
+      ],
       "stahl_radar": {
-        "labels": ["D2", "5HT2A", "M1", "H1", "Alpha1"],
-        "values": [4.0, 9.5, 9.0, 9.5, 9.0],
-        "link_ids": ["d2", "5ht2a", "m1", "h1", "alpha1"]
+        "labels": [
+          "D2",
+          "5HT2A",
+          "M1",
+          "H1",
+          "Alpha1"
+        ],
+        "values": [
+          4.0,
+          9.5,
+          9.0,
+          9.5,
+          9.0
+        ],
+        "link_ids": [
+          "d2",
+          "5ht2a",
+          "m1",
+          "h1",
+          "alpha1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "12h",
+        "protein_binding": "95%",
+        "metabolism": "CYP1A2 (吸烟影响极大)",
+        "peak_time": "2.5h"
+      },
+      "market_info": {
+        "price": "$ (低廉)",
+        "insurance": "甲类医保",
+        "pregnancy": "B类 (相对安全)"
       },
       "pearls": [
         {
@@ -379,29 +562,51 @@
           "type": "warning",
           "content": "虽然是强效抗胆碱能药，但通过激动M4受体导致唾液分泌过多，夜间尤甚。可使用阿托品滴眼液舌下含服缓解。"
         }
-      ],
-      "pk_data": {
-        "half_life": "12h",
-        "protein_binding": "95%",
-        "metabolism": "CYP1A2 (吸烟影响极大)",
-        "peak_time": "2.5h"
-      },
-      "market_info": {
-        "price": "$ (低廉)",
-        "insurance": "甲类医保",
-        "pregnancy": "B类 (相对安全)"
-      }
+      ]
     },
     {
       "id": "flupentixol",
       "name_cn": "氟哌噻吨",
       "name_en": "Flupentixol",
-      "category": "FGA",
-      "tags": ["强效D2阻断", "激活", "EPS"],
+      "category": "第一代抗精神病药 (FGA)",
+      "tags": [
+        "强效D2阻断",
+        "激活",
+        "EPS"
+      ],
       "stahl_radar": {
-        "labels": ["D2", "5HT2A", "H1", "M1", "5HT2C"],
-        "values": [8.5, 2.0, 2.0, 1.0, 0],
-        "link_ids": ["d2", "5ht2a", "h1", "m1", "5ht2c"]
+        "labels": [
+          "D2",
+          "5HT2A",
+          "H1",
+          "M1",
+          "5HT2C"
+        ],
+        "values": [
+          8.5,
+          2.0,
+          2.0,
+          1.0,
+          0.0
+        ],
+        "link_ids": [
+          "d2",
+          "5ht2a",
+          "h1",
+          "m1",
+          "5ht2c"
+        ]
+      },
+      "pk_data": {
+        "half_life": "35h",
+        "protein_binding": "99%",
+        "metabolism": "CYP2D6",
+        "peak_time": "4h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -419,29 +624,51 @@
           "type": "warning",
           "content": "单方制剂在高剂量下可能加重激越和焦虑，不建议用于伴有严重激越的精神分裂症患者。"
         }
-      ],
-      "pk_data": {
-        "half_life": "35h",
-        "protein_binding": "99%",
-        "metabolism": "CYP2D6",
-        "peak_time": "4h"
-      },
-      "market_info": {
-        "price": "$",
-        "insurance": "甲类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "escitalopram",
       "name_cn": "艾司西酞普兰",
       "name_en": "Escitalopram",
       "category": "SSRI",
-      "tags": ["高选择性", "起效快", "相互作用少"],
+      "tags": [
+        "高选择性",
+        "起效快",
+        "相互作用少"
+      ],
       "stahl_radar": {
-        "labels": ["SERT", "NET", "DAT", "M1", "H1"],
-        "values": [9.8, 0.2, 0.1, 0.5, 0.5],
-        "link_ids": ["sert", "net", "dat", "m1", "h1"]
+        "labels": [
+          "SERT",
+          "NET",
+          "DAT",
+          "M1",
+          "H1"
+        ],
+        "values": [
+          9.8,
+          0.2,
+          0.1,
+          0.5,
+          0.5
+        ],
+        "link_ids": [
+          "sert",
+          "net",
+          "dat",
+          "m1",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "30h",
+        "protein_binding": "56%",
+        "metabolism": "CYP2C19, CYP3A4",
+        "peak_time": "5h"
+      },
+      "market_info": {
+        "price": "$ (集采)",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -459,29 +686,51 @@
           "type": "warning",
           "content": "虽然风险低于西酞普兰，但在高剂量或合并心脏病患者中仍需关注QT间期。"
         }
-      ],
-      "pk_data": {
-        "half_life": "30h",
-        "protein_binding": "56%",
-        "metabolism": "CYP2C19, CYP3A4",
-        "peak_time": "5h"
-      },
-      "market_info": {
-        "price": "$ (集采)",
-        "insurance": "甲类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "sertraline",
       "name_cn": "舍曲林",
       "name_en": "Sertraline",
       "category": "SSRI",
-      "tags": ["DAT抑制", "心脏安全", "胃肠道反应"],
+      "tags": [
+        "DAT抑制",
+        "心脏安全",
+        "胃肠道反应"
+      ],
       "stahl_radar": {
-        "labels": ["SERT", "DAT", "Sigma1", "M1", "H1"],
-        "values": [9.5, 3.0, 6.0, 1.0, 1.0],
-        "link_ids": ["sert", "dat", "sigma1", "m1", "h1"]
+        "labels": [
+          "SERT",
+          "DAT",
+          "Sigma1",
+          "M1",
+          "H1"
+        ],
+        "values": [
+          9.5,
+          3.0,
+          6.0,
+          1.0,
+          1.0
+        ],
+        "link_ids": [
+          "sert",
+          "dat",
+          "sigma1",
+          "m1",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "26h",
+        "protein_binding": "98%",
+        "metabolism": "CYP2B6, CYP2C19",
+        "peak_time": "6h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类 (相对安全)"
       },
       "pearls": [
         {
@@ -499,29 +748,51 @@
           "type": "warning",
           "content": "胃肠道副作用（腹泻、恶心）在SSRI中最为明显。建议餐后服用以减轻症状。"
         }
-      ],
-      "pk_data": {
-        "half_life": "26h",
-        "protein_binding": "98%",
-        "metabolism": "CYP2B6, CYP2C19",
-        "peak_time": "6h"
-      },
-      "market_info": {
-        "price": "$",
-        "insurance": "甲类医保",
-        "pregnancy": "C类 (相对安全)"
-      }
+      ]
     },
     {
       "id": "paroxetine",
       "name_cn": "帕罗西汀",
       "name_en": "Paroxetine",
       "category": "SSRI",
-      "tags": ["强效抗焦虑", "抗胆碱能", "撤药反应"],
+      "tags": [
+        "强效抗焦虑",
+        "抗胆碱能",
+        "撤药反应"
+      ],
       "stahl_radar": {
-        "labels": ["SERT", "NET", "M1", "NOS", "H1"],
-        "values": [9.9, 2.5, 6.0, 4.0, 1.0],
-        "link_ids": ["sert", "net", "m1", "nos", "h1"]
+        "labels": [
+          "SERT",
+          "NET",
+          "M1",
+          "NOS",
+          "H1"
+        ],
+        "values": [
+          9.9,
+          2.5,
+          6.0,
+          4.0,
+          1.0
+        ],
+        "link_ids": [
+          "sert",
+          "net",
+          "m1",
+          "nos",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "21h",
+        "protein_binding": "95%",
+        "metabolism": "CYP2D6 (强抑制剂)",
+        "peak_time": "5h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "D类"
       },
       "pearls": [
         {
@@ -544,29 +815,51 @@
           "type": "danger",
           "content": "FDA妊娠分级为D类（其他SSRI多为C类），由于潜在的心脏致畸风险，育龄期妇女需慎重。"
         }
-      ],
-      "pk_data": {
-        "half_life": "21h",
-        "protein_binding": "95%",
-        "metabolism": "CYP2D6 (强抑制剂)",
-        "peak_time": "5h"
-      },
-      "market_info": {
-        "price": "$",
-        "insurance": "甲类医保",
-        "pregnancy": "D类"
-      }
+      ]
     },
     {
       "id": "fluvoxamine",
       "name_cn": "氟伏沙明",
       "name_en": "Fluvoxamine",
       "category": "SSRI",
-      "tags": ["Sigma1激动", "强迫症", "相互作用多"],
+      "tags": [
+        "Sigma1激动",
+        "强迫症",
+        "相互作用多"
+      ],
       "stahl_radar": {
-        "labels": ["SERT", "Sigma1", "M1", "H1", "Alpha1"],
-        "values": [9.5, 9.8, 1.0, 1.0, 1.0],
-        "link_ids": ["sert", "sigma1", "m1", "h1", "alpha1"]
+        "labels": [
+          "SERT",
+          "Sigma1",
+          "M1",
+          "H1",
+          "Alpha1"
+        ],
+        "values": [
+          9.5,
+          9.8,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "link_ids": [
+          "sert",
+          "sigma1",
+          "m1",
+          "h1",
+          "alpha1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "15h",
+        "protein_binding": "80%",
+        "metabolism": "CYP1A2 (强抑制), 2D6",
+        "peak_time": "3-8h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -584,29 +877,51 @@
           "type": "danger",
           "content": "强效抑制CYP1A2和CYP2C19。严禁与替扎尼定、雷美替胺合用。会显著升高咖啡因和茶碱的浓度，建议服药期间减少饮茶喝咖啡。"
         }
-      ],
-      "pk_data": {
-        "half_life": "15h",
-        "protein_binding": "80%",
-        "metabolism": "CYP1A2 (强抑制), 2D6",
-        "peak_time": "3-8h"
-      },
-      "market_info": {
-        "price": "$",
-        "insurance": "甲类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "venlafaxine",
       "name_cn": "文拉法辛",
       "name_en": "Venlafaxine",
       "category": "SNRI",
-      "tags": ["双重机制", "剂量依赖", "血压"],
+      "tags": [
+        "双重机制",
+        "剂量依赖",
+        "血压"
+      ],
       "stahl_radar": {
-        "labels": ["SERT", "NET", "DAT", "M1", "H1"],
-        "values": [9.5, 6.5, 0.5, 0.2, 0.5],
-        "link_ids": ["sert", "net", "dat", "m1", "h1"]
+        "labels": [
+          "SERT",
+          "NET",
+          "DAT",
+          "M1",
+          "H1"
+        ],
+        "values": [
+          9.5,
+          6.5,
+          0.5,
+          0.2,
+          0.5
+        ],
+        "link_ids": [
+          "sert",
+          "net",
+          "dat",
+          "m1",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "5h (ODV 11h)",
+        "protein_binding": "27%",
+        "metabolism": "CYP2D6",
+        "peak_time": "2h (IR)"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -624,29 +939,51 @@
           "type": "danger",
           "content": "半衰期极短，漏服一次即可出现明显的“脑电击感”、头晕。依从性差的患者慎用。"
         }
-      ],
-      "pk_data": {
-        "half_life": "5h (ODV 11h)",
-        "protein_binding": "27%",
-        "metabolism": "CYP2D6",
-        "peak_time": "2h (IR)"
-      },
-      "market_info": {
-        "price": "$$",
-        "insurance": "乙类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "duloxetine",
       "name_cn": "度洛西汀",
       "name_en": "Duloxetine",
       "category": "SNRI",
-      "tags": ["抗抑郁", "镇痛", "肝脏警告"],
+      "tags": [
+        "抗抑郁",
+        "镇痛",
+        "肝脏警告"
+      ],
       "stahl_radar": {
-        "labels": ["SERT", "NET", "DAT", "M1", "H1"],
-        "values": [9.5, 8.5, 1.0, 1.0, 1.0],
-        "link_ids": ["sert", "net", "dat", "m1", "h1"]
+        "labels": [
+          "SERT",
+          "NET",
+          "DAT",
+          "M1",
+          "H1"
+        ],
+        "values": [
+          9.5,
+          8.5,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "link_ids": [
+          "sert",
+          "net",
+          "dat",
+          "m1",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "12h",
+        "protein_binding": "90%+",
+        "metabolism": "CYP1A2, CYP2D6",
+        "peak_time": "6h"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -664,29 +1001,51 @@
           "type": "danger",
           "content": "有肝毒性报告，乙肝患者或慢性肝病患者应避免使用。禁用于未控制的闭角型青光眼。"
         }
-      ],
-      "pk_data": {
-        "half_life": "12h",
-        "protein_binding": "90%+",
-        "metabolism": "CYP1A2, CYP2D6",
-        "peak_time": "6h"
-      },
-      "market_info": {
-        "price": "$$",
-        "insurance": "乙类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "bupropion",
       "name_cn": "安非他酮",
       "name_en": "Bupropion",
       "category": "NDRI",
-      "tags": ["激活", "戒烟", "无性功能副作用"],
+      "tags": [
+        "激活",
+        "戒烟",
+        "无性功能副作用"
+      ],
       "stahl_radar": {
-        "labels": ["DAT", "NET", "nAChR", "H1", "SERT"],
-        "values": [6.0, 6.0, 8.0, 1.0, 0.0],
-        "link_ids": ["dat", "net", "nachr", "h1", "sert"]
+        "labels": [
+          "DAT",
+          "NET",
+          "nAChR",
+          "H1",
+          "SERT"
+        ],
+        "values": [
+          6.0,
+          6.0,
+          8.0,
+          1.0,
+          0.0
+        ],
+        "link_ids": [
+          "dat",
+          "net",
+          "nachr",
+          "h1",
+          "sert"
+        ]
+      },
+      "pk_data": {
+        "half_life": "21h (缓释)",
+        "protein_binding": "84%",
+        "metabolism": "CYP2B6",
+        "peak_time": "3h"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -704,29 +1063,51 @@
           "type": "danger",
           "content": "降低癫痫阈值，剂量大于450mg/d时风险显著。禁用于癫痫患者及进食障碍（贪食/厌食）患者。"
         }
-      ],
-      "pk_data": {
-        "half_life": "21h (缓释)",
-        "protein_binding": "84%",
-        "metabolism": "CYP2B6",
-        "peak_time": "3h"
-      },
-      "market_info": {
-        "price": "$$",
-        "insurance": "乙类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "mirtazapine",
       "name_cn": "米氮平",
       "name_en": "Mirtazapine",
       "category": "NaSSA",
-      "tags": ["增食欲", "助眠", "性功能保护"],
+      "tags": [
+        "增食欲",
+        "助眠",
+        "性功能保护"
+      ],
       "stahl_radar": {
-        "labels": ["Alpha2", "5HT2A", "5HT2C", "5HT3", "H1"],
-        "values": [9.0, 8.5, 8.0, 9.5, 9.8],
-        "link_ids": ["alpha2", "5ht2a", "5ht2c", "5ht3", "h1"]
+        "labels": [
+          "Alpha2",
+          "5HT2A",
+          "5HT2C",
+          "5HT3",
+          "H1"
+        ],
+        "values": [
+          9.0,
+          8.5,
+          8.0,
+          9.5,
+          9.8
+        ],
+        "link_ids": [
+          "alpha2",
+          "5ht2a",
+          "5ht2c",
+          "5ht3",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "20-40h",
+        "protein_binding": "85%",
+        "metabolism": "CYP2D6, 1A2, 3A4",
+        "peak_time": "2h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -744,29 +1125,51 @@
           "type": "info",
           "content": "小剂量（15mg）时抗组胺作用占主导，镇静强；大剂量（30-45mg）时NE能传递增强，拮抗部分镇静作用。失眠患者有时减量反而更有效。"
         }
-      ],
-      "pk_data": {
-        "half_life": "20-40h",
-        "protein_binding": "85%",
-        "metabolism": "CYP2D6, 1A2, 3A4",
-        "peak_time": "2h"
-      },
-      "market_info": {
-        "price": "$",
-        "insurance": "甲类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "vortioxetine",
       "name_cn": "伏硫西汀",
       "name_en": "Vortioxetine",
       "category": "SMS",
-      "tags": ["多模式", "改善认知", "副作用少"],
+      "tags": [
+        "多模式",
+        "改善认知",
+        "副作用少"
+      ],
       "stahl_radar": {
-        "labels": ["SERT", "5HT3", "5HT1A", "5HT7", "DAT"],
-        "values": [9.5, 9.0, 8.0, 8.5, 1.0],
-        "link_ids": ["sert", "5ht3", "5ht1a", "5ht7", "dat"]
+        "labels": [
+          "SERT",
+          "5HT3",
+          "5HT1A",
+          "5HT7",
+          "DAT"
+        ],
+        "values": [
+          9.5,
+          9.0,
+          8.0,
+          8.5,
+          1.0
+        ],
+        "link_ids": [
+          "sert",
+          "5ht3",
+          "5ht1a",
+          "5ht7",
+          "dat"
+        ]
+      },
+      "pk_data": {
+        "half_life": "66h",
+        "protein_binding": "98%",
+        "metabolism": "CYP2D6",
+        "peak_time": "7-11h"
+      },
+      "market_info": {
+        "price": "$$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -784,29 +1187,51 @@
           "type": "warning",
           "content": "最常见的不良反应是恶心（发生率较高），但通常是短暂的。建议随餐服用。"
         }
-      ],
-      "pk_data": {
-        "half_life": "66h",
-        "protein_binding": "98%",
-        "metabolism": "CYP2D6",
-        "peak_time": "7-11h"
-      },
-      "market_info": {
-        "price": "$$$",
-        "insurance": "乙类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "agomelatine",
       "name_cn": "阿戈美拉汀",
       "name_en": "Agomelatine",
-      "category": "Antidepressant",
-      "tags": ["褪黑素激动", "调节节律", "肝功能监测"],
+      "category": "褪黑素受体激动剂",
+      "tags": [
+        "褪黑素激动",
+        "调节节律",
+        "肝功能监测"
+      ],
       "stahl_radar": {
-        "labels": ["MT1", "MT2", "5HT2C", "SERT", "H1"],
-        "values": [9.5, 9.5, 8.0, 0.0, 0.0],
-        "link_ids": ["mt1", "mt2", "5ht2c", "sert", "h1"]
+        "labels": [
+          "MT1",
+          "MT2",
+          "5HT2C",
+          "SERT",
+          "H1"
+        ],
+        "values": [
+          9.5,
+          9.5,
+          8.0,
+          0.0,
+          0.0
+        ],
+        "link_ids": [
+          "mt1",
+          "mt2",
+          "5ht2c",
+          "sert",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "1-2h (极短)",
+        "protein_binding": "95%",
+        "metabolism": "CYP1A2",
+        "peak_time": "0.75h"
+      },
+      "market_info": {
+        "price": "$$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -824,29 +1249,51 @@
           "type": "success",
           "content": "停药时无需递减剂量，不会产生撤药反应。且对性功能和体重几乎无影响。"
         }
-      ],
-      "pk_data": {
-        "half_life": "1-2h (极短)",
-        "protein_binding": "95%",
-        "metabolism": "CYP1A2",
-        "peak_time": "0.75h"
-      },
-      "market_info": {
-        "price": "$$$",
-        "insurance": "乙类医保",
-        "pregnancy": "C类"
-      }
+      ]
     },
     {
       "id": "lithium",
       "name_cn": "碳酸锂",
       "name_en": "Lithium Carbonate",
       "category": "Mood Stabilizer",
-      "tags": ["自杀预防", "治疗窗窄", "甲状腺"],
+      "tags": [
+        "自杀预防",
+        "治疗窗窄",
+        "甲状腺"
+      ],
       "stahl_radar": {
-        "labels": ["IMPase", "GSK-3", "Glu", "GABA", "DA"],
-        "values": [8.0, 8.0, 5.0, 4.0, 3.0],
-        "link_ids": ["impase", "gsk3", "glu", "gaba", "da"]
+        "labels": [
+          "IMPase",
+          "GSK-3",
+          "Glu",
+          "GABA",
+          "DA"
+        ],
+        "values": [
+          8.0,
+          8.0,
+          5.0,
+          4.0,
+          3.0
+        ],
+        "link_ids": [
+          "impase",
+          "gsk-3",
+          "glu",
+          "gaba",
+          "da"
+        ]
+      },
+      "pk_data": {
+        "half_life": "18-24h",
+        "protein_binding": "0% (不结合)",
+        "metabolism": "原形肾脏排泄",
+        "peak_time": "1-2h"
+      },
+      "market_info": {
+        "price": "$ (极低廉)",
+        "insurance": "甲类医保",
+        "pregnancy": "D类 (Ebstein畸形)"
       },
       "pearls": [
         {
@@ -864,29 +1311,51 @@
           "type": "warning",
           "content": "长期使用需定期监测甲状腺功能（可能引起甲减）和肾功能（长期可能引起间质性肾炎）。"
         }
-      ],
-      "pk_data": {
-        "half_life": "18-24h",
-        "protein_binding": "0% (不结合)",
-        "metabolism": "原形肾脏排泄",
-        "peak_time": "1-2h"
-      },
-      "market_info": {
-        "price": "$ (极低廉)",
-        "insurance": "甲类医保",
-        "pregnancy": "D类 (Ebstein畸形)"
-      }
+      ]
     },
     {
       "id": "valproate",
       "name_cn": "丙戊酸钠",
       "name_en": "Sodium Valproate",
       "category": "Mood Stabilizer",
-      "tags": ["广谱", "致畸", "GABA增强"],
+      "tags": [
+        "广谱",
+        "致畸",
+        "GABA增强"
+      ],
       "stahl_radar": {
-        "labels": ["GABA-T", "Na+Channel", "T-Type Ca", "Glu", "H1"],
-        "values": [8.5, 8.0, 6.0, 5.0, 1.0],
-        "link_ids": ["gabat", "nachannel", "ttypeca", "glu", "h1"]
+        "labels": [
+          "GABA-T",
+          "Na+Channel",
+          "T-Type Ca",
+          "Glu",
+          "H1"
+        ],
+        "values": [
+          8.5,
+          8.0,
+          6.0,
+          5.0,
+          1.0
+        ],
+        "link_ids": [
+          "gaba-t",
+          "na+channel",
+          "t-typeca",
+          "glu",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "9-16h",
+        "protein_binding": "90% (浓度依赖)",
+        "metabolism": "UGT, Beta-氧化",
+        "peak_time": "2h (缓释4h)"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "D/X类 (高危)"
       },
       "pearls": [
         {
@@ -904,29 +1373,51 @@
           "type": "warning",
           "content": "是弱CYP酶抑制剂，但能显著抑制拉莫三嗪的葡萄糖醛酸化代谢，导致拉莫三嗪浓度升高一倍，合用时必须减半拉莫三嗪剂量。"
         }
-      ],
-      "pk_data": {
-        "half_life": "9-16h",
-        "protein_binding": "90% (浓度依赖)",
-        "metabolism": "UGT, Beta-氧化",
-        "peak_time": "2h (缓释4h)"
-      },
-      "market_info": {
-        "price": "$",
-        "insurance": "甲类医保",
-        "pregnancy": "D/X类 (高危)"
-      }
+      ]
     },
     {
       "id": "lamotrigine",
       "name_cn": "拉莫三嗪",
       "name_en": "Lamotrigine",
       "category": "Mood Stabilizer",
-      "tags": ["双相抑郁", "慢滴定", "认知保护"],
+      "tags": [
+        "双相抑郁",
+        "慢滴定",
+        "认知保护"
+      ],
       "stahl_radar": {
-        "labels": ["Na+Channel", "Glu", "Ca+Channel", "5HT", "DA"],
-        "values": [9.0, 8.0, 5.0, 1.0, 1.0],
-        "link_ids": ["nachannel", "glu", "cachannel", "5ht", "da"]
+        "labels": [
+          "Na+Channel",
+          "Glu",
+          "Ca+Channel",
+          "5HT",
+          "DA"
+        ],
+        "values": [
+          9.0,
+          8.0,
+          5.0,
+          1.0,
+          1.0
+        ],
+        "link_ids": [
+          "na+channel",
+          "glu",
+          "ca+channel",
+          "5ht",
+          "da"
+        ]
+      },
+      "pk_data": {
+        "half_life": "25h (单用)",
+        "protein_binding": "55%",
+        "metabolism": "葡萄糖醛酸化",
+        "peak_time": "2h"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
       },
       "pearls": [
         {
@@ -944,418 +1435,1378 @@
           "type": "warning",
           "content": "与丙戊酸合用时，拉莫三嗪半衰期延长至60h（需减量）；与卡马西平合用时，半衰期缩短至15h（需加量）。"
         }
+      ]
+    },
+    {
+      "id": "alprazolam",
+      "name_cn": "阿普唑仑",
+      "name_en": "Alprazolam",
+      "category": "Benzodiazepine",
+      "tags": [
+        "惊恐发作",
+        "短效",
+        "高成瘾性"
       ],
+      "stahl_radar": {
+        "labels": [
+          "GABA-A",
+          "Alpha1",
+          "Alpha2",
+          "Alpha3",
+          "Alpha5"
+        ],
+        "values": [
+          9.5,
+          9.0,
+          9.0,
+          9.0,
+          9.0
+        ],
+        "link_ids": [
+          "gaba-a",
+          "alpha1",
+          "alpha2",
+          "alpha3",
+          "alpha5"
+        ]
+      },
       "pk_data": {
-        "half_life": "25h (单用)",
-        "protein_binding": "55%",
-        "metabolism": "葡萄糖醛酸化",
-        "peak_time": "2h"
+        "half_life": "12-15h",
+        "protein_binding": "80%",
+        "metabolism": "CYP3A4",
+        "peak_time": "1-2h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "D类"
+      },
+      "pearls": [
+        {
+          "title": "惊恐阻断剂",
+          "type": "success",
+          "content": "起效极快（口服20分钟），是惊恐发作（Panic Attack）急性期的首选“灭火器”。"
+        },
+        {
+          "title": "“钟摆”效应",
+          "type": "danger",
+          "content": "由于半衰期短（12-15h），药效过后焦虑症状可能出现“反跳”（Rebound），导致患者产生强烈的心理依赖和频繁服药需求。"
+        },
+        {
+          "title": "抑郁伴焦虑",
+          "type": "info",
+          "content": "说明书提示对伴有精神抑郁的病人应慎用，因可能加重抑郁或导致自杀倾向（去抑制效应）。"
+        }
+      ]
+    },
+    {
+      "id": "clonazepam",
+      "name_cn": "氯硝西泮",
+      "name_en": "Clonazepam",
+      "category": "Benzodiazepine",
+      "tags": [
+        "长效",
+        "强效",
+        "躁狂辅助"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "GABA-A",
+          "Na+Channel",
+          "T-Type Ca",
+          "5HT",
+          "DA"
+        ],
+        "values": [
+          9.8,
+          3.0,
+          2.0,
+          0.0,
+          0.0
+        ],
+        "link_ids": [
+          "gaba-a",
+          "na+channel",
+          "t-typeca",
+          "5ht",
+          "da"
+        ]
+      },
+      "pk_data": {
+        "half_life": "30-40h",
+        "protein_binding": "85%",
+        "metabolism": "CYP3A4, 硝基还原",
+        "peak_time": "1-4h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "D类"
+      },
+      "pearls": [
+        {
+          "title": "药理效价之王",
+          "type": "success",
+          "content": "效价极高，2mg氯硝西泮约等于40mg地西泮。常作为双相躁狂急性期的辅助用药，快速控制激越。"
+        },
+        {
+          "title": "RBD克星",
+          "type": "info",
+          "content": "治疗快动眼睡眠行为障碍（RBD，如睡梦中拳打脚踢）的首选药物，能有效减少梦境扮演行为。"
+        },
+        {
+          "title": "撤药困难",
+          "type": "warning",
+          "content": "虽然半衰期长，撤药反应较短效BZD发生得晚，但长期大剂量使用后的依赖性极难戒除，需数月缓慢减量。"
+        }
+      ]
+    },
+    {
+      "id": "zolpidem",
+      "name_cn": "唑吡坦",
+      "name_en": "Zolpidem",
+      "category": "Z-Drug",
+      "tags": [
+        "入睡困难",
+        "短效",
+        "梦游风险"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "GABA-A(α1)",
+          "GABA-A(α2)",
+          "GABA-A(α3)",
+          "H1",
+          "M1"
+        ],
+        "values": [
+          9.5,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "link_ids": [
+          "gaba-a(α1)",
+          "gaba-a(α2)",
+          "gaba-a(α3)",
+          "h1",
+          "m1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "2.5h",
+        "protein_binding": "92%",
+        "metabolism": "CYP3A4",
+        "peak_time": "1.6h"
       },
       "market_info": {
         "price": "$$",
         "insurance": "甲类医保",
         "pregnancy": "C类"
-      }
+      },
+      "pearls": [
+        {
+          "title": "选择性开关",
+          "type": "success",
+          "content": "选择性结合GABA-A受体的α1亚单位（与镇静相关），几乎不结合α2/3（与抗焦虑、肌肉松弛相关）。因此仅用于助眠，无抗焦虑作用。"
+        },
+        {
+          "title": "复杂睡眠行为",
+          "type": "danger",
+          "content": "FDA黑框警告：可能引起梦游、睡驾、睡食等复杂睡眠行为。一旦发生，必须立即停药。"
+        },
+        {
+          "title": "女性减半",
+          "type": "warning",
+          "content": "FDA建议女性起始剂量减半（5mg），因为女性清除药物的速度比男性慢，次日残留困倦风险更高。"
+        }
+      ]
     },
     {
-    "id": "alprazolam",
-    "name_cn": "阿普唑仑",
-    "name_en": "Alprazolam",
-    "category": "Benzodiazepine",
-    "tags": ["惊恐发作", "短效", "高成瘾性"],
-    "stahl_radar": {
-      "labels": ["GABA-A", "Alpha1", "Alpha2", "Alpha3", "Alpha5"],
-      "values": [9.5, 9.0, 9.0, 9.0, 9.0],
-      "link_ids": ["gabaa", "alpha1", "alpha2", "alpha3", "alpha5"]
-    },
-    "pearls": [
-      {
-        "title": "惊恐阻断剂",
-        "type": "success",
-        "content": "起效极快（口服20分钟），是惊恐发作（Panic Attack）急性期的首选“灭火器”。"
+      "id": "eszopiclone",
+      "name_cn": "右佐匹克隆",
+      "name_en": "Eszopiclone",
+      "category": "Z-Drug",
+      "tags": [
+        "早醒",
+        "金属味",
+        "长期使用"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "GABA-A(α1)",
+          "GABA-A(α2)",
+          "GABA-A(α3)",
+          "H1",
+          "M1"
+        ],
+        "values": [
+          9.0,
+          4.0,
+          4.0,
+          0.0,
+          0.0
+        ],
+        "link_ids": [
+          "gaba-a(α1)",
+          "gaba-a(α2)",
+          "gaba-a(α3)",
+          "h1",
+          "m1"
+        ]
       },
-      {
-        "title": "“钟摆”效应",
-        "type": "danger",
-        "content": "由于半衰期短（12-15h），药效过后焦虑症状可能出现“反跳”（Rebound），导致患者产生强烈的心理依赖和频繁服药需求。"
+      "pk_data": {
+        "half_life": "6h",
+        "protein_binding": "52-59%",
+        "metabolism": "CYP3A4, 2E1",
+        "peak_time": "1h"
       },
-      {
-        "title": "抑郁伴焦虑",
-        "type": "info",
-        "content": "说明书提示对伴有精神抑郁的病人应慎用，因可能加重抑郁或导致自杀倾向（去抑制效应）。"
-      }
-    ],
-    "pk_data": {
-      "half_life": "12-15h",
-      "protein_binding": "80%",
-      "metabolism": "CYP3A4",
-      "peak_time": "1-2h"
+      "market_info": {
+        "price": "$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "全夜守护",
+          "type": "success",
+          "content": "半衰期（6h）比唑吡坦长，不仅能诱导如睡，还能维持睡眠，减少夜间觉醒和早醒。是唯一获批可长期（6个月）使用的Z药。"
+        },
+        {
+          "title": "味觉异常",
+          "type": "warning",
+          "content": "约20-30%的患者会出现口腔苦味或金属味（Dysgeusia），这是导致停药的常见原因。晨起漱口可缓解。"
+        },
+        {
+          "title": "老年剂量",
+          "type": "info",
+          "content": "老年人主要经CYP3A4代谢减慢，起始剂量应限制在1mg-2mg，防止次日宿醉效应。"
+        }
+      ]
     },
-    "market_info": {
-      "price": "$",
-      "insurance": "甲类医保",
-      "pregnancy": "D类"
+    {
+      "id": "methylphenidate",
+      "name_cn": "哌甲酯",
+      "name_en": "Methylphenidate",
+      "category": "ADHD Stimulant",
+      "tags": [
+        "多巴胺阻断",
+        "专注力",
+        "生长监测"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "DAT",
+          "NET",
+          "SERT",
+          "D2",
+          "Alpha2"
+        ],
+        "values": [
+          8.5,
+          7.5,
+          0.5,
+          1.0,
+          0.0
+        ],
+        "link_ids": [
+          "dat",
+          "net",
+          "sert",
+          "d2",
+          "alpha2"
+        ]
+      },
+      "pk_data": {
+        "half_life": "3.5h (普通片)",
+        "protein_binding": "15%",
+        "metabolism": "去酯化 (非CYP)",
+        "peak_time": "6-10h (控释)"
+      },
+      "market_info": {
+        "price": "$$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "前额叶唤醒",
+          "type": "success",
+          "content": "通过阻断DAT和NET，增加前额叶皮层的多巴胺和去甲肾上腺素浓度，显著改善注意力和冲动控制。"
+        },
+        {
+          "title": "控释技术关键",
+          "type": "info",
+          "content": "普通片（利他林）半衰期极短，需一日多次；控释片（专注达）采用OROS技术，模拟一日三次的释放曲线，避免浓度波动的“回弹效应”。"
+        },
+        {
+          "title": "生长发育",
+          "type": "warning",
+          "content": "长期使用可能轻微抑制儿童身高和体重增长。建议在周末或假期“药物假期”（Drug Holiday）以追赶生长。"
+        }
+      ]
+    },
+    {
+      "id": "atomoxetine",
+      "name_cn": "托莫西汀",
+      "name_en": "Atomoxetine",
+      "category": "ADHD Non-Stimulant",
+      "tags": [
+        "非兴奋剂",
+        "全天有效",
+        "自杀警示"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "NET",
+          "DAT(PFC)",
+          "SERT",
+          "M1",
+          "H1"
+        ],
+        "values": [
+          9.0,
+          6.0,
+          1.0,
+          1.0,
+          0.5
+        ],
+        "link_ids": [
+          "net",
+          "dat(pfc)",
+          "sert",
+          "m1",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "5h (慢代谢者24h)",
+        "protein_binding": "98%",
+        "metabolism": "CYP2D6",
+        "peak_time": "1-2h"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "前额叶特异性",
+          "type": "info",
+          "content": "作为NRI，它在前额叶（缺乏DAT）通过阻断NET来增加多巴胺，但在纹状体（富含DAT）不增加多巴胺。因此不引起成瘾或抽动。"
+        },
+        {
+          "title": "起效缓冲期",
+          "type": "warning",
+          "content": "与兴奋剂的“即刻起效”不同，托莫西汀需要2-4周甚至更久才能发挥最大疗效。需告知家长耐心等待。"
+        },
+        {
+          "title": "黑框警告",
+          "type": "danger",
+          "content": "说明书提示可能增加儿童和青少年的自杀意念（发生率约0.4%），尤其在治疗初期。极少数病例可能出现严重肝损伤。"
+        }
+      ]
+    },
+    {
+      "id": "buspirone",
+      "name_cn": "丁螺环酮",
+      "name_en": "Buspirone",
+      "category": "Anxiolytic",
+      "tags": [
+        "5-HT1A激动",
+        "不镇静",
+        "起效慢"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "5HT1A",
+          "D2",
+          "5HT2A",
+          "Alpha1",
+          "H1"
+        ],
+        "values": [
+          8.5,
+          4.0,
+          1.0,
+          0.5,
+          0.0
+        ],
+        "link_ids": [
+          "5ht1a",
+          "d2",
+          "5ht2a",
+          "alpha1",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "2-3h",
+        "protein_binding": "95%",
+        "metabolism": "CYP3A4 (首过效应强)",
+        "peak_time": "0.7-1.5h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "B类"
+      },
+      "pearls": [
+        {
+          "title": "不一样的抗焦虑药",
+          "type": "success",
+          "content": "与苯二氮卓类不同，它无镇静、无肌肉松弛、无依赖性、无戒断反应。适合需保持清醒的患者（如驾驶员）。"
+        },
+        {
+          "title": "SSRIs的最佳拍档",
+          "type": "info",
+          "content": "作为5-HT1A部分激动剂，常用于增强SSRI的抗抑郁效果，并可缓解SSRI引起的性功能障碍（如布什匹隆效应）。"
+        },
+        {
+          "title": "耐心是关键",
+          "type": "warning",
+          "content": "起效缓慢（2-4周），对急性焦虑或惊恐发作无效。不应作为“按需服用”的药物。"
+        }
+      ]
+    },
+    {
+      "id": "pregabalin",
+      "name_cn": "普瑞巴林",
+      "name_en": "Pregabalin",
+      "category": "Anxiolytic/Analgesic",
+      "tags": [
+        "GAD",
+        "神经痛",
+        "肾排泄"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "Ca+Channel(α2δ)",
+          "GABA",
+          "Glu",
+          "NE",
+          "Sub-P"
+        ],
+        "values": [
+          9.5,
+          0.0,
+          6.0,
+          5.0,
+          5.0
+        ],
+        "link_ids": [
+          "ca+channel(α2δ)",
+          "gaba",
+          "glu",
+          "ne",
+          "sub-p"
+        ]
+      },
+      "pk_data": {
+        "half_life": "6h",
+        "protein_binding": "0%",
+        "metabolism": "肾脏排泄",
+        "peak_time": "1h"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "非GABA的GABA类似物",
+          "type": "info",
+          "content": "结构类似GABA，但主要通过结合电压门控钙通道的α2δ亚基，减少谷氨酸和去甲肾上腺素的释放。对广泛性焦虑障碍（GAD）疗效确切。"
+        },
+        {
+          "title": "肾脏直通车",
+          "type": "success",
+          "content": "在体内几乎不代谢，98%以原形经肾排出。无肝药物相互作用，是肝病患者治疗焦虑或疼痛的理想选择。"
+        },
+        {
+          "title": "欣快感与滥用",
+          "type": "danger",
+          "content": "部分患者高剂量服用会产生欣快感，具有一定的滥用潜力。突然停药可能出现失眠、恶心等戒断症状。"
+        }
+      ]
+    },
+    {
+      "id": "oxcarbazepine",
+      "name_cn": "奥卡西平",
+      "name_en": "Oxcarbazepine",
+      "category": "Mood Stabilizer",
+      "tags": [
+        "钠通道阻滞",
+        "低钠血症",
+        "耐受性好"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "Na+Channel",
+          "Ca+Channel",
+          "Glu",
+          "GABA",
+          "CYP-Induction"
+        ],
+        "values": [
+          9.0,
+          6.0,
+          5.0,
+          2.0,
+          3.0
+        ],
+        "link_ids": [
+          "na+channel",
+          "ca+channel",
+          "glu",
+          "gaba",
+          "cyp-induction"
+        ]
+      },
+      "pk_data": {
+        "half_life": "2h (MHD代谢物9h)",
+        "protein_binding": "40%",
+        "metabolism": "胞质酶还原 (非CYP)",
+        "peak_time": "4.5h"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "卡马西平的进化版",
+          "type": "success",
+          "content": "作为卡马西平的酮类衍生物，无需自身诱导代谢，酶诱导作用大幅减弱，药物相互作用显著减少。"
+        },
+        {
+          "title": "低钠警报",
+          "type": "danger",
+          "content": "引起低钠血症的风险比卡马西平更高（尤其是老年人）。出现头晕、嗜睡、恶心时应立即查电解质。"
+        },
+        {
+          "title": "皮疹交叉",
+          "type": "warning",
+          "content": "虽然皮疹发生率低于卡马西平，但两者有25-30%的交叉过敏反应。对卡马西平过敏者慎用。"
+        }
+      ]
+    },
+    {
+      "id": "haloperidol",
+      "name_cn": "氟哌啶醇",
+      "name_en": "Haloperidol",
+      "category": "第一代抗精神病药 (FGA)",
+      "tags": [
+        "高价D2",
+        "谵妄",
+        "EPS"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "D2",
+          "Alpha1",
+          "5HT2A",
+          "M1",
+          "H1"
+        ],
+        "values": [
+          9.8,
+          4.0,
+          1.0,
+          0.5,
+          0.5
+        ],
+        "link_ids": [
+          "d2",
+          "alpha1",
+          "5ht2a",
+          "m1",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "20h",
+        "protein_binding": "92%",
+        "metabolism": "CYP3A4, 2D6",
+        "peak_time": "3-6h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "D2阻断的金标准",
+          "type": "info",
+          "content": "典型的FGA，主要通过强效阻断D2受体发挥抗精神病作用。常用于需要快速镇静（肌肉注射）的急性激越或谵妄患者。"
+        },
+        {
+          "title": "锥体外系风暴",
+          "type": "danger",
+          "content": "EPS（肌张力障碍、静坐不能、帕金森样症状）发生率极高。长期使用迟发性运动障碍（TD）风险大。"
+        },
+        {
+          "title": "静脉给药警告",
+          "type": "warning",
+          "content": "静脉注射时引起QTc间期延长和尖端扭转型室速的风险较高，需心电监护。口服相对安全。"
+        }
+      ]
+    },
+    {
+      "id": "fluoxetine",
+      "name_cn": "氟西汀",
+      "name_en": "Fluoxetine",
+      "category": "SSRI",
+      "tags": [
+        "长半衰期",
+        "激活效应",
+        "减肥",
+        "神经性贪食症"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "SERT",
+          "NET",
+          "DAT",
+          "5HT2C",
+          "M1"
+        ],
+        "values": [
+          9.5,
+          3.0,
+          1.0,
+          7.5,
+          0.5
+        ],
+        "link_ids": [
+          "sert",
+          "net",
+          "dat",
+          "5ht2c",
+          "m1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "4-6天 (活性代谢物：7-15天)",
+        "protein_binding": "94%",
+        "metabolism": "CYP2D6 (主), 2C9, 3A4",
+        "peak_time": "6-8h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "最长半衰期",
+          "type": "success",
+          "content": "氟西汀及其活性代谢物去甲氟西汀（Norfluoxetine）的半衰期长达 7-15 天。这意味着它有自带的剂量递减过程，停药时撤药反应风险最低。"
+        },
+        {
+          "title": "激活与体重",
+          "type": "info",
+          "content": "独特的 5HT2C 受体拮抗作用使其具有激活（抗抑郁/抗迟滞）和减轻体重的作用，对非典型抑郁症和神经性贪食症有效。"
+        },
+        {
+          "title": "相互作用与洗脱期",
+          "type": "danger",
+          "content": "由于其极长的半衰期，如果计划换用 MAOI 或其他有相互作用的药物，必须有至少 5 周的药物洗脱期（Washout Period）。"
+        }
+      ]
+    },
+    {
+      "id": "trazodone",
+      "name_cn": "曲唑酮",
+      "name_en": "Trazodone",
+      "category": "SARI",
+      "tags": [
+        "强效催眠",
+        "性功能保护",
+        "体位性低血压"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "5HT2A",
+          "H1",
+          "Alpha1",
+          "SERT",
+          "5HT1A"
+        ],
+        "values": [
+          9.8,
+          8.5,
+          9.0,
+          5.0,
+          6.0
+        ],
+        "link_ids": [
+          "5ht2a",
+          "h1",
+          "alpha1",
+          "sert",
+          "5ht1a"
+        ]
+      },
+      "pk_data": {
+        "half_life": "3-6h (分两次释放)",
+        "protein_binding": "90%",
+        "metabolism": "CYP3A4",
+        "peak_time": "1h (IR) / 4h (ER)"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "失眠联用金三角",
+          "type": "success",
+          "content": "低剂量（50-150mg）主要依赖 H1 和 Alpha1 阻断发挥强效催眠作用，常用于与其他抗抑郁药联用治疗失眠，且无依赖性。"
+        },
+        {
+          "title": "抗抑郁剂量",
+          "type": "info",
+          "content": "只有高剂量（200-400mg）时，对 SERT 的阻断作用才足够，用于治疗抑郁症。但此时副作用（如镇静、体位性低血压）显著增加。"
+        },
+        {
+          "title": "阴茎异常勃起",
+          "type": "danger",
+          "content": "罕见但严重的副作用，与 Alpha1 阻断相关。发生时需立即就医，若超过 4-6 小时可导致永久性损伤。"
+        }
+      ]
+    },
+    {
+      "id": "chlorpromazine",
+      "name_cn": "氯丙嗪",
+      "name_en": "Chlorpromazine",
+      "category": "第一代抗精神病药 (FGA)",
+      "tags": [
+        "经典FGA",
+        "强镇静",
+        "低效价",
+        "代谢高危"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "D2",
+          "H1",
+          "M1",
+          "Alpha1",
+          "5HT2A"
+        ],
+        "values": [
+          7.0,
+          9.8,
+          9.5,
+          9.5,
+          7.5
+        ],
+        "link_ids": [
+          "d2",
+          "h1",
+          "m1",
+          "alpha1",
+          "5ht2a"
+        ]
+      },
+      "pk_data": {
+        "half_life": "10-30h",
+        "protein_binding": "95%+",
+        "metabolism": "CYP2D6 (代谢复杂)",
+        "peak_time": "2-4h"
+      },
+      "market_info": {
+        "price": "$ (低廉)",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "“精神病学界的阿司匹林”",
+          "type": "info",
+          "content": "第一个被发现的抗精神病药（1952年）。由于强烈的 H1、M1、Alpha1 阻断，镇静作用极强，常用于急性兴奋躁动患者。"
+        },
+        {
+          "title": "氯丙嗪当量",
+          "type": "warning",
+          "content": "是计算其他抗精神病药剂量效价的基准（如 100mg 氯丙嗪=2mg 氟哌啶醇）。但其致 EPS 风险远低于高效价 FGA。"
+        },
+        {
+          "title": "典型的抗精神病药副作用",
+          "type": "danger",
+          "content": "嗜睡；锥体外系反应；高泌乳血症；恶性综合征；体位性低血压；抗胆碱能副作用（口干、便秘、视力模糊）；延长 QTc 间期；体重增加和代谢综合征风险高。"
+        },
+        {
+          "title": "眼部和皮肤色素沉着",
+          "type": "danger",
+          "content": "长期大剂量使用（>500mg/d）可能导致皮肤和眼角膜、晶状体色素沉着。停药后难以逆转。"
+        }
+      ]
+    },
+    {
+      "id": "clomipramine",
+      "name_cn": "氯米帕明",
+      "name_en": "Clomipramine",
+      "category": "TCA",
+      "tags": [
+        "OCD金标准",
+        "强抗胆碱",
+        "TCA之王"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "SERT",
+          "NET",
+          "M1",
+          "H1",
+          "Alpha1"
+        ],
+        "values": [
+          9.8,
+          7.5,
+          9.5,
+          8.0,
+          8.5
+        ],
+        "link_ids": [
+          "sert",
+          "net",
+          "m1",
+          "h1",
+          "alpha1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "20-30h (活性代谢物：36h)",
+        "protein_binding": "96%",
+        "metabolism": "CYP1A2, 2D6 (主)",
+        "peak_time": "2-6h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "抗强迫症最强药",
+          "type": "success",
+          "content": "在所有抗抑郁药中，氯米帕明对强迫症（OCD）的疗效最强，是难治性 OCD 的一线选择。主要依赖其对 SERT 的超强抑制。"
+        },
+        {
+          "title": "四高副作用",
+          "type": "danger",
+          "content": "抗胆碱能作用、体重增加、镇静和体位性低血压风险极高。由于心脏毒性和癫痫风险，超量服用致死率高。"
+        },
+        {
+          "title": "联用策略",
+          "type": "info",
+          "content": "若单用效果不佳，可与 SSRI（如氟伏沙明）联用增强疗效。但需警惕 SSRI 抑制其代谢，增加 TCA 浓度，提高中毒风险。"
+        }
+      ]
+    },
+    {
+      "id": "carbamazepine",
+      "name_cn": "卡马西平",
+      "name_en": "Carbamazepine",
+      "category": "Mood Stabilizer",
+      "tags": [
+        "双相躁狂",
+        "肝酶诱导",
+        "白细胞减少"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "Na+Channel",
+          "GABA",
+          "Glu",
+          "H1",
+          "CYP-Induction"
+        ],
+        "values": [
+          9.5,
+          6.0,
+          5.0,
+          1.0,
+          9.5
+        ],
+        "link_ids": [
+          "na+channel",
+          "gaba",
+          "glu",
+          "h1",
+          "cyp-induction"
+        ]
+      },
+      "pk_data": {
+        "half_life": "30h (起始) / 10-20h (诱导后)",
+        "protein_binding": "75%",
+        "metabolism": "CYP3A4 (诱导剂)",
+        "peak_time": "4-8h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "D类"
+      },
+      "pearls": [
+        {
+          "title": "钠通道阻滞",
+          "type": "info",
+          "content": "主要通过阻滞电压门控钠通道来稳定神经元膜。在急性躁狂、混合发作中疗效显著，尤其适用于难治性或药物反应不佳的患者。"
+        },
+        {
+          "title": "肝酶超级诱导剂",
+          "type": "danger",
+          "content": "强大的 CYP3A4 诱导剂，会加速自身及其他药物（如口服避孕药、某些 SGA、抗 HIV 药）的代谢，联用需大幅调整剂量。"
+        },
+        {
+          "title": "自体诱导",
+          "type": "warning",
+          "content": "服药 3-5 周后会诱导自身代谢，导致血药浓度下降。需在治疗初期定期监测血药浓度（TDM），并可能需要加量。"
+        }
+      ]
+    },
+    {
+      "id": "sulpiride",
+      "name_cn": "舒必利",
+      "name_en": "Sulpiride",
+      "category": "第一代抗精神病药 (FGA)",
+      "tags": [
+        "选择性D2",
+        "高泌乳素",
+        "改善情绪"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "D2",
+          "D3",
+          "5HT2A",
+          "H1",
+          "M1"
+        ],
+        "values": [
+          9.0,
+          9.5,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "link_ids": [
+          "d2",
+          "d3",
+          "5ht2a",
+          "h1",
+          "m1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "6-10h",
+        "protein_binding": "极低(<40%)",
+        "metabolism": "肾脏排泄为主",
+        "peak_time": "1.5h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "D2受体特异性",
+          "type": "info",
+          "content": "结构和作用类似氨磺必利，具有高度选择性的 D2/D3 阻断作用。低剂量（100-300mg）可兴奋多巴胺，用于抑郁症辅助或阴性症状。"
+        },
+        {
+          "title": "泌乳素风险",
+          "type": "danger",
+          "content": "即使在低剂量，由于其强效阻断结节漏斗通路 D2 受体，高泌乳素血症风险极高，长期用药需警惕。"
+        },
+        {
+          "title": "情绪稳定辅助",
+          "type": "success",
+          "content": "因其独特的剂量依赖性（低剂量激活，高剂量抗精神病），常被喻东山老师用于增强情绪稳定剂的抗抑郁和抗焦虑效果。"
+        }
+      ]
+    },
+    {
+      "id": "sertindole",
+      "name_cn": "舍吲哚",
+      "name_en": "Sertindole",
+      "category": "SGA",
+      "tags": [
+        "高D2/5HT2A",
+        "低EPS",
+        "QTc风险"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "D2",
+          "5HT2A",
+          "Alpha1",
+          "H1",
+          "M1"
+        ],
+        "values": [
+          8.5,
+          9.5,
+          8.5,
+          1.0,
+          0.5
+        ],
+        "link_ids": [
+          "d2",
+          "5ht2a",
+          "alpha1",
+          "h1",
+          "m1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "60-90h",
+        "protein_binding": "99%+",
+        "metabolism": "CYP2D6, 3A4",
+        "peak_time": "10h"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "心律失常风险",
+          "type": "danger",
+          "content": "与其他抗精神病药相比，延长 QTc 间期风险较高，曾因心源性猝死风险在一些国家撤市。仅用于对其他药物无效的患者。"
+        },
+        {
+          "title": "代谢和运动优势",
+          "type": "success",
+          "content": "不引起镇静和体重增加，EPS 风险极低。对于关注体重和不耐受 EPS 的患者，在严格心电图（ECG）监测下可考虑使用。"
+        },
+        {
+          "title": "肝酶抑制警示",
+          "type": "warning",
+          "content": "主要经 CYP2D6 代谢，与帕罗西汀、氟西汀等强抑制剂合用时，血药浓度会升高 2-3 倍，必须谨慎。"
+        }
+      ]
+    },
+    {
+      "id": "topiramate",
+      "name_cn": "托吡酯",
+      "name_en": "Topiramate",
+      "category": "Mood Stabilizer Adjunct",
+      "tags": [
+        "减肥",
+        "认知减退",
+        "偏头痛"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "Na+Channel",
+          "GABA(AMPA)",
+          "Carbonic Anhydrase",
+          "5HT",
+          "D2"
+        ],
+        "values": [
+          8.5,
+          7.5,
+          8.0,
+          1.0,
+          1.0
+        ],
+        "link_ids": [
+          "na+channel",
+          "gaba(ampa)",
+          "carbonicanhydrase",
+          "5ht",
+          "d2"
+        ]
+      },
+      "pk_data": {
+        "half_life": "21h",
+        "protein_binding": "13-17%",
+        "metabolism": "肾脏排泄为主 (不经CYP)",
+        "peak_time": "2-4h"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "乙类医保",
+        "pregnancy": "D类"
+      },
+      "pearls": [
+        {
+          "title": "“妥泰”减肥药",
+          "type": "success",
+          "content": "副作用之一是食欲下降，常用于辅助治疗因抗精神病药或心境稳定剂（如奥氮平、丙戊酸盐）导致的体重过度增加。"
+        },
+        {
+          "title": "认知减退风险",
+          "type": "danger",
+          "content": "最主要的临床限制是可能引起认知功能减退（如记忆力下降、言语缓慢），被称为“Topa-Max（最大傻瓜）”效应。"
+        },
+        {
+          "title": "肾结石和代谢",
+          "type": "warning",
+          "content": "抑制碳酸酐酶，可能增加肾结石风险和代谢性酸中毒。需确保患者饮用足够水分。"
+        }
+      ]
+    },
+    {
+      "id": "midazolam",
+      "name_cn": "咪达唑仑",
+      "name_en": "Midazolam",
+      "category": "Benzodiazepine",
+      "tags": [
+        "超短效",
+        "术前镇静",
+        "水溶性"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "GABA-A",
+          "Lipid Solubility",
+          "Duration",
+          "M1",
+          "H1"
+        ],
+        "values": [
+          9.8,
+          9.5,
+          2.0,
+          0.0,
+          0.0
+        ],
+        "link_ids": [
+          "gaba-a",
+          "lipidsolubility",
+          "duration",
+          "m1",
+          "h1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "1.5-2.5h",
+        "protein_binding": "97%",
+        "metabolism": "CYP3A4",
+        "peak_time": "0.5-1h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "D类"
+      },
+      "pearls": [
+        {
+          "title": "“一针安”",
+          "type": "info",
+          "content": "水溶性高，起效和清除速度极快。主要用于术前镇静、内镜检查或急性惊厥发作的快速控制，不能用于长期失眠。"
+        },
+        {
+          "title": "呼吸抑制风险",
+          "type": "danger",
+          "content": "静脉注射时，特别是与阿片类药物合用，可能导致致命的呼吸抑制。需密切监测生命体征。"
+        },
+        {
+          "title": "剂量与年龄",
+          "type": "warning",
+          "content": "老年患者或慢性病患者对中枢抑制作用敏感，易发生呼吸抑制和谵妄，起始剂量应大幅度减少。"
+        }
+      ]
+    },
+    {
+      "id": "zopiclone",
+      "name_cn": "佐匹克隆",
+      "name_en": "Zopiclone",
+      "category": "Z-Drug",
+      "tags": [
+        "广谱GABA-A",
+        "入睡/维持",
+        "金属味"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "GABA-A(α1)",
+          "GABA-A(α2)",
+          "GABA-A(α3)",
+          "H1",
+          "M1"
+        ],
+        "values": [
+          9.0,
+          7.0,
+          7.0,
+          0.0,
+          0.0
+        ],
+        "link_ids": [
+          "gaba-a(α1)",
+          "gaba-a(α2)",
+          "gaba-a(α3)",
+          "h1",
+          "m1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "5h (活性代谢物2.5h)",
+        "protein_binding": "45%",
+        "metabolism": "CYP3A4, 2C8",
+        "peak_time": "1-2h"
+      },
+      "market_info": {
+        "price": "$",
+        "insurance": "甲类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "苦味/金属味",
+          "type": "warning",
+          "content": "是佐匹克隆及其活性代谢物产生的典型不良反应，常导致患者依从性差。这是其与右佐匹克隆（单一异构体）的主要区别之一。"
+        },
+        {
+          "title": "非选择性Z药",
+          "type": "info",
+          "content": "虽然被归类为 Z 药，但其对 GABA-A 受体亚型的选择性不如唑吡坦高，因此抗焦虑和肌肉松弛作用更强，残余效应也更明显。"
+        },
+        {
+          "title": "长期使用限制",
+          "type": "danger",
+          "content": "和所有 Z 药一样，主要用于短期（不超过 4 周）失眠治疗，长期使用有耐受性、依赖性和复杂睡眠行为风险。"
+        }
+      ]
+    },
+    {
+      "id": "tianeptine",
+      "name_cn": "噻奈普汀",
+      "name_en": "Tianeptine",
+      "category": "SSRE",
+      "tags": [
+        "独特机制",
+        "应激保护",
+        "阿片受体"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "SSRE",
+          "5HT",
+          "Glu",
+          "Opioid-μ",
+          "NET"
+        ],
+        "values": [
+          9.8,
+          1.0,
+          7.0,
+          6.0,
+          1.0
+        ],
+        "link_ids": [
+          "ssre",
+          "5ht",
+          "glu",
+          "opioid-μ",
+          "net"
+        ]
+      },
+      "pk_data": {
+        "half_life": "2.5h",
+        "protein_binding": "94%",
+        "metabolism": "Beta-氧化 (非CYP)",
+        "peak_time": "1h"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "5-HT再摄取增强剂",
+          "type": "info",
+          "content": "作用机制独特，它**增强**而不是抑制 5-HT 再摄取。其疗效可能通过调节谷氨酸受体（NMDA/AMPA）或应激反应轴实现。"
+        },
+        {
+          "title": "滥用风险",
+          "type": "danger",
+          "content": "具有 μ-阿片受体激动活性，高剂量服用可能产生欣快感，被滥用风险极高（尤其在北美地区）。在国内使用应严格遵医嘱。"
+        },
+        {
+          "title": "神经保护",
+          "type": "success",
+          "content": "研究表明，它可以防止长期应激导致的神经元萎缩，可能具有独特的神经可塑性和神经保护作用。"
+        }
+      ]
+    },
+    {
+      "id": "reboxetine",
+      "name_cn": "瑞波西汀",
+      "name_en": "Reboxetine",
+      "category": "NRI",
+      "tags": [
+        "纯NRI",
+        "激活",
+        "心率/血压"
+      ],
+      "stahl_radar": {
+        "labels": [
+          "NET",
+          "DAT",
+          "SERT",
+          "Alpha1",
+          "M1"
+        ],
+        "values": [
+          9.5,
+          1.0,
+          0.5,
+          6.0,
+          1.0
+        ],
+        "link_ids": [
+          "net",
+          "dat",
+          "sert",
+          "alpha1",
+          "m1"
+        ]
+      },
+      "pk_data": {
+        "half_life": "13h",
+        "protein_binding": "97%",
+        "metabolism": "CYP3A4",
+        "peak_time": "2h"
+      },
+      "market_info": {
+        "price": "$$",
+        "insurance": "乙类医保",
+        "pregnancy": "C类"
+      },
+      "pearls": [
+        {
+          "title": "纯粹的兴奋剂",
+          "type": "info",
+          "content": "高度选择性的去甲肾上腺素再摄取抑制剂（NRI），主要用于改善抑郁症中的兴趣缺乏、动力不足等症状。"
+        },
+        {
+          "title": "难治性联用",
+          "type": "success",
+          "content": "常用于与 SSRI 联用（“双通道”策略），以引入 NE 神经递质，增强抗抑郁效果，适用于对单一 SSRI 无效的患者。"
+        },
+        {
+          "title": "NE副作用",
+          "type": "danger",
+          "content": "由于其纯粹的 NE 增强作用，常见副作用包括心率加快、出汗增多、失眠、排尿困难（Alpha1 阻断）和血压升高。"
+        }
+      ]
     }
-  },
-  {
-    "id": "clonazepam",
-    "name_cn": "氯硝西泮",
-    "name_en": "Clonazepam",
-    "category": "Benzodiazepine",
-    "tags": ["长效", "强效", "躁狂辅助"],
-    "stahl_radar": {
-      "labels": ["GABA-A", "Na+Channel", "T-Type Ca", "5HT", "DA"],
-      "values": [9.8, 3.0, 2.0, 0.0, 0.0],
-      "link_ids": ["gabaa", "nachannel", "ttypeca", "5ht", "da"]
-    },
-    "pearls": [
-      {
-        "title": "药理效价之王",
-        "type": "success",
-        "content": "效价极高，2mg氯硝西泮约等于40mg地西泮。常作为双相躁狂急性期的辅助用药，快速控制激越。"
-      },
-      {
-        "title": "RBD克星",
-        "type": "info",
-        "content": "治疗快动眼睡眠行为障碍（RBD，如睡梦中拳打脚踢）的首选药物，能有效减少梦境扮演行为。"
-      },
-      {
-        "title": "撤药困难",
-        "type": "warning",
-        "content": "虽然半衰期长，撤药反应较短效BZD发生得晚，但长期大剂量使用后的依赖性极难戒除，需数月缓慢减量。"
-      }
-    ],
-    "pk_data": {
-      "half_life": "30-40h",
-      "protein_binding": "85%",
-      "metabolism": "CYP3A4, 硝基还原",
-      "peak_time": "1-4h"
-    },
-    "market_info": {
-      "price": "$",
-      "insurance": "甲类医保",
-      "pregnancy": "D类"
-    }
-  },
-  {
-    "id": "zolpidem",
-    "name_cn": "唑吡坦",
-    "name_en": "Zolpidem",
-    "category": "Z-Drug",
-    "tags": ["入睡困难", "短效", "梦游风险"],
-    "stahl_radar": {
-      "labels": ["GABA-A(α1)", "GABA-A(α2)", "GABA-A(α3)", "H1", "M1"],
-      "values": [9.5, 1.0, 1.0, 0.0, 0.0],
-      "link_ids": ["gabaa_a1", "gabaa_a2", "gabaa_a3", "h1", "m1"]
-    },
-    "pearls": [
-      {
-        "title": "选择性开关",
-        "type": "success",
-        "content": "选择性结合GABA-A受体的α1亚单位（与镇静相关），几乎不结合α2/3（与抗焦虑、肌肉松弛相关）。因此仅用于助眠，无抗焦虑作用。"
-      },
-      {
-        "title": "复杂睡眠行为",
-        "type": "danger",
-        "content": "FDA黑框警告：可能引起梦游、睡驾、睡食等复杂睡眠行为。一旦发生，必须立即停药。"
-      },
-      {
-        "title": "女性减半",
-        "type": "warning",
-        "content": "FDA建议女性起始剂量减半（5mg），因为女性清除药物的速度比男性慢，次日残留困倦风险更高。"
-      }
-    ],
-    "pk_data": {
-      "half_life": "2.5h",
-      "protein_binding": "92%",
-      "metabolism": "CYP3A4",
-      "peak_time": "1.6h"
-    },
-    "market_info": {
-      "price": "$$",
-      "insurance": "甲类医保",
-      "pregnancy": "C类"
-    }
-  },
-  {
-    "id": "eszopiclone",
-    "name_cn": "右佐匹克隆",
-    "name_en": "Eszopiclone",
-    "category": "Z-Drug",
-    "tags": ["早醒", "金属味", "长期使用"],
-    "stahl_radar": {
-      "labels": ["GABA-A(α1)", "GABA-A(α2)", "GABA-A(α3)", "H1", "M1"],
-      "values": [9.0, 4.0, 4.0, 0.0, 0.0],
-      "link_ids": ["gabaa_a1", "gabaa_a2", "gabaa_a3", "h1", "m1"]
-    },
-    "pearls": [
-      {
-        "title": "全夜守护",
-        "type": "success",
-        "content": "半衰期（6h）比唑吡坦长，不仅能诱导如睡，还能维持睡眠，减少夜间觉醒和早醒。是唯一获批可长期（6个月）使用的Z药。"
-      },
-      {
-        "title": "味觉异常",
-        "type": "warning",
-        "content": "约20-30%的患者会出现口腔苦味或金属味（Dysgeusia），这是导致停药的常见原因。晨起漱口可缓解。"
-      },
-      {
-        "title": "老年剂量",
-        "type": "info",
-        "content": "老年人主要经CYP3A4代谢减慢，起始剂量应限制在1mg-2mg，防止次日宿醉效应。"
-      }
-    ],
-    "pk_data": {
-      "half_life": "6h",
-      "protein_binding": "52-59%",
-      "metabolism": "CYP3A4, 2E1",
-      "peak_time": "1h"
-    },
-    "market_info": {
-      "price": "$$",
-      "insurance": "乙类医保",
-      "pregnancy": "C类"
-    }
-  },
-  {
-    "id": "methylphenidate",
-    "name_cn": "哌甲酯",
-    "name_en": "Methylphenidate",
-    "category": "ADHD Stimulant",
-    "tags": ["多巴胺阻断", "专注力", "生长监测"],
-    "stahl_radar": {
-      "labels": ["DAT", "NET", "SERT", "D2", "Alpha2"],
-      "values": [8.5, 7.5, 0.5, 1.0, 0.0],
-      "link_ids": ["dat", "net", "sert", "d2", "alpha2"]
-    },
-    "pearls": [
-      {
-        "title": "前额叶唤醒",
-        "type": "success",
-        "content": "通过阻断DAT和NET，增加前额叶皮层的多巴胺和去甲肾上腺素浓度，显著改善注意力和冲动控制。"
-      },
-      {
-        "title": "控释技术关键",
-        "type": "info",
-        "content": "普通片（利他林）半衰期极短，需一日多次；控释片（专注达）采用OROS技术，模拟一日三次的释放曲线，避免浓度波动的“回弹效应”。"
-      },
-      {
-        "title": "生长发育",
-        "type": "warning",
-        "content": "长期使用可能轻微抑制儿童身高和体重增长。建议在周末或假期“药物假期”（Drug Holiday）以追赶生长。"
-      }
-    ],
-    "pk_data": {
-      "half_life": "3.5h (普通片)",
-      "protein_binding": "15%",
-      "metabolism": "去酯化 (非CYP)",
-      "peak_time": "6-10h (控释)"
-    },
-    "market_info": {
-      "price": "$$$",
-      "insurance": "乙类医保",
-      "pregnancy": "C类"
-    }
-  },
-  {
-    "id": "atomoxetine",
-    "name_cn": "托莫西汀",
-    "name_en": "Atomoxetine",
-    "category": "ADHD Non-Stimulant",
-    "tags": ["非兴奋剂", "全天有效", "自杀警示"],
-    "stahl_radar": {
-      "labels": ["NET", "DAT(PFC)", "SERT", "M1", "H1"],
-      "values": [9.0, 6.0, 1.0, 1.0, 0.5],
-      "link_ids": ["net", "dat_pfc", "sert", "m1", "h1"]
-    },
-    "pearls": [
-      {
-        "title": "前额叶特异性",
-        "type": "info",
-        "content": "作为NRI，它在前额叶（缺乏DAT）通过阻断NET来增加多巴胺，但在纹状体（富含DAT）不增加多巴胺。因此不引起成瘾或抽动。"
-      },
-      {
-        "title": "起效缓冲期",
-        "type": "warning",
-        "content": "与兴奋剂的“即刻起效”不同，托莫西汀需要2-4周甚至更久才能发挥最大疗效。需告知家长耐心等待。"
-      },
-      {
-        "title": "黑框警告",
-        "type": "danger",
-        "content": "说明书提示可能增加儿童和青少年的自杀意念（发生率约0.4%），尤其在治疗初期。极少数病例可能出现严重肝损伤。"
-      }
-    ],
-    "pk_data": {
-      "half_life": "5h (慢代谢者24h)",
-      "protein_binding": "98%",
-      "metabolism": "CYP2D6",
-      "peak_time": "1-2h"
-    },
-    "market_info": {
-      "price": "$$",
-      "insurance": "乙类医保",
-      "pregnancy": "C类"
-    }
-  },
-  {
-    "id": "buspirone",
-    "name_cn": "丁螺环酮",
-    "name_en": "Buspirone",
-    "category": "Anxiolytic",
-    "tags": ["5-HT1A激动", "不镇静", "起效慢"],
-    "stahl_radar": {
-      "labels": ["5HT1A", "D2", "5HT2A", "Alpha1", "H1"],
-      "values": [8.5, 4.0, 1.0, 0.5, 0.0],
-      "link_ids": ["5ht1a", "d2", "5ht2a", "alpha1", "h1"]
-    },
-    "pearls": [
-      {
-        "title": "不一样的抗焦虑药",
-        "type": "success",
-        "content": "与苯二氮卓类不同，它无镇静、无肌肉松弛、无依赖性、无戒断反应。适合需保持清醒的患者（如驾驶员）。"
-      },
-      {
-        "title": "SSRIs的最佳拍档",
-        "type": "info",
-        "content": "作为5-HT1A部分激动剂，常用于增强SSRI的抗抑郁效果，并可缓解SSRI引起的性功能障碍（如布什匹隆效应）。"
-      },
-      {
-        "title": "耐心是关键",
-        "type": "warning",
-        "content": "起效缓慢（2-4周），对急性焦虑或惊恐发作无效。不应作为“按需服用”的药物。"
-      }
-    ],
-    "pk_data": {
-      "half_life": "2-3h",
-      "protein_binding": "95%",
-      "metabolism": "CYP3A4 (首过效应强)",
-      "peak_time": "0.7-1.5h"
-    },
-    "market_info": {
-      "price": "$",
-      "insurance": "甲类医保",
-      "pregnancy": "B类"
-    }
-  },
-  {
-    "id": "pregabalin",
-    "name_cn": "普瑞巴林",
-    "name_en": "Pregabalin",
-    "category": "Anxiolytic/Analgesic",
-    "tags": ["GAD", "神经痛", "肾排泄"],
-    "stahl_radar": {
-      "labels": ["Ca+Channel(α2δ)", "GABA", "Glu", "NE", "Sub-P"],
-      "values": [9.5, 0.0, 6.0, 5.0, 5.0],
-      "link_ids": ["cachannel", "gaba", "glu", "ne", "subp"]
-    },
-    "pearls": [
-      {
-        "title": "非GABA的GABA类似物",
-        "type": "info",
-        "content": "结构类似GABA，但主要通过结合电压门控钙通道的α2δ亚基，减少谷氨酸和去甲肾上腺素的释放。对广泛性焦虑障碍（GAD）疗效确切。"
-      },
-      {
-        "title": "肾脏直通车",
-        "type": "success",
-        "content": "在体内几乎不代谢，98%以原形经肾排出。无肝药物相互作用，是肝病患者治疗焦虑或疼痛的理想选择。"
-      },
-      {
-        "title": "欣快感与滥用",
-        "type": "danger",
-        "content": "部分患者高剂量服用会产生欣快感，具有一定的滥用潜力。突然停药可能出现失眠、恶心等戒断症状。"
-      }
-    ],
-    "pk_data": {
-      "half_life": "6h",
-      "protein_binding": "0%",
-      "metabolism": "肾脏排泄",
-      "peak_time": "1h"
-    },
-    "market_info": {
-      "price": "$$",
-      "insurance": "乙类医保",
-      "pregnancy": "C类"
-    }
-  },
-  {
-    "id": "oxcarbazepine",
-    "name_cn": "奥卡西平",
-    "name_en": "Oxcarbazepine",
-    "category": "Mood Stabilizer",
-    "tags": ["钠通道阻滞", "低钠血症", "耐受性好"],
-    "stahl_radar": {
-      "labels": ["Na+Channel", "Ca+Channel", "Glu", "GABA", "CYP-Induction"],
-      "values": [9.0, 6.0, 5.0, 2.0, 3.0],
-      "link_ids": ["nachannel", "cachannel", "glu", "gaba", "cyp"]
-    },
-    "pearls": [
-      {
-        "title": "卡马西平的进化版",
-        "type": "success",
-        "content": "作为卡马西平的酮类衍生物，无需自身诱导代谢，酶诱导作用大幅减弱，药物相互作用显著减少。"
-      },
-      {
-        "title": "低钠警报",
-        "type": "danger",
-        "content": "引起低钠血症的风险比卡马西平更高（尤其是老年人）。出现头晕、嗜睡、恶心时应立即查电解质。"
-      },
-      {
-        "title": "皮疹交叉",
-        "type": "warning",
-        "content": "虽然皮疹发生率低于卡马西平，但两者有25-30%的交叉过敏反应。对卡马西平过敏者慎用。"
-      }
-    ],
-    "pk_data": {
-      "half_life": "2h (MHD代谢物9h)",
-      "protein_binding": "40%",
-      "metabolism": "胞质酶还原 (非CYP)",
-      "peak_time": "4.5h"
-    },
-    "market_info": {
-      "price": "$$",
-      "insurance": "乙类医保",
-      "pregnancy": "C类"
-    }
-  },
-  {
-    "id": "haloperidol",
-    "name_cn": "氟哌啶醇",
-    "name_en": "Haloperidol",
-    "category": "FGA",
-    "tags": ["高价D2", "谵妄", "EPS"],
-    "stahl_radar": {
-      "labels": ["D2", "Alpha1", "5HT2A", "M1", "H1"],
-      "values": [9.8, 4.0, 1.0, 0.5, 0.5],
-      "link_ids": ["d2", "alpha1", "5ht2a", "m1", "h1"]
-    },
-    "pearls": [
-      {
-        "title": "D2阻断的金标准",
-        "type": "info",
-        "content": "典型的FGA，主要通过强效阻断D2受体发挥抗精神病作用。常用于需要快速镇静（肌肉注射）的急性激越或谵妄患者。"
-      },
-      {
-        "title": "锥体外系风暴",
-        "type": "danger",
-        "content": "EPS（肌张力障碍、静坐不能、帕金森样症状）发生率极高。长期使用迟发性运动障碍（TD）风险大。"
-      },
-      {
-        "title": "静脉给药警告",
-        "type": "warning",
-        "content": "静脉注射时引起QTc间期延长和尖端扭转型室速的风险较高，需心电监护。口服相对安全。"
-      }
-    ],
-    "pk_data": {
-      "half_life": "20h",
-      "protein_binding": "92%",
-      "metabolism": "CYP3A4, 2D6",
-      "peak_time": "3-6h"
-    },
-    "market_info": {
-      "price": "$",
-      "insurance": "甲类医保",
-      "pregnancy": "C类"
-    }
-  }
   ]
 }

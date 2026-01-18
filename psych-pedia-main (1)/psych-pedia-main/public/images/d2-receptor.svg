@@ -1,0 +1,98 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-size="28" font-weight="bold" text-anchor="middle" fill="#1e293b">
+    D2 多巴胺受体结构示意图
+  </text>
+  <text x="400" y="70" font-size="14" text-anchor="middle" fill="#64748b">
+    Dopamine D2 Receptor Structure
+  </text>
+  
+  <!-- Cell Membrane -->
+  <g id="membrane">
+    <!-- Extracellular side -->
+    <text x="40" y="130" font-size="12" fill="#64748b" font-weight="bold">细胞外</text>
+    <rect x="80" y="150" width="640" height="8" fill="#94a3b8" opacity="0.3"/>
+    <text x="40" y="230" font-size="12" fill="#64748b" font-weight="bold">细胞膜</text>
+    <!-- Intracellular side -->
+    <text x="40" y="450" font-size="12" fill="#64748b" font-weight="bold">细胞内</text>
+  </g>
+  
+  <!-- D2 Receptor Protein -->
+  <g id="receptor">
+    <!-- Transmembrane domains (7 helices) -->
+    <g id="helices">
+      <!-- Helix 1 -->
+      <path d="M 150 150 Q 140 250 150 350" stroke="#0ea5e9" stroke-width="20" fill="none" stroke-linecap="round"/>
+      <!-- Helix 2 -->
+      <path d="M 230 150 Q 220 250 230 350" stroke="#0ea5e9" stroke-width="20" fill="none" stroke-linecap="round"/>
+      <!-- Helix 3 -->
+      <path d="M 310 150 Q 300 250 310 350" stroke="#0ea5e9" stroke-width="20" fill="none" stroke-linecap="round"/>
+      <!-- Helix 4 -->
+      <path d="M 390 150 Q 380 250 390 350" stroke="#0ea5e9" stroke-width="20" fill="none" stroke-linecap="round"/>
+      <!-- Helix 5 -->
+      <path d="M 470 150 Q 460 250 470 350" stroke="#0ea5e9" stroke-width="20" fill="none" stroke-linecap="round"/>
+      <!-- Helix 6 -->
+      <path d="M 550 150 Q 540 250 550 350" stroke="#0ea5e9" stroke-width="20" fill="none" stroke-linecap="round"/>
+      <!-- Helix 7 -->
+      <path d="M 630 150 Q 620 250 630 350" stroke="#0ea5e9" stroke-width="20" fill="none" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Extracellular loops (N-terminal) -->
+    <circle cx="190" cy="100" r="25" fill="#06b6d4" opacity="0.6"/>
+    <text x="190" y="107" font-size="11" text-anchor="middle" fill="white" font-weight="bold">N</text>
+    
+    <!-- Extracellular loops -->
+    <path d="M 270 150 Q 280 80 350 80 Q 380 80 410 100" stroke="#06b6d4" stroke-width="12" fill="none"/>
+    <path d="M 490 150 Q 480 70 580 70 Q 610 70 640 100" stroke="#06b6d4" stroke-width="12" fill="none"/>
+    
+    <!-- Intracellular loops -->
+    <path d="M 195 350 Q 200 420 270 430 Q 300 430 330 410" stroke="#3b82f6" stroke-width="12" fill="none"/>
+    <path d="M 435 350 Q 430 430 510 435 Q 540 435 575 410" stroke="#3b82f6" stroke-width="12" fill="none"/>
+    
+    <!-- Intracellular C-terminal -->
+    <circle cx="590" cy="450" r="25" fill="#3b82f6" opacity="0.6"/>
+    <text x="590" y="457" font-size="11" text-anchor="middle" fill="white" font-weight="bold">C</text>
+  </g>
+  
+  <!-- Dopamine Ligand -->
+  <g id="dopamine">
+    <!-- Simple dopamine structure -->
+    <circle cx="680" cy="120" r="30" fill="#f59e0b" opacity="0.8" stroke="#d97706" stroke-width="2"/>
+    <text x="680" y="125" font-size="12" text-anchor="middle" fill="white" font-weight="bold">多巴胺</text>
+    <text x="680" y="155" font-size="11" text-anchor="middle" fill="#d97706">Dopamine</text>
+    
+    <!-- Arrow pointing to binding site -->
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#f59e0b"/>
+      </marker>
+    </defs>
+    <path d="M 655 145 L 400 200" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Labels and annotations -->
+  <g id="annotations">
+    <!-- G-protein coupling -->
+    <g>
+      <rect x="300" y="450" width="200" height="80" fill="#e0e7ff" stroke="#6366f1" stroke-width="2" rx="8"/>
+      <text x="400" y="475" font-size="13" text-anchor="middle" fill="#1e1b4b" font-weight="bold">细胞内信号传导</text>
+      <text x="400" y="495" font-size="11" text-anchor="middle" fill="#4f46e5">G 蛋白偶联受体</text>
+      <text x="400" y="515" font-size="11" text-anchor="middle" fill="#4f46e5">效应：cAMP 下降</text>
+    </g>
+    
+    <!-- Binding site indicator -->
+    <circle cx="390" cy="250" r="3" fill="#ef4444"/>
+    <text x="420" y="255" font-size="11" fill="#dc2626" font-weight="bold">配体结合位点</text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="50" y="530" width="700" height="50" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1" rx="4"/>
+    <text x="70" y="550" font-size="12" fill="#1e293b" font-weight="bold">说明：</text>
+    <text x="200" y="550" font-size="11" fill="#475569">• 蓝色：跨膜螺旋 | • 橙色：多巴胺配体 | • 红点：配体结合位点</text>
+    <text x="200" y="570" font-size="11" fill="#475569">D2 受体是 G 蛋白偶联受体，具有 7 个跨膜螺旋，可与多巴胺结合并激活细胞信号</text>
+  </g>
+</svg>
