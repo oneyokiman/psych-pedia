@@ -1,0 +1,81 @@
+{
+  "_comment": "==================== Psych-Pedia 受体与假说百科 ====================",
+  "_instructions": "如何添加新的受体或假说：1. 复制下方 '_template' 中的整个 {} 对象，2. 修改各字段的值，3. 将新对象添加到对应的 'receptors' 或 'hypotheses' 数组末尾，4. 保存文件即可。受体的 'id' 必须与 drugs.json 中 stahl_radar 的 link_ids 对应。",
+  "_template": {
+    "id": "唯一标识符（英文小写，如：d2, 5ht1a）",
+    "type": "receptor 或 hypothesis",
+    "title": "中文标题（如：D2多巴胺受体）",
+    "subtitle": "英文标题或副标题（可选，如：Dopamine D2 Receptor）",
+    "content": "详细的医学描述和临床意义",
+    "visual_guide": "图片 URL（可选，如：https://example.com/image.jpg 或 /images/d2-receptor.png）"
+  },
+  "receptors": [
+    {
+      "id": "d2",
+      "type": "receptor",
+      "title": "D2 多巴胺受体",
+      "subtitle": "Dopamine D2 Receptor",
+      "content": "D2受体阻断是抗精神病药物效能的基石。阻断中脑边缘通路可改善幻觉、妄想等阳性症状；但过度阻断黑质纹状体通路会导致锥体外系反应(EPS)，阻断结节漏斗通路会导致泌乳素升高。",
+      "visual_guide": "/images/d2-receptor.svg"
+    },
+    {
+      "id": "5ht1a",
+      "type": "receptor",
+      "title": "5-HT1A 受体",
+      "subtitle": "Serotonin 1A Receptor",
+      "content": "突触前膜部分激动剂。可促进额叶多巴胺释放，改善阴性症状和认知功能；具有抗焦虑和抗抑郁作用；有助于降低EPS风险。"
+    },
+    {
+      "id": "5ht2a",
+      "type": "receptor",
+      "title": "5-HT2A 受体",
+      "subtitle": "Serotonin 2A Receptor",
+      "content": "非典型抗精神病药(SGA)的特征性靶点。阻断该受体可促进纹状体多巴胺释放，从而减少EPS；也有助于改善阴性症状和睡眠结构。"
+    },
+    {
+      "id": "h1",
+      "type": "receptor",
+      "title": "H1 组胺受体",
+      "subtitle": "Histamine H1 Receptor",
+      "content": "镇静作用和体重增加的主要源头。虽然有助于控制急性激越，但长期阻断会导致明显的代谢副作用和过度镇静。"
+    },
+    {
+      "id": "m1",
+      "type": "receptor",
+      "title": "M1 毒蕈碱受体",
+      "subtitle": "Muscarinic M1 Receptor",
+      "content": "阻断导致抗胆碱能副作用：口干、便秘、视物模糊、尿潴留及认知功能下降。但在一定程度上可缓解D2阻断引起的EPS。"
+    },
+    {
+      "id": "5ht2c",
+      "type": "receptor",
+      "title": "5-HT2C 受体",
+      "subtitle": "Serotonin 2C Receptor",
+      "content": "阻断该受体与食欲增加、体重增加及代谢综合征密切相关。激动该受体可能有助于抑制食欲。"
+    },
+    {
+      "id": "alpha1",
+      "type": "receptor",
+      "title": "α1 肾上腺素受体",
+      "subtitle": "Alpha-1 Adrenergic Receptor",
+      "content": "阻断导致血管扩张，引起体位性低血压(直立性头晕)和反射性心动过速。需缓慢滴定剂量。"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "dopamine_hypothesis",
+      "type": "hypothesis",
+      "title": "多巴胺假说",
+      "subtitle": "The Dopamine Hypothesis of Schizophrenia",
+      "content": "精神分裂症的经典假说，认为中脑边缘通路多巴胺功能亢进导致阳性症状，而中脑皮层通路多巴胺功能低下导致阴性症状和认知损害。",
+      "visual_guide": "/images/dopamine-hypothesis.svg"
+    },
+    {
+      "id": "glutamate_hypothesis",
+      "type": "hypothesis",
+      "title": "谷氨酸假说",
+      "subtitle": "The Glutamate Hypothesis of Schizophrenia",
+      "content": "认为NMDA受体功能减退是精神分裂症发病机制中的原发性改变，导致多巴胺系统的继发性功能异常。"
+    }
+  ]
+}
