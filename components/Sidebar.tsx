@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect } from 'react';
+import PinyinMatch from 'pinyin-match';
 import { Drug, Principle } from '../types';
 
 interface SidebarProps {
@@ -16,25 +17,7 @@ const Sidebar: React.FC<SidebarProps> = ({ drugs, principles, currentView, onNav
   const [searchTerm, setSearchTerm] = useState('');
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
 
-  // 默认所有category都是折叠的，只展开当前项目所在的category
-  useEffect(() => {
-    const newExpanded = new Set<string>();
-    
-    if (currentView.type === 'drug') {
-      const drug = drugs.find(d => d.id === currentView.id);
-      if (drug) {
-        newExpanded.add(drug.category);
-      }
-    } else {
-      const principle = principles.find(p => p.id === currentView.id);
-      if (principle) {
-        const cat = principle.type === 'receptor' ? '受体百科' : '生物学假说';
-        newExpanded.add(cat);
-      }
-    }
-    
-    setExpandedCategories(newExpanded);
-  }, [currentView, drugs, principles]);
+
 
   const toggleCategory = (category: string) => {
     const newExpanded = new Set(expandedCategories);
@@ -47,15 +30,22 @@ const Sidebar: React.FC<SidebarProps> = ({ drugs, principles, currentView, onNav
   };
 
   const filteredDrugs = useMemo(() => {
+    if (!searchTerm) return drugs;
+    const lowerTerm = searchTerm.toLowerCase();
     return drugs.filter(d => 
-      d.name_en.toLowerCase().includes(searchTerm.toLowerCase()) || 
-      d.name_cn.includes(searchTerm)
+      d.name_en.toLowerCase().includes(lowerTerm) || 
+      d.name_cn.includes(searchTerm) ||
+      (PinyinMatch.match(d.name_cn, searchTerm) as boolean | any[])
     );
   }, [drugs, searchTerm]);
 
   const filteredPrinciples = useMemo(() => {
+    if (!searchTerm) return principles;
+    const lowerTerm = searchTerm.toLowerCase();
     return principles.filter(p => 
-      p.title.includes(searchTerm) || p.subtitle?.toLowerCase().includes(searchTerm.toLowerCase())
+      p.title.includes(searchTerm) || 
+      p.subtitle?.toLowerCase().includes(lowerTerm) ||
+      (PinyinMatch.match(p.title, searchTerm) as boolean | any[])
     );
   }, [principles, searchTerm]);
 
@@ -77,6 +67,42 @@ const Sidebar: React.FC<SidebarProps> = ({ drugs, principles, currentView, onNav
     });
     return grouped;
   }, [filteredPrinciples]);
+
+  // Update expanded categories when view changes or search results update
+  useEffect(() => {
+    if (searchTerm) {
+      const totalItems = filteredDrugs.length + filteredPrinciples.length;
+      // Auto-expand if results are few (<= 20)
+      if (totalItems > 0 && totalItems <= 20) {
+        const newExpanded = new Set<string>();
+        Object.keys(drugGroups).forEach(cat => newExpanded.add(cat));
+        Object.keys(principleGroups).forEach(cat => newExpanded.add(cat));
+        setExpandedCategories(newExpanded);
+      } else {
+        // Collapse if too many results
+        setExpandedCategories(new Set());
+      }
+      return;
+    }
+
+    // Default behavior: expand only current item's category
+    const newExpanded = new Set<string>();
+    
+    if (currentView.type === 'drug') {
+      const drug = drugs.find(d => d.id === currentView.id);
+      if (drug) {
+        newExpanded.add(drug.category);
+      }
+    } else {
+      const principle = principles.find(p => p.id === currentView.id);
+      if (principle) {
+        const cat = principle.type === 'receptor' ? '受体百科' : '生物学假说';
+        newExpanded.add(cat);
+      }
+    }
+    
+    setExpandedCategories(newExpanded);
+  }, [currentView, drugs, principles, searchTerm, filteredDrugs, filteredPrinciples, drugGroups, principleGroups]);
 
   const handleItemClick = (type: 'drug' | 'principle', id: string) => {
     onNavigate(type, id);
