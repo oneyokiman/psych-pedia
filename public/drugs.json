@@ -39,9 +39,13 @@
       "category": "SGA",
       "tags": ["D2部分激动剂", "不镇静", "代谢友好"],
       "stahl_radar": {
-        "labels": ["D2", "5HT1A", "5HT2A", "H1", "M1"],
-        "values": [9.5, 8.5, 8.0, 2.0, 0.5],
-        "link_ids": ["d2", "5ht1a", "5ht2a", "h1", "m1"]
+        "bindings": [
+          { "label": "D2", "value": 9.5, "action": "partial_agonist", "link_id": "d2" },
+          { "label": "5HT1A", "value": 8.5, "action": "partial_agonist", "link_id": "5ht1a" },
+          { "label": "5HT2A", "value": 8.0, "action": "antagonist", "link_id": "5ht2a" },
+          { "label": "H1", "value": 2.0, "action": "antagonist", "link_id": "h1" },
+          { "label": "M1", "value": 0.5, "action": "antagonist", "link_id": "m1" }
+        ]
       },
       "pearls": [
         {

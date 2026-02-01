@@ -6,10 +6,32 @@ export interface Mechanism {
 
 export type MechanismDB = Record<string, Mechanism>;
 
+// Receptor action types
+export type ReceptorAction = 
+  | 'agonist'           // 激动剂 - activates receptor
+  | 'partial_agonist'   // 部分激动剂 - partial activation
+  | 'antagonist'        // 拮抗剂 - blocks receptor
+  | 'inverse_agonist'   // 反向激动剂 - opposite effect
+  | 'pam'               // 正向变构调节剂 - positive allosteric modulator
+  | 'nam';              // 负向变构调节剂 - negative allosteric modulator
+
+// Enhanced receptor binding data with action type
+export interface ReceptorBinding {
+  label: string;        // Display label (e.g., "D2", "5HT1A")
+  value: number;        // 0-10 affinity scale
+  action: ReceptorAction; // Type of receptor interaction
+  link_id: string;      // Key to lookup in MechanismDB
+}
+
+// Radar chart data structure
 export interface StahlRadarData {
-  labels: string[]; // Display labels (e.g., "D2", "5HT1A")
-  values: number[]; // 0-10 affinity scale
-  link_ids: string[]; // Keys to lookup in MechanismDB
+  // New format: array of detailed binding objects
+  bindings?: ReceptorBinding[];
+  
+  // Legacy format: separate arrays (maintained for backward compatibility)
+  labels?: string[]; // Display labels (e.g., "D2", "5HT1A")
+  values?: number[]; // 0-10 affinity scale
+  link_ids?: string[]; // Keys to lookup in MechanismDB
 }
 
 export interface Pearl {
