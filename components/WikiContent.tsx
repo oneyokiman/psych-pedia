@@ -32,17 +32,7 @@ const WikiContent: React.FC<WikiContentProps> = ({
     setIsEditing(false);
   };
 
-  const handleExport = () => {
-    const blob = new Blob([editContent], { type: 'text/markdown' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${title}-百科内容.md`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
+
 
   if (!content && !editable) {
     return null;
@@ -75,20 +65,6 @@ const WikiContent: React.FC<WikiContentProps> = ({
               <svg className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
               </svg>
-            </button>
-          )}
-
-          {/* Export Button */}
-          {content && !isEditing && (
-            <button
-              onClick={handleExport}
-              className="px-3 py-1 rounded text-sm bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors flex items-center gap-1"
-              title="导出为 Markdown"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-              </svg>
-              导出
             </button>
           )}
 

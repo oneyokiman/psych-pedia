@@ -127,7 +127,7 @@ const RadarViz: React.FC<RadarVizProps> = ({ data, onLabelClick, isDarkMode }) =
           y={y}
           textAnchor={textAnchor}
           fill={axisColor}
-          fontSize={13}
+          fontSize={12}
           fontWeight={600}
           fontFamily="system-ui, -apple-system, sans-serif"
           className="hover:fill-cyan-500 transition-colors duration-200"
@@ -160,9 +160,7 @@ const RadarViz: React.FC<RadarVizProps> = ({ data, onLabelClick, isDarkMode }) =
         <div
           className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg p-3 pointer-events-none"
           style={{
-            opacity: 1,
-            animation: 'none',
-            transform: 'none'
+            opacity: 1
           }}
         >
           <p className="font-semibold text-sm text-slate-900 dark:text-slate-100 mb-1">
@@ -187,13 +185,9 @@ const RadarViz: React.FC<RadarVizProps> = ({ data, onLabelClick, isDarkMode }) =
 
   return (
     <div className="w-full h-full flex flex-col">
-      {/* 雷达图容器 - 背景白框，占满可用空间 */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm border border-slate-200 dark:border-slate-700 flex-1 flex flex-col">
-        <div className="text-xs text-slate-400 dark:text-slate-500 mb-2 h-5">
-          点击标签查看机制
-        </div>
-        <div 
-          className="flex-1 relative select-none min-h-0"
+      {/* 雷达图容器 */}
+      <div 
+        className="flex-1 relative select-none min-h-0"
           onMouseMove={(e) => {
             const rect = e.currentTarget.getBoundingClientRect();
             const newMousePos = {
@@ -241,18 +235,16 @@ const RadarViz: React.FC<RadarVizProps> = ({ data, onLabelClick, isDarkMode }) =
                 strokeWidth={2.5}
                 fill={shapeFill}
                 fillOpacity={0.6}
-                isAnimationActive={false}
+                isAnimationActive={true}
                 dot={false}
                 activeDot={false}
               />
               <Tooltip 
                 content={<CustomTooltip />} 
                 cursor={false}
-                animationDuration={0}
               />
             </RadarChart>
           </ResponsiveContainer>
-        </div>
       </div>
     </div>
   );

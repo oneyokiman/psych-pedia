@@ -91,7 +91,7 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({
             rehypePlugins={[rehypeRaw, rehypeSanitize]}
             components={{
               h1: ({ node, ...props }) => (
-                <h1 className="text-3xl font-bold text-slate-900 dark:text-white mt-6 mb-4 pb-2 border-b-2 border-slate-200 dark:border-slate-700" {...props} />
+                <h1 className="text-xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-6 mb-4 pb-2 border-b-2 border-slate-200 dark:border-slate-700" {...props} />
               ),
               h2: ({ node, ...props }) => (
                 <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-5 mb-3 pb-1 border-b border-slate-200 dark:border-slate-700" {...props} />
@@ -130,8 +130,8 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({
                 <a className="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer" {...props} />
               ),
               table: ({ node, ...props }) => (
-                <div className="overflow-x-auto mb-4">
-                  <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-700 border border-slate-200 dark:border-slate-700" {...props} />
+                <div className="overflow-x-auto mb-4 -mx-2 px-2">
+                  <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-700 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm" {...props} />
                 </div>
               ),
               thead: ({ node, ...props }) => (
@@ -141,10 +141,10 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({
                 <tbody className="bg-white dark:bg-slate-900 divide-y divide-slate-200 dark:divide-slate-700" {...props} />
               ),
               th: ({ node, ...props }) => (
-                <th className="px-4 py-2 text-left text-sm font-semibold text-slate-900 dark:text-white" {...props} />
+                <th className="px-2 sm:px-4 py-1 sm:py-2 text-left text-xs sm:text-sm font-semibold text-slate-900 dark:text-white" {...props} />
               ),
               td: ({ node, ...props }) => (
-                <td className="px-4 py-2 text-sm text-slate-700 dark:text-slate-300" {...props} />
+                <td className="px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300" {...props} />
               ),
               img: ({ node, ...props }) => (
                 <img className="rounded-lg shadow-md max-w-full h-auto my-4" {...props} alt={props.alt || ''} />
