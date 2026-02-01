@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "pinyin": "^4.0.0",
+    "pinyin-match": "^1.2.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-markdown": "^10.1.0",
