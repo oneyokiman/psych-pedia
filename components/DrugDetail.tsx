@@ -2,6 +2,7 @@ import React from 'react';
 import { Drug } from '../types';
 import RadarViz from './RadarChart';
 import RichText from './RichText';
+import WikiContent from './WikiContent';
 
 interface DrugDetailProps {
   drug: Drug;
@@ -141,6 +142,14 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drug, isDarkMode, onNavigate })
                 </div>
             </div>
         </div>
+
+        {/* Wiki Content Section */}
+        <WikiContent
+          content={drug.wiki_content}
+          title={drug.name_cn}
+          isDarkMode={isDarkMode}
+          editable={false}
+        />
     </div>
   );
 };

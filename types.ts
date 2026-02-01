@@ -42,6 +42,7 @@ export interface Drug {
   pearls: Pearl[];
   market_info: MarketInfo;
   pk_data: PKData;
+  wiki_content?: string; // Markdown format encyclopedic content
 }
 
 export type PrincipleType = 'receptor' | 'hypothesis' | 'neuroanatomy';
@@ -53,4 +54,5 @@ export interface Principle {
   subtitle?: string;
   content: string;
   visual_guide?: string; // Placeholder for image URL
+  wiki_content?: string; // Markdown format encyclopedic content
 }

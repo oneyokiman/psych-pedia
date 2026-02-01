@@ -1,15 +1,17 @@
 import React from 'react';
 import { Principle } from '../types';
 import RichText from './RichText';
+import WikiContent from './WikiContent';
 
 interface PrincipleDetailProps {
   principle: Principle;
   onBack?: () => void;
   backLabel?: string | null;
   onNavigate: (type: 'principle', id: string) => void;
+  isDarkMode?: boolean;
 }
 
-const PrincipleDetail: React.FC<PrincipleDetailProps> = ({ principle, onBack, backLabel, onNavigate }) => {
+const PrincipleDetail: React.FC<PrincipleDetailProps> = ({ principle, onBack, backLabel, onNavigate, isDarkMode = true }) => {
   return (
     <div className="max-w-4xl mx-auto py-8 animate-fade-in">
       
@@ -72,8 +74,18 @@ const PrincipleDetail: React.FC<PrincipleDetailProps> = ({ principle, onBack, ba
                  <p className="text-sm text-slate-500">图示占位符 (Visual Guide Placeholder)</p>
                  <p className="text-xs text-slate-400">暂无图示，可在 JSON 中添加 visual_guide 字段</p>
               </div>
-           )}
-        </div>
+            )}
+         </div>
+      </div>
+
+      {/* Wiki Content Section */}
+      <div className="mt-6">
+        <WikiContent
+          content={principle.wiki_content}
+          title={principle.title}
+          isDarkMode={isDarkMode}
+          editable={false}
+        />
       </div>
     </div>
   );
