@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync": "node scripts/md-to-json.js",
+    "migrate": "node scripts/json-to-md.js"
   },
   "dependencies": {
     "pinyin": "^4.0.0",

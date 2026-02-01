@@ -1,0 +1,17 @@
+---
+id: "gabaa"
+type: "receptor"
+title: "GABA-A 受体"
+subtitle: "GABA-A Receptor Complex"
+visual_guide: "/images/receptors/gabaa.svg"
+---
+
+## 简介
+
+大脑主要的抑制性受体，是氯离子通道。苯二氮卓类药物结合于此，增加氯离子内流，引起神经元超极化。α1亚基与镇静相关，α2/3亚基与抗焦虑相关。
+
+# GABA-A 受体
+
+> GABA-A Receptor Complex
+
+（待补充详细内容）

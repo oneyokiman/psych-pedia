@@ -1,0 +1,67 @@
+---
+id: "bupropion"
+name_cn: "安非他酮"
+name_en: "Bupropion"
+category: "NDRI"
+tags:
+  - "激活"
+  - "戒烟"
+  - "无性功能副作用"
+stahl_radar:
+  labels:
+    - "DAT"
+    - "NET"
+    - "nAChR"
+    - "H1"
+    - "SERT"
+  values:
+    - 6
+    - 6
+    - 8
+    - 1
+    - 0
+  link_ids:
+    - "dat"
+    - "net"
+    - "nachr"
+    - "h1"
+    - "sert"
+pearls:
+  -
+      title: "性功能保护伞"
+      type: "success"
+      content: "几乎不引起性功能障碍，常用于SSRI引起性冷淡时的换药或联用策略（Well-loft 组合）。"
+  -
+      title: "快乐与动力"
+      type: "info"
+      content: "通过增加多巴胺和去甲肾上腺素，改善快感缺失和动力不足。同时具有戒烟辅助作用。"
+  -
+      title: "癫痫禁忌"
+      type: "danger"
+      content: "降低癫痫阈值，剂量大于450mg/d时风险显著。禁用于癫痫患者及进食障碍（贪食/厌食）患者。"
+pk_data:
+  half_life: "21h (缓释)"
+  protein_binding: "84%"
+  metabolism: "CYP2B6"
+  peak_time: "3h"
+market_info:
+  price: "$$"
+  insurance: "乙类医保"
+  pregnancy: "C类"
+---
+
+# 安非他酮 (Bupropion)
+
+> 此药物尚无详细百科内容。请在此处添加详细信息。
+
+## 作用机制
+
+（待补充）
+
+## 临床应用
+
+（待补充）
+
+## 不良反应
+
+（待补充）

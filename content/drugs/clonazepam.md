@@ -1,0 +1,67 @@
+---
+id: "clonazepam"
+name_cn: "氯硝西泮"
+name_en: "Clonazepam"
+category: "Benzodiazepine"
+tags:
+  - "长效"
+  - "强效"
+  - "躁狂辅助"
+stahl_radar:
+  labels:
+    - "GABA-A"
+    - "Na+Channel"
+    - "T-Type Ca"
+    - "5HT"
+    - "DA"
+  values:
+    - 9.8
+    - 3
+    - 2
+    - 0
+    - 0
+  link_ids:
+    - "gabaa"
+    - "nachannel"
+    - "ttypeca"
+    - "5ht"
+    - "da"
+pearls:
+  -
+      title: "药理效价之王"
+      type: "success"
+      content: "效价极高，2mg氯硝西泮约等于40mg地西泮。常作为双相躁狂急性期的辅助用药，快速控制激越。"
+  -
+      title: "RBD克星"
+      type: "info"
+      content: "治疗快动眼睡眠行为障碍（RBD，如睡梦中拳打脚踢）的首选药物，能有效减少梦境扮演行为。"
+  -
+      title: "撤药困难"
+      type: "warning"
+      content: "虽然半衰期长，撤药反应较短效BZD发生得晚，但长期大剂量使用后的依赖性极难戒除，需数月缓慢减量。"
+pk_data:
+  half_life: "30-40h"
+  protein_binding: "85%"
+  metabolism: "CYP3A4, 硝基还原"
+  peak_time: "1-4h"
+market_info:
+  price: "$"
+  insurance: "甲类医保"
+  pregnancy: "D类"
+---
+
+# 氯硝西泮 (Clonazepam)
+
+> 此药物尚无详细百科内容。请在此处添加详细信息。
+
+## 作用机制
+
+（待补充）
+
+## 临床应用
+
+（待补充）
+
+## 不良反应
+
+（待补充）

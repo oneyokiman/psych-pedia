@@ -1,0 +1,67 @@
+---
+id: "olanzapine"
+name_cn: "奥氮平"
+name_en: "Olanzapine"
+category: "SGA"
+tags:
+  - "强效"
+  - "镇静"
+  - "代谢高危"
+stahl_radar:
+  labels:
+    - "D2"
+    - "5HT2A"
+    - "H1"
+    - "M1"
+    - "5HT2C"
+  values:
+    - 8
+    - 9.8
+    - 9.5
+    - 8.5
+    - 9
+  link_ids:
+    - "d2"
+    - "5ht2a"
+    - "h1"
+    - "m1"
+    - "5ht2c"
+pearls:
+  -
+      title: "代谢综合征红灯"
+      type: "danger"
+      content: "SGA中致肥胖、糖尿病风险最高（仅次于氯氮平）。阻断H1和5HT2C导致食欲大增。必须监测腰围、血糖、血脂。"
+  -
+      title: "急性期金标准"
+      type: "success"
+      content: "起效快，镇静作用强，控制急性躁狂和严重精神病性症状效果显著。喻东山老师指出其抗躁狂疗效与氟哌啶醇相当，但EPS更少。"
+  -
+      title: "吸烟相互作用"
+      type: "warning"
+      content: "主要经CYP1A2代谢。吸烟诱导该酶，可使血药浓度降低约50%。住院患者(强制戒烟)出院后(复吸)需大幅调整剂量。"
+pk_data:
+  half_life: "30-33h"
+  protein_binding: "93%"
+  metabolism: "CYP1A2 (主), CYP2D6"
+  peak_time: "6h"
+market_info:
+  price: "$ (集采)"
+  insurance: "甲类医保"
+  pregnancy: "C类 (慎用)"
+---
+
+# 奥氮平 (Olanzapine)
+
+> 此药物尚无详细百科内容。请在此处添加详细信息。
+
+## 作用机制
+
+（待补充）
+
+## 临床应用
+
+（待补充）
+
+## 不良反应
+
+（待补充）

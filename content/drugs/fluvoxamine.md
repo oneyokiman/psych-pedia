@@ -1,0 +1,67 @@
+---
+id: "fluvoxamine"
+name_cn: "氟伏沙明"
+name_en: "Fluvoxamine"
+category: "SSRI"
+tags:
+  - "Sigma1激动"
+  - "强迫症"
+  - "相互作用多"
+stahl_radar:
+  labels:
+    - "SERT"
+    - "Sigma1"
+    - "M1"
+    - "H1"
+    - "Alpha1"
+  values:
+    - 9.5
+    - 9.8
+    - 1
+    - 1
+    - 1
+  link_ids:
+    - "sert"
+    - "sigma1"
+    - "m1"
+    - "h1"
+    - "alpha1"
+pearls:
+  -
+      title: "强迫症首选"
+      type: "success"
+      content: "最早获批用于强迫症的SSRI之一，对强迫思维和行为有较好的疗效。"
+  -
+      title: "Sigma-1受体激动剂"
+      type: "info"
+      content: "在SSRI中对Sigma-1受体亲和力最高，可能具有额外的改善认知和抗精神病协同作用。"
+  -
+      title: "药物相互作用之王"
+      type: "danger"
+      content: "强效抑制CYP1A2和CYP2C19。严禁与替扎尼定、雷美替胺合用。会显著升高咖啡因和茶碱的浓度，建议服药期间减少饮茶喝咖啡。"
+pk_data:
+  half_life: "15h"
+  protein_binding: "80%"
+  metabolism: "CYP1A2 (强抑制), 2D6"
+  peak_time: "3-8h"
+market_info:
+  price: "$"
+  insurance: "甲类医保"
+  pregnancy: "C类"
+---
+
+# 氟伏沙明 (Fluvoxamine)
+
+> 此药物尚无详细百科内容。请在此处添加详细信息。
+
+## 作用机制
+
+（待补充）
+
+## 临床应用
+
+（待补充）
+
+## 不良反应
+
+（待补充）

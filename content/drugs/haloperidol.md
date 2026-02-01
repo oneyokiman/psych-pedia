@@ -1,0 +1,67 @@
+---
+id: "haloperidol"
+name_cn: "氟哌啶醇"
+name_en: "Haloperidol"
+category: "第一代抗精神病药 (FGA)"
+tags:
+  - "高价D2"
+  - "谵妄"
+  - "EPS"
+stahl_radar:
+  labels:
+    - "D2"
+    - "Alpha1"
+    - "5HT2A"
+    - "M1"
+    - "H1"
+  values:
+    - 9.8
+    - 4
+    - 1
+    - 0.5
+    - 0.5
+  link_ids:
+    - "d2"
+    - "alpha1"
+    - "5ht2a"
+    - "m1"
+    - "h1"
+pearls:
+  -
+      title: "D2阻断的金标准"
+      type: "info"
+      content: "典型的FGA，主要通过强效阻断D2受体发挥抗精神病作用。常用于需要快速镇静（肌肉注射）的急性激越或谵妄患者。"
+  -
+      title: "锥体外系风暴"
+      type: "danger"
+      content: "EPS（肌张力障碍、静坐不能、帕金森样症状）发生率极高。长期使用迟发性运动障碍（TD）风险大。"
+  -
+      title: "静脉给药警告"
+      type: "warning"
+      content: "静脉注射时引起QTc间期延长和尖端扭转型室速的风险较高，需心电监护。口服相对安全。"
+pk_data:
+  half_life: "20h"
+  protein_binding: "92%"
+  metabolism: "CYP3A4, 2D6"
+  peak_time: "3-6h"
+market_info:
+  price: "$"
+  insurance: "甲类医保"
+  pregnancy: "C类"
+---
+
+# 氟哌啶醇 (Haloperidol)
+
+> 此药物尚无详细百科内容。请在此处添加详细信息。
+
+## 作用机制
+
+（待补充）
+
+## 临床应用
+
+（待补充）
+
+## 不良反应
+
+（待补充）

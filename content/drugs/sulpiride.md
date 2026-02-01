@@ -1,0 +1,67 @@
+---
+id: "sulpiride"
+name_cn: "舒必利"
+name_en: "Sulpiride"
+category: "第一代抗精神病药 (FGA)"
+tags:
+  - "选择性D2"
+  - "高泌乳素"
+  - "改善情绪"
+stahl_radar:
+  labels:
+    - "D2"
+    - "D3"
+    - "5HT2A"
+    - "H1"
+    - "M1"
+  values:
+    - 9
+    - 9.5
+    - 0
+    - 0
+    - 0
+  link_ids:
+    - "d2"
+    - "d3"
+    - "5ht2a"
+    - "h1"
+    - "m1"
+pearls:
+  -
+      title: "D2受体特异性"
+      type: "info"
+      content: "结构和作用类似氨磺必利，具有高度选择性的 D2/D3 阻断作用。低剂量（100-300mg）可兴奋多巴胺，用于抑郁症辅助或阴性症状。"
+  -
+      title: "泌乳素风险"
+      type: "danger"
+      content: "即使在低剂量，由于其强效阻断结节漏斗通路 D2 受体，高泌乳素血症风险极高，长期用药需警惕。"
+  -
+      title: "情绪稳定辅助"
+      type: "success"
+      content: "因其独特的剂量依赖性（低剂量激活，高剂量抗精神病），常被喻东山老师用于增强情绪稳定剂的抗抑郁和抗焦虑效果。"
+pk_data:
+  half_life: "6-10h"
+  protein_binding: "极低(<40%)"
+  metabolism: "肾脏排泄为主"
+  peak_time: "1.5h"
+market_info:
+  price: "$"
+  insurance: "甲类医保"
+  pregnancy: "C类"
+---
+
+# 舒必利 (Sulpiride)
+
+> 此药物尚无详细百科内容。请在此处添加详细信息。
+
+## 作用机制
+
+（待补充）
+
+## 临床应用
+
+（待补充）
+
+## 不良反应
+
+（待补充）

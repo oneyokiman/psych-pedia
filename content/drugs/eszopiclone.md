@@ -1,0 +1,67 @@
+---
+id: "eszopiclone"
+name_cn: "右佐匹克隆"
+name_en: "Eszopiclone"
+category: "Z-Drug"
+tags:
+  - "早醒"
+  - "金属味"
+  - "长期使用"
+stahl_radar:
+  labels:
+    - "GABA-A(α1)"
+    - "GABA-A(α2)"
+    - "GABA-A(α3)"
+    - "H1"
+    - "M1"
+  values:
+    - 9
+    - 4
+    - 4
+    - 0
+    - 0
+  link_ids:
+    - "gabaa_a1"
+    - "gabaa_a2"
+    - "gabaa_a3"
+    - "h1"
+    - "m1"
+pearls:
+  -
+      title: "全夜守护"
+      type: "success"
+      content: "半衰期（6h）比唑吡坦长，不仅能诱导如睡，还能维持睡眠，减少夜间觉醒和早醒。是唯一获批可长期（6个月）使用的Z药。"
+  -
+      title: "味觉异常"
+      type: "warning"
+      content: "约20-30%的患者会出现口腔苦味或金属味（Dysgeusia），这是导致停药的常见原因。晨起漱口可缓解。"
+  -
+      title: "老年剂量"
+      type: "info"
+      content: "老年人主要经CYP3A4代谢减慢，起始剂量应限制在1mg-2mg，防止次日宿醉效应。"
+pk_data:
+  half_life: "6h"
+  protein_binding: "52-59%"
+  metabolism: "CYP3A4, 2E1"
+  peak_time: "1h"
+market_info:
+  price: "$$"
+  insurance: "乙类医保"
+  pregnancy: "C类"
+---
+
+# 右佐匹克隆 (Eszopiclone)
+
+> 此药物尚无详细百科内容。请在此处添加详细信息。
+
+## 作用机制
+
+（待补充）
+
+## 临床应用
+
+（待补充）
+
+## 不良反应
+
+（待补充）
