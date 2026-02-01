@@ -1,3 +1,20 @@
+# Fix White Screen Bug - Execution Plan
+
+## Problem Summary
+The website shows a white screen with "加载中..." that never loads due to:
+1. **Root Cause**: Buggy custom YAML parser in `scripts/md-to-json.js` fails to parse complex nested structures
+2. **Symptom**: `drug.tags` and `drug.pearls` are undefined when DrugDetail.tsx tries to render
+3. **Error**: `TypeError: Cannot read properties of undefined (reading 'map')`
+
+## Tasks
+
+### Task 1: Fix md-to-json.js to use gray-matter
+**Priority**: HIGH
+**File**: `scripts/md-to-json.js`
+
+Replace the entire file content with:
+
+```javascript
 #!/usr/bin/env node
 
 /**
@@ -39,7 +56,7 @@ function parseMarkdown(content) {
 }
 
 // Read and parse all Markdown files in a directory
-function readMarkdownFiles(dir, isPrinciples = false) {
+function readMarkdownFiles(dir) {
   if (!fs.existsSync(dir)) {
     console.warn(`⚠️  Directory not found: ${dir}`);
     return [];
@@ -51,22 +68,9 @@ function readMarkdownFiles(dir, isPrinciples = false) {
   files.forEach(file => {
     const filepath = path.join(dir, file);
     const content = fs.readFileSync(filepath, 'utf-8');
-    let parsed = parseMarkdown(content);
+    const parsed = parseMarkdown(content);
     
     if (parsed) {
-      // For principles, extract content from wiki_content if needed
-      if (isPrinciples && parsed.wiki_content && !parsed.content) {
-        const introMatch = parsed.wiki_content.match(/## 简介\n\n([\s\S]*?)(?:\n## |\n# |$)/);
-        if (introMatch) {
-          parsed.content = introMatch[1].trim();
-          // Remove the intro section from wiki_content
-          parsed.wiki_content = parsed.wiki_content.replace(/## 简介\n\n[\s\S]*?(?=\n## |\n# |$)/, '').trim();
-          if (!parsed.wiki_content) {
-            delete parsed.wiki_content; // Remove empty wiki_content
-          }
-        }
-      }
-      
       entries.push(parsed);
       console.log(`  ✓ ${parsed.name_cn || parsed.title || file}`);
     } else {
@@ -117,11 +121,11 @@ async function sync() {
   
   // Read and parse drugs
   console.log('📦 Processing drugs...');
-  const drugs = readMarkdownFiles(drugsMdDir, false);
+  const drugs = readMarkdownFiles(drugsMdDir);
   
   // Read and parse principles
   console.log('\n📚 Processing principles...');
-  const principles = readMarkdownFiles(principlesMdDir, true);
+  const principles = readMarkdownFiles(principlesMdDir);
   
   // Build drugs.json
   const drugsJson = {
@@ -170,3 +174,84 @@ sync().catch(error => {
   console.error('❌ Sync failed:', error);
   process.exit(1);
 });
+```
+
+### Task 2: Add null guards to DrugDetail.tsx
+**Priority**: HIGH
+**File**: `components/DrugDetail.tsx`
+
+**Edit 1** - Line 59: Add optional chaining to `drug.tags`:
+```typescript
+// OLD (line 58-64):
+<div className="flex flex-wrap gap-2 md:ml-auto">
+    {drug.tags.map(tag => (
+        <span key={tag} className="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 border border-cyan-100 dark:border-cyan-800">
+            {tag}
+        </span>
+    ))}
+</div>
+
+// NEW:
+<div className="flex flex-wrap gap-2 md:ml-auto">
+    {drug.tags?.map(tag => (
+        <span key={tag} className="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 border border-cyan-100 dark:border-cyan-800">
+            {tag}
+        </span>
+    ))}
+</div>
+```
+
+**Edit 2** - Line 111: Add optional chaining to `drug.pearls`:
+```typescript
+// OLD (line 111):
+{drug.pearls.map((pearl, idx) => (
+
+// NEW:
+{drug.pearls?.map((pearl, idx) => (
+```
+
+### Task 3: Run sync and verify
+**Priority**: HIGH
+
+After completing Task 1 and Task 2:
+
+1. Run the sync command:
+   ```bash
+   npm run sync
+   ```
+
+2. Verify `public/drugs.json` has valid structure:
+   - Check a drug entry has `tags` as an array
+   - Check a drug entry has `pearls` as an array of objects
+
+3. Start the dev server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open browser at http://localhost:3004 and verify:
+   - No white screen
+   - Page loads correctly
+   - No console errors
+   - Click on a drug to verify detail page works
+
+## Verification Checklist
+- [ ] `gray-matter` is installed (already done)
+- [ ] `md-to-json.js` uses gray-matter instead of custom parser
+- [ ] `DrugDetail.tsx` has null guards on `tags` and `pearls`
+- [ ] `npm run sync` completes without errors
+- [ ] `public/drugs.json` has valid `tags` and `pearls` arrays
+- [ ] Browser loads without white screen
+- [ ] No console errors in browser
+- [ ] Drug detail page renders correctly
+
+## Files to Modify
+| File | Action |
+|------|--------|
+| `scripts/md-to-json.js` | Replace entire content with gray-matter version |
+| `components/DrugDetail.tsx` | Add `?.` to lines 59 and 111 |
+
+## Notes
+- Do NOT commit until user confirms the fix works
+- The `gray-matter` package is already installed
+- After fix, run `npm run sync` to regenerate JSON files

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Radar,
   RadarChart,
@@ -57,6 +57,20 @@ const ACTION_CONFIG = {
 } as const;
 
 const RadarViz: React.FC<RadarVizProps> = ({ data, onLabelClick, isDarkMode }) => {
+  // State for tracking mouse position and hover detection
+  const [mousePos, setMousePos] = useState<{ x: number; y: number } | null>(null);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const hideTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+  
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      if (hideTimeoutRef.current) {
+        clearTimeout(hideTimeoutRef.current);
+      }
+    };
+  }, []);
+  
   // Check if we have the new bindings format or legacy format
   const hasActionData = data.bindings && data.bindings.length > 0;
   
@@ -89,81 +103,10 @@ const RadarViz: React.FC<RadarVizProps> = ({ data, onLabelClick, isDarkMode }) =
     return isDarkMode ? config.color.dark : config.color.light;
   };
 
-  // Custom Dot component to render action-specific shapes
+  // Custom Dot component - hidden by default
   const CustomDot = (props: any) => {
-    const { cx, cy, payload } = props;
-    const action = payload.action as ReceptorAction | undefined;
-    
-    if (!action) {
-      // Legacy format: simple dot
-      return <circle cx={cx} cy={cy} r={4} fill={shapeStroke} />;
-    }
-
-    const config = ACTION_CONFIG[action];
-    const color = getActionColor(action);
-    const size = 11; // 稍微增大一点
-
-    // Render different shapes based on action type
-    switch (config.shape) {
-      case 'circle':
-        return (
-          <g>
-            <circle cx={cx} cy={cy} r={size / 2} fill={color} opacity={0.9} />
-            <circle cx={cx} cy={cy} r={size / 2 + 1} fill="none" stroke={color} strokeWidth={1} opacity={0.3} />
-          </g>
-        );
-      
-      case 'circle-half':
-        // Partial agonist: circle with half fill
-        return (
-          <g>
-            <circle cx={cx} cy={cy} r={size / 2} fill={color} opacity={0.3} />
-            <path 
-              d={`M ${cx} ${cy - size / 2} A ${size / 2} ${size / 2} 0 0 1 ${cx} ${cy + size / 2} Z`}
-              fill={color} 
-              opacity={0.9}
-            />
-          </g>
-        );
-      
-      case 'triangle':
-        // Antagonist: upward triangle
-        const h = size * 0.866;
-        return (
-          <polygon
-            points={`${cx},${cy - h / 2} ${cx - size / 2},${cy + h / 2} ${cx + size / 2},${cy + h / 2}`}
-            fill={color}
-            opacity={0.9}
-          />
-        );
-      
-      case 'triangle-down':
-        // Inverse agonist: downward triangle
-        const h2 = size * 0.866;
-        return (
-          <polygon
-            points={`${cx},${cy + h2 / 2} ${cx - size / 2},${cy - h2 / 2} ${cx + size / 2},${cy - h2 / 2}`}
-            fill={color}
-            opacity={0.9}
-          />
-        );
-      
-      case 'square':
-        // PAM/NAM: square
-        return (
-          <rect
-            x={cx - size / 2}
-            y={cy - size / 2}
-            width={size}
-            height={size}
-            fill={color}
-            opacity={0.9}
-          />
-        );
-      
-      default:
-        return <circle cx={cx} cy={cy} r={size / 2} fill={color} />;
-    }
+    // Dots are hidden, information shown via tooltip on hover
+    return null;
   };
 
   // Custom Tick Component to make labels interactive
@@ -195,15 +138,32 @@ const RadarViz: React.FC<RadarVizProps> = ({ data, onLabelClick, isDarkMode }) =
     );
   };
 
-  // Custom tooltip to show action type
-  const CustomTooltip = ({ active, payload }: any) => {
-    if (active && payload && payload.length) {
+  // Custom tooltip to show action type - only show when very close to a data point
+  const CustomTooltip = ({ active, payload, coordinate }: any) => {
+    // Only show tooltip if actively hovering AND mouse is very close to the data point
+    if (active && payload && payload.length && mousePos && coordinate && showTooltip) {
       const data = payload[0].payload;
       const action = data.action as ReceptorAction | undefined;
       
+      // Calculate distance from mouse to tooltip coordinate
+      const distance = Math.sqrt(
+        Math.pow(mousePos.x - coordinate.x, 2) + 
+        Math.pow(mousePos.y - coordinate.y, 2)
+      );
+      
+      // Much stricter distance requirement - only show when very close
+      if (distance > 30) {
+        return null;
+      }
+      
       return (
         <div
-          className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg p-3"
+          className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg shadow-lg p-3 pointer-events-none"
+          style={{
+            opacity: 1,
+            animation: 'none',
+            transform: 'none'
+          }}
         >
           <p className="font-semibold text-sm text-slate-900 dark:text-slate-100 mb-1">
             {data.subject}
@@ -226,15 +186,48 @@ const RadarViz: React.FC<RadarVizProps> = ({ data, onLabelClick, isDarkMode }) =
   };
 
   return (
-    <div className="w-full">
-      {/* 雷达图容器 - 背景白框 */}
-      <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-700">
-        <div className="w-full h-[380px] relative select-none">
-          <div className="absolute top-0 right-0 text-xs text-slate-400 dark:text-slate-500">
-            点击标签查看机制
-          </div>
+    <div className="w-full h-full flex flex-col">
+      {/* 雷达图容器 - 背景白框，占满可用空间 */}
+      <div className="bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm border border-slate-200 dark:border-slate-700 flex-1 flex flex-col">
+        <div className="text-xs text-slate-400 dark:text-slate-500 mb-2 h-5">
+          点击标签查看机制
+        </div>
+        <div 
+          className="flex-1 relative select-none min-h-0"
+          onMouseMove={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const newMousePos = {
+              x: e.clientX - rect.left,
+              y: e.clientY - rect.top
+            };
+            setMousePos(newMousePos);
+            
+            // Clear existing timeout
+            if (hideTimeoutRef.current) {
+              clearTimeout(hideTimeoutRef.current);
+            }
+            
+            // Show tooltip immediately
+            setShowTooltip(true);
+          }}
+          onMouseLeave={() => {
+            // Debounce hide to prevent flickering
+            if (hideTimeoutRef.current) {
+              clearTimeout(hideTimeoutRef.current);
+            }
+            hideTimeoutRef.current = setTimeout(() => {
+              setShowTooltip(false);
+              setMousePos(null);
+            }, 100);
+          }}
+        >
           <ResponsiveContainer width="100%" height="100%">
-            <RadarChart cx="50%" cy="50%" outerRadius="70%" data={chartData}>
+            <RadarChart 
+              cx="50%" 
+              cy="50%" 
+              outerRadius="75%" 
+              data={chartData}
+            >
               <PolarGrid stroke={gridColor} strokeWidth={1} />
               <PolarAngleAxis 
                 dataKey="subject" 
@@ -248,59 +241,18 @@ const RadarViz: React.FC<RadarVizProps> = ({ data, onLabelClick, isDarkMode }) =
                 strokeWidth={2.5}
                 fill={shapeFill}
                 fillOpacity={0.6}
-                isAnimationActive={true}
-                dot={hasActionData ? <CustomDot /> : true}
+                isAnimationActive={false}
+                dot={false}
+                activeDot={false}
               />
-              <Tooltip content={<CustomTooltip />} cursor={false} />
+              <Tooltip 
+                content={<CustomTooltip />} 
+                cursor={false}
+                animationDuration={0}
+              />
             </RadarChart>
           </ResponsiveContainer>
         </div>
-
-        {/* Legend - 在白框内部 */}
-        {hasActionData && (
-          <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
-            <div className="text-xs font-medium text-slate-600 dark:text-slate-400 mb-3">
-              受体作用类型
-            </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2">
-              {(Object.keys(ACTION_CONFIG) as ReceptorAction[]).map((action) => {
-                const config = ACTION_CONFIG[action];
-                const color = getActionColor(action);
-                
-                return (
-                  <div key={action} className="flex items-center gap-2">
-                    <svg width="14" height="14" className="flex-shrink-0">
-                      {config.shape === 'circle' && (
-                        <circle cx="7" cy="7" r="5" fill={color} opacity={0.9} />
-                      )}
-                      {config.shape === 'circle-half' && (
-                        <g>
-                          <circle cx="7" cy="7" r="5" fill={color} opacity={0.3} />
-                          <path d="M 7 2 A 5 5 0 0 1 7 12 Z" fill={color} opacity={0.9} />
-                        </g>
-                      )}
-                      {config.shape === 'triangle' && (
-                        <polygon points="7,2 2,12 12,12" fill={color} opacity={0.9} />
-                      )}
-                      {config.shape === 'triangle-down' && (
-                        <polygon points="7,12 2,2 12,2" fill={color} opacity={0.9} />
-                      )}
-                      {config.shape === 'square' && (
-                        <rect x="2" y="2" width="10" height="10" fill={color} opacity={0.9} />
-                      )}
-                    </svg>
-                    <span className="text-xs text-slate-700 dark:text-slate-300">
-                      {config.label_cn}
-                      <span className="text-slate-400 dark:text-slate-500 ml-1 text-[10px]">
-                        {config.label_en}
-                      </span>
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );

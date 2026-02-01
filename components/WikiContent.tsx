@@ -18,7 +18,7 @@ const WikiContent: React.FC<WikiContentProps> = ({
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState(content);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const handleSave = () => {
     if (onSave) {

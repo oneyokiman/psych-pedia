@@ -84,15 +84,15 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drug, isDarkMode, onNavigate })
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
             {/* Left: Visualization */}
-            <div className="bg-white dark:bg-medical-surface rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col h-[500px]">
-                <div className="mb-4 flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-3">
+            <div className="bg-white dark:bg-medical-surface rounded-xl p-6 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col h-[550px]">
+                <div className="mb-3 flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-3">
                     <h3 className="font-bold text-lg text-slate-800 dark:text-cyan-400 flex items-center gap-2">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
                             功能靶点雷达 (Functional Target Profile)
                     </h3>
 
                 </div>
-                <div className="flex-1 flex items-center justify-center">
+                <div className="flex-1 min-h-0">
                     <RadarViz 
                         data={drug.stahl_radar} 
                         onLabelClick={(linkId) => onNavigate('principle', linkId)} 

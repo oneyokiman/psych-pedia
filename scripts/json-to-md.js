@@ -103,19 +103,17 @@ function principleToMarkdown(principle) {
   mdContent += toYAML(frontmatter);
   mdContent += '---\n\n';
   
-  // Add the original short content as a summary
+  // Add the original short content as the introduction section (shown above)
   if (content) {
-    mdContent += `## 简介\n\n${content}\n\n`;
+    mdContent += `${content}\n\n`;
   }
   
-  // Add wiki content if available
+  // Add wiki content if available - this is for detailed content below
   if (wiki_content) {
     mdContent += wiki_content;
   } else {
-    mdContent += `# ${principle.title}\n\n`;
-    if (principle.subtitle) {
-      mdContent += `> ${principle.subtitle}\n\n`;
-    }
+    // Leave space for user to add content later
+    mdContent += `## 详细内容\n\n`;
     mdContent += `（待补充详细内容）\n`;
   }
   

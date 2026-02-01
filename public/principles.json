@@ -16,7 +16,8 @@
       "title": "5-HT1A 受体",
       "subtitle": "Serotonin 1A Receptor",
       "visual_guide": "/images/receptors/5ht1a.svg",
-      "wiki_content": "## 简介\n\n“突触前膜的刹车”。作为自受体，激动它可减少5-HT释放（但在长期抗抑郁治疗中会脱敏）。作为突触后膜受体，部分激动剂（如丁螺环酮、阿立哌唑）可促进前额叶多巴胺释放，具有抗焦虑、抗抑郁增效及改善认知的作用。\n\n# 5-HT1A 受体\n\n> Serotonin 1A Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# 5-HT1A 受体\n\n> Serotonin 1A Receptor\n\n（待补充详细内容）",
+      "content": "“突触前膜的刹车”。作为自受体，激动它可减少5-HT释放（但在长期抗抑郁治疗中会脱敏）。作为突触后膜受体，部分激动剂（如丁螺环酮、阿立哌唑）可促进前额叶多巴胺释放，具有抗焦虑、抗抑郁增效及改善认知的作用。"
     },
     {
       "id": "5ht2a",
@@ -24,7 +25,8 @@
       "title": "5-HT2A 受体",
       "subtitle": "Serotonin 2A Receptor",
       "visual_guide": "/images/receptors/5ht2a.svg",
-      "wiki_content": "## 简介\n\nSGA（非典型抗精神病药）的特征性靶点。它是皮层谷氨酸神经元的“油门”。阻断5-HT2A可减少谷氨酸释放，进而间接促进纹状体多巴胺释放，从而减少EPS风险，并改善慢波睡眠。\n\n# 5-HT2A 受体\n\n> Serotonin 2A Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# 5-HT2A 受体\n\n> Serotonin 2A Receptor\n\n（待补充详细内容）",
+      "content": "SGA（非典型抗精神病药）的特征性靶点。它是皮层谷氨酸神经元的“油门”。阻断5-HT2A可减少谷氨酸释放，进而间接促进纹状体多巴胺释放，从而减少EPS风险，并改善慢波睡眠。"
     },
     {
       "id": "5ht2c",
@@ -32,7 +34,8 @@
       "title": "5-HT2C 受体",
       "subtitle": "Serotonin 2C Receptor",
       "visual_guide": "/images/receptors/5ht2c.svg",
-      "wiki_content": "## 简介\n\n代谢与体重的调节阀。阻断该受体（如奥氮平）会解除对下丘脑食欲中枢的抑制，导致暴饮暴食和代谢综合征。相反，激动该受体（如氯卡色林）可抑制食欲。\n\n# 5-HT2C 受体\n\n> Serotonin 2C Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# 5-HT2C 受体\n\n> Serotonin 2C Receptor\n\n（待补充详细内容）",
+      "content": "代谢与体重的调节阀。阻断该受体（如奥氮平）会解除对下丘脑食欲中枢的抑制，导致暴饮暴食和代谢综合征。相反，激动该受体（如氯卡色林）可抑制食欲。"
     },
     {
       "id": "5ht3",
@@ -40,7 +43,8 @@
       "title": "5-HT3 受体",
       "subtitle": "Serotonin 3 Receptor",
       "visual_guide": "/images/receptors/5ht3.svg",
-      "wiki_content": "## 简介\n\n唯一属于离子通道型的5-HT受体，主要分布于呕吐中枢和胃肠道。阻断该受体（如米氮平、伏硫西汀）具有显著的止吐作用，并可能通过调节中间神经元改善认知。\n\n# 5-HT3 受体\n\n> Serotonin 3 Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# 5-HT3 受体\n\n> Serotonin 3 Receptor\n\n（待补充详细内容）",
+      "content": "唯一属于离子通道型的5-HT受体，主要分布于呕吐中枢和胃肠道。阻断该受体（如米氮平、伏硫西汀）具有显著的止吐作用，并可能通过调节中间神经元改善认知。"
     },
     {
       "id": "5ht7",
@@ -48,7 +52,8 @@
       "title": "5-HT7 受体",
       "subtitle": "Serotonin 7 Receptor",
       "visual_guide": "/images/receptors/5ht7.svg",
-      "wiki_content": "## 简介\n\n新兴的认知与昼夜节律靶点。阻断5-HT7受体（如鲁拉西酮、伏硫西汀）可调节昼夜节律，改善睡眠，并增强海马长时程增强效应（LTP），从而改善记忆和认知。\n\n# 5-HT7 受体\n\n> Serotonin 7 Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# 5-HT7 受体\n\n> Serotonin 7 Receptor\n\n（待补充详细内容）",
+      "content": "新兴的认知与昼夜节律靶点。阻断5-HT7受体（如鲁拉西酮、伏硫西汀）可调节昼夜节律，改善睡眠，并增强海马长时程增强效应（LTP），从而改善记忆和认知。"
     },
     {
       "id": "alpha1",
@@ -56,7 +61,8 @@
       "title": "α1 肾上腺素受体",
       "subtitle": "Alpha-1 Adrenergic Receptor",
       "visual_guide": "/images/receptors/alpha1.svg",
-      "wiki_content": "## 简介\n\n主要位于血管平滑肌。阻断该受体（如喹硫平、氯丙嗪）会导致外周血管扩张，引起体位性低血压、反射性心动过速和头晕。这是药物滴定初期需防跌倒的主要原因。\n\n# α1 肾上腺素受体\n\n> Alpha-1 Adrenergic Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# α1 肾上腺素受体\n\n> Alpha-1 Adrenergic Receptor\n\n（待补充详细内容）",
+      "content": "主要位于血管平滑肌。阻断该受体（如喹硫平、氯丙嗪）会导致外周血管扩张，引起体位性低血压、反射性心动过速和头晕。这是药物滴定初期需防跌倒的主要原因。"
     },
     {
       "id": "alpha2",
@@ -64,7 +70,8 @@
       "title": "α2 肾上腺素受体",
       "subtitle": "Alpha-2 Adrenergic Receptor",
       "visual_guide": "/images/receptors/alpha2.svg",
-      "wiki_content": "## 简介\n\n“去甲肾上腺素的刹车”。作为突触前膜自受体，阻断它（如米氮平）相当于“剪断刹车线”，会导致去甲肾上腺素和5-HT（通过异受体）的大量释放，产生强效抗抑郁作用。\n\n# α2 肾上腺素受体\n\n> Alpha-2 Adrenergic Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# α2 肾上腺素受体\n\n> Alpha-2 Adrenergic Receptor\n\n（待补充详细内容）",
+      "content": "“去甲肾上腺素的刹车”。作为突触前膜自受体，阻断它（如米氮平）相当于“剪断刹车线”，会导致去甲肾上腺素和5-HT（通过异受体）的大量释放，产生强效抗抑郁作用。"
     },
     {
       "id": "cachannel",
@@ -72,7 +79,8 @@
       "title": "电压门控钙通道(α2δ)",
       "subtitle": "Calcium Channel Alpha-2-Delta Ligand",
       "visual_guide": "/images/channels/ca.svg",
-      "wiki_content": "## 简介\n\n普瑞巴林和加巴喷丁的靶点。通过结合α2δ亚基，减少过度兴奋神经元钙离子内流，从而抑制谷氨酸和去甲肾上腺素的释放，治疗焦虑和神经痛。\n\n# 电压门控钙通道(α2δ)\n\n> Calcium Channel Alpha-2-Delta Ligand\n\n（待补充详细内容）"
+      "wiki_content": "# 电压门控钙通道(α2δ)\n\n> Calcium Channel Alpha-2-Delta Ligand\n\n（待补充详细内容）",
+      "content": "普瑞巴林和加巴喷丁的靶点。通过结合α2δ亚基，减少过度兴奋神经元钙离子内流，从而抑制谷氨酸和去甲肾上腺素的释放，治疗焦虑和神经痛。"
     },
     {
       "id": "d2",
@@ -80,7 +88,8 @@
       "title": "D2 多巴胺受体",
       "subtitle": "Dopamine D2 Receptor",
       "visual_guide": "/images/receptors/d2.svg",
-      "wiki_content": "## 简介\n\n精神分裂症抗精神病药的主要靶点。阻断D2受体可减轻阳性症状，但也会引起锥体外系反应（EPS）和高泌乳素血症。D2受体高度表达于纹状体，是运动调节的关键部位。\n\n# D2 多巴胺受体\n\n> Dopamine D2 Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# D2 多巴胺受体\n\n> Dopamine D2 Receptor\n\n（待补充详细内容）",
+      "content": "精神分裂症抗精神病药的主要靶点。阻断D2受体可减轻阳性症状，但也会引起锥体外系反应（EPS）和高泌乳素血症。D2受体高度表达于纹状体，是运动调节的关键部位。"
     },
     {
       "id": "d3",
@@ -88,7 +97,8 @@
       "title": "D3 多巴胺受体",
       "subtitle": "Dopamine D3 Receptor",
       "visual_guide": "/images/receptors/d3.svg",
-      "wiki_content": "## 简介\n\n主要分布于边缘系统（伏隔核），与奖赏、动机和认知功能密切相关。D3受体的优先阻断（如卡利拉嗪、氨磺必利）被认为能改善精神分裂症的阴性症状和认知缺陷，且EPS风险较低。\n\n# D3 多巴胺受体\n\n> Dopamine D3 Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# D3 多巴胺受体\n\n> Dopamine D3 Receptor\n\n（待补充详细内容）",
+      "content": "主要分布于边缘系统（伏隔核），与奖赏、动机和认知功能密切相关。D3受体的优先阻断（如卡利拉嗪、氨磺必利）被认为能改善精神分裂症的阴性症状和认知缺陷，且EPS风险较低。"
     },
     {
       "id": "dat",
@@ -96,7 +106,8 @@
       "title": "多巴胺转运体",
       "subtitle": "Dopamine Transporter (DAT)",
       "visual_guide": "/images/transporters/dat.svg",
-      "wiki_content": "## 简介\n\n负责纹状体和伏隔核的多巴胺回收。阻断DAT（如哌甲酯、安非他酮）可增强奖赏回路的活性，提升动力、愉悦感和注意力，但也可能导致滥用潜力。\n\n# 多巴胺转运体\n\n> Dopamine Transporter (DAT)\n\n（待补充详细内容）"
+      "wiki_content": "# 多巴胺转运体\n\n> Dopamine Transporter (DAT)\n\n（待补充详细内容）",
+      "content": "负责纹状体和伏隔核的多巴胺回收。阻断DAT（如哌甲酯、安非他酮）可增强奖赏回路的活性，提升动力、愉悦感和注意力，但也可能导致滥用潜力。"
     },
     {
       "id": "gabaa",
@@ -104,7 +115,8 @@
       "title": "GABA-A 受体",
       "subtitle": "GABA-A Receptor Complex",
       "visual_guide": "/images/receptors/gabaa.svg",
-      "wiki_content": "## 简介\n\n大脑主要的抑制性受体，是氯离子通道。苯二氮卓类药物结合于此，增加氯离子内流，引起神经元超极化。α1亚基与镇静相关，α2/3亚基与抗焦虑相关。\n\n# GABA-A 受体\n\n> GABA-A Receptor Complex\n\n（待补充详细内容）"
+      "wiki_content": "# GABA-A 受体\n\n> GABA-A Receptor Complex\n\n（待补充详细内容）",
+      "content": "大脑主要的抑制性受体，是氯离子通道。苯二氮卓类药物结合于此，增加氯离子内流，引起神经元超极化。α1亚基与镇静相关，α2/3亚基与抗焦虑相关。"
     },
     {
       "id": "h1",
@@ -112,7 +124,8 @@
       "title": "H1 组胺受体",
       "subtitle": "Histamine H1 Receptor",
       "visual_guide": "/images/receptors/h1.svg",
-      "wiki_content": "## 简介\n\n觉醒与能量代谢的关键。阻断H1受体产生镇静、嗜睡（有助于急性期控制激越），但也显著增加食欲（嗜碳水化合物）和体重。长期阻断可能导致胰岛素抵抗。\n\n# H1 组胺受体\n\n> Histamine H1 Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# H1 组胺受体\n\n> Histamine H1 Receptor\n\n（待补充详细内容）",
+      "content": "觉醒与能量代谢的关键。阻断H1受体产生镇静、嗜睡（有助于急性期控制激越），但也显著增加食欲（嗜碳水化合物）和体重。长期阻断可能导致胰岛素抵抗。"
     },
     {
       "id": "m1",
@@ -120,7 +133,8 @@
       "title": "M1 毒蕈碱受体",
       "subtitle": "Muscarinic M1 Receptor",
       "visual_guide": "/images/receptors/m1.svg",
-      "wiki_content": "## 简介\n\n胆碱能副作用的源头。阻断导致口干、便秘、视物模糊、尿潴留、窦性心动过速及认知受损（尤其是老年人）。但M1阻断也能在一定程度上缓解D2阻断引起的EPS（这也是为什么氯氮平EPS少的原因之一）。\n\n# M1 毒蕈碱受体\n\n> Muscarinic M1 Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# M1 毒蕈碱受体\n\n> Muscarinic M1 Receptor\n\n（待补充详细内容）",
+      "content": "胆碱能副作用的源头。阻断导致口干、便秘、视物模糊、尿潴留、窦性心动过速及认知受损（尤其是老年人）。但M1阻断也能在一定程度上缓解D2阻断引起的EPS（这也是为什么氯氮平EPS少的原因之一）。"
     },
     {
       "id": "mt1",
@@ -128,7 +142,8 @@
       "title": "MT1/MT2 褪黑素受体",
       "subtitle": "Melatonin Receptors",
       "visual_guide": "/images/receptors/mt.svg",
-      "wiki_content": "## 简介\n\n位于视交叉上核（SCN），调节昼夜节律。MT1主要调节睡眠的启动（如雷美替胺），MT2主要调节生物钟的相位（如阿戈美拉汀）。\n\n# MT1/MT2 褪黑素受体\n\n> Melatonin Receptors\n\n（待补充详细内容）"
+      "wiki_content": "# MT1/MT2 褪黑素受体\n\n> Melatonin Receptors\n\n（待补充详细内容）",
+      "content": "位于视交叉上核（SCN），调节昼夜节律。MT1主要调节睡眠的启动（如雷美替胺），MT2主要调节生物钟的相位（如阿戈美拉汀）。"
     },
     {
       "id": "nachannel",
@@ -136,7 +151,8 @@
       "title": "电压门控钠通道",
       "subtitle": "Voltage-Gated Sodium Channel",
       "visual_guide": "/images/channels/na.svg",
-      "wiki_content": "## 简介\n\n负责神经冲动的传导。阻断该通道（如拉莫三嗪、卡马西平、丙戊酸）可抑制神经元的高频放电，防止“点燃效应”（Kindling），从而起到稳定心境和抗惊厥的作用。\n\n# 电压门控钠通道\n\n> Voltage-Gated Sodium Channel\n\n（待补充详细内容）"
+      "wiki_content": "# 电压门控钠通道\n\n> Voltage-Gated Sodium Channel\n\n（待补充详细内容）",
+      "content": "负责神经冲动的传导。阻断该通道（如拉莫三嗪、卡马西平、丙戊酸）可抑制神经元的高频放电，防止“点燃效应”（Kindling），从而起到稳定心境和抗惊厥的作用。"
     },
     {
       "id": "nachr",
@@ -144,7 +160,8 @@
       "title": "烟碱型乙酰胆碱受体",
       "subtitle": "Nicotinic ACh Receptor",
       "visual_guide": "/images/receptors/nachr.svg",
-      "wiki_content": "## 简介\n\n离子通道型受体。α7和α4β2亚基与注意力和认知功能密切相关。许多精神分裂症患者严重吸烟可能是一种自我治疗行为，试图激活该受体以改善认知。\n\n# 烟碱型乙酰胆碱受体\n\n> Nicotinic ACh Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# 烟碱型乙酰胆碱受体\n\n> Nicotinic ACh Receptor\n\n（待补充详细内容）",
+      "content": "离子通道型受体。α7和α4β2亚基与注意力和认知功能密切相关。许多精神分裂症患者严重吸烟可能是一种自我治疗行为，试图激活该受体以改善认知。"
     },
     {
       "id": "net",
@@ -152,7 +169,8 @@
       "title": "去甲肾上腺素转运体",
       "subtitle": "Norepinephrine Transporter (NET)",
       "visual_guide": "/images/transporters/net.svg",
-      "wiki_content": "## 简介\n\n负责NE的回收。在前额叶皮层（PFC），由于缺乏多巴胺转运体，NET也负责回收多巴胺。因此，阻断PFC的NET（如托莫西汀）可以同时增加NE和DA，改善注意力。\n\n# 去甲肾上腺素转运体\n\n> Norepinephrine Transporter (NET)\n\n（待补充详细内容）"
+      "wiki_content": "# 去甲肾上腺素转运体\n\n> Norepinephrine Transporter (NET)\n\n（待补充详细内容）",
+      "content": "负责NE的回收。在前额叶皮层（PFC），由于缺乏多巴胺转运体，NET也负责回收多巴胺。因此，阻断PFC的NET（如托莫西汀）可以同时增加NE和DA，改善注意力。"
     },
     {
       "id": "nmda",
@@ -160,7 +178,8 @@
       "title": "NMDA 受体",
       "subtitle": "NMDA Glutamate Receptor",
       "visual_guide": "/images/receptors/nmda.svg",
-      "wiki_content": "## 简介\n\n谷氨酸门控的钙离子通道，与突触可塑性、记忆形成及精神分裂症病理有关。功能减退导致多巴胺系统失调。氯胺酮通过阻断该受体（特别是抑制性中间神经元上的）产生快速抗抑郁作用。\n\n# NMDA 受体\n\n> NMDA Glutamate Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# NMDA 受体\n\n> NMDA Glutamate Receptor\n\n（待补充详细内容）",
+      "content": "谷氨酸门控的钙离子通道，与突触可塑性、记忆形成及精神分裂症病理有关。功能减退导致多巴胺系统失调。氯胺酮通过阻断该受体（特别是抑制性中间神经元上的）产生快速抗抑郁作用。"
     },
     {
       "id": "sert",
@@ -168,7 +187,8 @@
       "title": "5-HT 转运体",
       "subtitle": "Serotonin Transporter (SERT)",
       "visual_guide": "/images/transporters/sert.svg",
-      "wiki_content": "## 简介\n\n负责将突触间隙的5-HT回收至突触前膜。SSRI/SNRI通过抑制SERT，迅速增加突触间隙5-HT浓度，随后引起突触后受体下调和BDNF表达增加，产生抗抑郁效应。\n\n# 5-HT 转运体\n\n> Serotonin Transporter (SERT)\n\n（待补充详细内容）"
+      "wiki_content": "# 5-HT 转运体\n\n> Serotonin Transporter (SERT)\n\n（待补充详细内容）",
+      "content": "负责将突触间隙的5-HT回收至突触前膜。SSRI/SNRI通过抑制SERT，迅速增加突触间隙5-HT浓度，随后引起突触后受体下调和BDNF表达增加，产生抗抑郁效应。"
     },
     {
       "id": "sigma1",
@@ -176,7 +196,8 @@
       "title": "Sigma-1 受体",
       "subtitle": "Sigma-1 Receptor",
       "visual_guide": "/images/receptors/sigma1.svg",
-      "wiki_content": "## 简介\n\n一种位于内质网的伴侣蛋白。激动Sigma-1（如氟伏沙明）可对抗内质网应激，促进神经营养因子表达，具有神经保护、抗焦虑和改善认知的潜在作用。\n\n# Sigma-1 受体\n\n> Sigma-1 Receptor\n\n（待补充详细内容）"
+      "wiki_content": "# Sigma-1 受体\n\n> Sigma-1 Receptor\n\n（待补充详细内容）",
+      "content": "一种位于内质网的伴侣蛋白。激动Sigma-1（如氟伏沙明）可对抗内质网应激，促进神经营养因子表达，具有神经保护、抗焦虑和改善认知的潜在作用。"
     }
   ],
   "hypotheses": []
