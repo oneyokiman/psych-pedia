@@ -9,7 +9,7 @@
  * 
  * This script:
  * 1. Reads all .md files from content/drugs/ and content/principles/
- * 2. Parses YAML frontmatter and Markdown content
+ * 2. Parses YAML frontmatter and Markdown content using gray-matter
  * 3. Generates public/drugs.json and public/principles.json
  * 4. Preserves template and instructions in JSON files
  */
@@ -17,141 +17,20 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import matter from 'gray-matter';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Simple YAML parser for frontmatter (handles basic types)
-function parseYAML(yamlString) {
-  const lines = yamlString.split('\n');
-  const result = {};
-  let currentKey = null;
-  let currentArray = null;
-  let currentObject = null;
-  let arrayOfObjects = false;
-  let objectDepth = 0;
-  
-  for (let line of lines) {
-    line = line.trimEnd();
-    
-    // Skip empty lines
-    if (!line.trim()) continue;
-    
-    // Detect array of objects
-    if (line.trim() === '-' && currentArray !== null) {
-      currentObject = {};
-      arrayOfObjects = true;
-      continue;
-    }
-    
-    // Key: value pairs
-    const match = line.match(/^(\s*)([a-zA-Z_][a-zA-Z0-9_]*): (.*)$/);
-    if (match) {
-      const indent = match[1].length;
-      const key = match[2];
-      let value = match[3];
-      
-      // Parse value type
-      if (value === 'true') value = true;
-      else if (value === 'false') value = false;
-      else if (value === 'null') value = null;
-      else if (value === '[]') value = [];
-      else if (value === '{}') value = {};
-      else if (value.match(/^-?\d+$/)) value = parseInt(value);
-      else if (value.match(/^-?\d+\.\d+$/)) value = parseFloat(value);
-      else if (value.startsWith('"') && value.endsWith('"')) {
-        value = value.slice(1, -1).replace(/\\"/g, '"').replace(/\\n/g, '\n');
-      } else if (value.startsWith("'") && value.endsWith("'")) {
-        value = value.slice(1, -1);
-      }
-      
-      if (indent === 0) {
-        // Top-level key
-        if (value === '' || value === undefined) {
-          // Start of array or object
-          currentKey = key;
-          currentArray = [];
-          result[key] = currentArray;
-        } else {
-          result[key] = value;
-          currentKey = null;
-          currentArray = null;
-        }
-      } else if (indent === 2 && currentArray !== null && !arrayOfObjects) {
-        // Nested object in top-level key
-        if (!result[currentKey] || Array.isArray(result[currentKey])) {
-          result[currentKey] = {};
-        }
-        result[currentKey][key] = value;
-      } else if (indent >= 2 && currentObject !== null) {
-        // Inside array of objects
-        const relativeIndent = indent - 4;
-        if (relativeIndent === 0) {
-          currentObject[key] = value;
-        } else if (relativeIndent === 2) {
-          // Nested property
-          const parentKeys = Object.keys(currentObject);
-          const lastKey = parentKeys[parentKeys.length - 1];
-          if (typeof currentObject[lastKey] !== 'object' || Array.isArray(currentObject[lastKey])) {
-            currentObject[lastKey] = {};
-          }
-          currentObject[lastKey][key] = value;
-        }
-      }
-      continue;
-    }
-    
-    // Array items
-    const arrayMatch = line.match(/^(\s*)- (.*)$/);
-    if (arrayMatch && currentArray !== null) {
-      const indent = arrayMatch[1].length;
-      let value = arrayMatch[2];
-      
-      // Handle array item
-      if (value.startsWith('"') && value.endsWith('"')) {
-        value = value.slice(1, -1).replace(/\\"/g, '"');
-      } else if (value.match(/^-?\d+$/)) {
-        value = parseInt(value);
-      } else if (value.match(/^-?\d+\.\d+$/)) {
-        value = parseFloat(value);
-      }
-      
-      if (indent === 2 && !arrayOfObjects) {
-        currentArray.push(value);
-      } else if (indent === 2 && arrayOfObjects && currentObject) {
-        currentArray.push(currentObject);
-        currentObject = null;
-        arrayOfObjects = false;
-      }
-    }
-  }
-  
-  // Push last object if exists
-  if (currentObject && currentArray) {
-    currentArray.push(currentObject);
-  }
-  
-  return result;
-}
-
-// Parse Markdown file with frontmatter
+// Parse Markdown file with frontmatter using gray-matter
 function parseMarkdown(content) {
-  const frontmatterRegex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/;
-  const match = content.match(frontmatterRegex);
-  
-  if (!match) {
-    console.error('❌ No frontmatter found in file');
-    return null;
-  }
-  
-  const yamlString = match[1];
-  const bodyContent = match[2].trim();
-  
   try {
-    const frontmatter = parseYAML(yamlString);
+    const { data, content: bodyContent } = matter(content);
+    
+    // Return parsed frontmatter with wiki_content
     return {
-      ...frontmatter,
-      wiki_content: bodyContent || undefined
+      ...data,
+      wiki_content: bodyContent.trim() || undefined
     };
   } catch (error) {
     console.error('❌ Failed to parse frontmatter:', error.message);
@@ -239,12 +118,22 @@ async function sync() {
     "drugs": drugs.sort((a, b) => a.id.localeCompare(b.id))
   };
   
-  // Build principles.json  
+  // Build principles.json - separate by type for backward compatibility
+  // Separate receptors (includes receptor, transporter, ion_channel) from hypotheses
+  const receptors = principles
+    .filter(p => p.type === 'receptor' || p.type === 'transporter' || p.type === 'ion_channel')
+    .sort((a, b) => a.id.localeCompare(b.id));
+  
+  const hypotheses = principles
+    .filter(p => p.type === 'hypothesis')
+    .sort((a, b) => a.id.localeCompare(b.id));
+  
   const principlesJson = {
     "_comment": "==================== Psych-Pedia 原理数据库 ====================",
-    "_instructions": principlesInstructions || "如何添加新的原理条目：1. 编辑 content/principles/ 中的 .md 文件，2. 运行 npm run sync 同步到 JSON，3. 刷新浏览器查看更改。",
+    "_instructions": principlesInstructions || "本文件定义了药物雷达图(stahl_radar)中各维度的详细生物学含义及精神科核心假说。",
     "_template": principlesTemplate,
-    "principles": principles.sort((a, b) => a.id.localeCompare(b.id))
+    "receptors": receptors,
+    "hypotheses": hypotheses
   };
   
   // Write JSON files

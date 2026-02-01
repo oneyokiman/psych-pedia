@@ -56,7 +56,7 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drug, isDarkMode, onNavigate })
                 </div>
             </div>
              <div className="flex flex-wrap gap-2 md:ml-auto">
-                {drug.tags.map(tag => (
+                {drug.tags?.map(tag => (
                     <span key={tag} className="px-3 py-1 rounded-full text-xs font-semibold bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300 border border-cyan-100 dark:border-cyan-800">
                         {tag}
                     </span>
@@ -108,7 +108,7 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drug, isDarkMode, onNavigate })
                     <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">临床实战笔记 (Practice Notes)</h3>
                     </div>
                     
-                    {drug.pearls.map((pearl, idx) => (
+                    {drug.pearls?.map((pearl, idx) => (
                         <div key={idx} className={`p-4 rounded-lg border-l-4 shadow-sm ${getPearlColor(pearl.type)} hover:shadow-md transition-shadow`}>
                             <div className="flex items-start gap-3">
                                 <div className="mt-1 flex-shrink-0">
