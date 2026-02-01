@@ -87,9 +87,9 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drug, isDarkMode, onNavigate })
                 <div className="mb-4 flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-3">
                     <h3 className="font-bold text-lg text-slate-800 dark:text-cyan-400 flex items-center gap-2">
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                            受体结合图谱 (Binding Profile)
+                            功能靶点雷达 (Functional Target Profile)
                     </h3>
-                    <span className="text-xs text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Stahl's Paradigm</span>
+
                 </div>
                 <div className="flex-1 flex items-center justify-center">
                     <RadarViz 

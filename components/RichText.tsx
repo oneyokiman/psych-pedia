@@ -1,5 +1,7 @@
 import React from 'react';
 import { PRINCIPLES } from '../constants';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface RichTextProps {
   content: string;
@@ -15,50 +17,72 @@ const RichText: React.FC<RichTextProps> = ({ content, onNavigate }) => {
     fullTitle: p.title
   })).sort((a, b) => b.term.length - a.term.length);
 
-  // Simple splitting by spaces/punctuation is tricky in Chinese/English mix.
-  // We will manually iterate for known keywords.
-  
-  // This is a simplified parser. It splits by known keywords.
-  let parts: (string | React.ReactNode)[] = [content];
+  const renderTextWithLinks = (text: string) => {
+    let partsToProcess: (string | React.ReactNode)[] = [text];
 
-  patterns.forEach(pattern => {
-    const keyword = pattern.term; // e.g., "D2", "5HT1A"
-    const nextParts: (string | React.ReactNode)[] = [];
-    
-    parts.forEach(part => {
-      if (typeof part !== 'string') {
-        nextParts.push(part);
-        return;
-      }
-
-      // Case insensitive match
-      const regex = new RegExp(`(${keyword})`, 'gi');
-      const split = part.split(regex);
-
-      split.forEach((s, i) => {
-        if (s.toLowerCase() === keyword.toLowerCase()) {
-           nextParts.push(
-             <span 
-               key={`${pattern.id}-${i}`}
-               onClick={(e) => {
-                 e.stopPropagation();
-                 onNavigate('principle', pattern.id);
-               }}
-               className="text-cyan-600 dark:text-cyan-400 font-bold cursor-pointer hover:underline hover:text-cyan-500 mx-0.5"
-               title={`跳转至 ${pattern.fullTitle}`}
-             >
-               {s}
-             </span>
-           );
-        } else {
-           nextParts.push(s);
+    patterns.forEach(pattern => {
+      const keyword = pattern.term;
+      const nextParts: (string | React.ReactNode)[] = [];
+      
+      partsToProcess.forEach(part => {
+        if (typeof part !== 'string') {
+          nextParts.push(part);
+          return;
         }
-      });
-    });
-    parts = nextParts;
-  });
 
-  return <p className="text-sm opacity-80 leading-relaxed">{parts}</p>;
+        const regex = new RegExp(`(${keyword})`, 'gi');
+        const split = part.split(regex);
+
+        split.forEach((s, i) => {
+          if (s.toLowerCase() === keyword.toLowerCase()) {
+             nextParts.push(
+               <span 
+                 key={`${pattern.id}-${i}`}
+                 onClick={(e) => {
+                   e.stopPropagation();
+                   onNavigate('principle', pattern.id);
+                 }}
+                 className="text-cyan-600 dark:text-cyan-400 font-bold cursor-pointer hover:underline hover:text-cyan-500 mx-0.5"
+                 title={`跳转至 ${pattern.fullTitle}`}
+               >
+                 {s}
+               </span>
+             );
+          } else if (s) {
+            nextParts.push(s);
+          }
+        });
+      });
+      partsToProcess = nextParts;
+    });
+    return <>{...partsToProcess}</>;
+  };
+
+  const components = {
+    p: ({ node, ...props }) => {
+      // Process children to apply custom linking
+      const childrenWithLinks = React.Children.map(props.children, child => {
+        if (typeof child === 'string') {
+          return renderTextWithLinks(child);
+        }
+        return child; // Render other non-string children as is
+      });
+      return <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-base">{childrenWithLinks}</p>;
+    },
+    strong: ({ children }) => <strong className="font-semibold text-slate-800 dark:text-white">{children}</strong>,
+    em: ({ children }) => <em className="italic text-slate-600 dark:text-slate-400">{children}</em>,
+    ul: ({ children }) => <ul className="list-disc list-inside space-y-1 my-2 pl-4">{children}</ul>,
+    li: ({ children }) => <li className="text-slate-700 dark:text-slate-300">{children}</li>,
+    a: ({ node, ...props }) => (
+      <a {...props} className="text-blue-600 dark:text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer" />
+    ),
+  };
+
+  return (
+    <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+      {content}
+    </ReactMarkdown>
+  );
 };
 
 export default RichText;
