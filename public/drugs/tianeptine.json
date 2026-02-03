@@ -1,0 +1,63 @@
+{
+  "id": "tianeptine",
+  "name_cn": "噻奈普汀",
+  "name_en": "Tianeptine",
+  "category": "SSRE",
+  "tags": [
+    "独特机制",
+    "应激保护",
+    "阿片受体"
+  ],
+  "stahl_radar": {
+    "labels": [
+      "SSRE",
+      "5HT",
+      "Glu",
+      "Opioid-μ",
+      "NET"
+    ],
+    "values": [
+      9.8,
+      1,
+      7,
+      6,
+      1
+    ],
+    "link_ids": [
+      "ssre",
+      "5ht",
+      "glu",
+      "opioid_mu",
+      "net"
+    ]
+  },
+  "pearls": [
+    {
+      "title": "5-HT再摄取增强剂",
+      "type": "info",
+      "content": "作用机制独特，它**增强**而不是抑制 5-HT 再摄取。其疗效可能通过调节谷氨酸受体（NMDA/AMPA）或应激反应轴实现。"
+    },
+    {
+      "title": "滥用风险",
+      "type": "danger",
+      "content": "具有 μ-阿片受体激动活性，高剂量服用可能产生欣快感，被滥用风险极高（尤其在北美地区）。在国内使用应严格遵医嘱。"
+    },
+    {
+      "title": "神经保护",
+      "type": "success",
+      "content": "研究表明，它可以防止长期应激导致的神经元萎缩，可能具有独特的神经可塑性和神经保护作用。"
+    }
+  ],
+  "pk_data": {
+    "half_life": "2.5h",
+    "protein_binding": "94%",
+    "metabolism": "Beta-氧化 (非CYP)",
+    "peak_time": "1h"
+  },
+  "market_info": {
+    "price": "$$",
+    "insurance": "乙类医保",
+    "pregnancy": "C类"
+  },
+  "wiki_content": "# 噻奈普汀 (Tianeptine)\n\n> 此药物尚无详细百科内容。请在此处添加详细信息。\n\n## 作用机制\n\n（待补充）\n\n## 临床应用\n\n（待补充）\n\n## 不良反应\n\n（待补充）"
+}

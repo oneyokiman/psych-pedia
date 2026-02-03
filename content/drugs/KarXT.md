@@ -187,4 +187,4 @@ market_info:
 1. Kaul I, et al. Efficacy and Safety of Xanomeline-Trospium Chloride in Schizophrenia: A Randomized Clinical Trial. JAMA Psychiatry. 2024.
 2. NMPA药品批准证明文件 (2025年12月).
 3. FDA Prescribing Information for COBENFY (xanomeline and trospium chloride).
-4. 凯捷乐（KarXT）国内获批：改写精神分裂症治疗七十年困局 https://mp.weixin.qq.com/s/AcWJbCRwR-6tbxPkJd1eOw 
+4. 凯捷乐（KarXT）国内获批：改写精神分裂症治疗七十年困局 https://mp.weixin.qq.com/s/AcWJbCRwR-6tbxPkJd1eOw

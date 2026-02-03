@@ -122,20 +122,53 @@ function principleToMarkdown(principle) {
 
 // Main migration function
 async function migrate() {
-  console.log('🚀 Starting JSON to Markdown migration...\n');
+  console.log('🚀 Starting JSON to Markdown migration (Lazy Loading Mode)...\n');
   
   const projectRoot = path.resolve(__dirname, '..');
-  const drugsJsonPath = path.join(projectRoot, 'public', 'drugs.json');
-  const principlesJsonPath = path.join(projectRoot, 'public', 'principles.json');
+  const drugsIndexPath = path.join(projectRoot, 'public', 'drugs-index.json');
+  const principlesIndexPath = path.join(projectRoot, 'public', 'principles-index.json');
+  const drugsDetailDir = path.join(projectRoot, 'public', 'drugs');
+  const principlesDetailDir = path.join(projectRoot, 'public', 'principles');
   const contentDir = path.join(projectRoot, 'content');
   
-  // Check if JSON files exist
-  if (!fs.existsSync(drugsJsonPath)) {
-    console.error(`❌ Error: ${drugsJsonPath} not found`);
-    process.exit(1);
-  }
-  if (!fs.existsSync(principlesJsonPath)) {
-    console.error(`❌ Error: ${principlesJsonPath} not found`);
+  // Fallback to old format for backward compatibility
+  const drugsJsonPath = path.join(projectRoot, 'public', 'drugs.json');
+  const principlesJsonPath = path.join(projectRoot, 'public', 'principles.json');
+  
+  // Check if new index files exist, otherwise fall back to old format
+  let drugs = [];
+  let principles = [];
+  let useNewFormat = false;
+  
+  // Try new format first
+  if (fs.existsSync(drugsIndexPath) && fs.existsSync(drugsDetailDir)) {
+    useNewFormat = true;
+    console.log('📋 Reading from new lazy-loading format...\n');
+    
+    // Read drug details from individual files
+    const drugFiles = fs.readdirSync(drugsDetailDir).filter(f => f.endsWith('.json'));
+    drugs = drugFiles.map(file => {
+      const filePath = path.join(drugsDetailDir, file);
+      return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    });
+    
+    // Read principle details from individual files
+    const principleFiles = fs.readdirSync(principlesDetailDir).filter(f => f.endsWith('.json'));
+    principles = principleFiles.map(file => {
+      const filePath = path.join(principlesDetailDir, file);
+      return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    });
+  } else if (fs.existsSync(drugsJsonPath) && fs.existsSync(principlesJsonPath)) {
+    // Fallback to old single-file format
+    console.log('📋 Reading from old monolithic format...\n');
+    
+    const drugsData = JSON.parse(fs.readFileSync(drugsJsonPath, 'utf-8'));
+    drugs = drugsData.drugs || [];
+    
+    const principlesData = JSON.parse(fs.readFileSync(principlesJsonPath, 'utf-8'));
+    principles = principlesData.principles || principlesData.receptors || [];
+  } else {
+    console.error(`❌ Error: Neither new (drugs-index.json + drugs/*.json) nor old (drugs.json) format found`);
     process.exit(1);
   }
   
@@ -147,9 +180,6 @@ async function migrate() {
   
   // Migrate drugs
   console.log('\n📦 Migrating drugs...');
-  const drugsData = JSON.parse(fs.readFileSync(drugsJsonPath, 'utf-8'));
-  const drugs = drugsData.drugs || [];
-  
   let drugsConverted = 0;
   drugs.forEach(drug => {
     const filename = `${drug.id}.md`;
@@ -162,10 +192,6 @@ async function migrate() {
   
   // Migrate principles
   console.log('\n📚 Migrating principles...');
-  const principlesData = JSON.parse(fs.readFileSync(principlesJsonPath, 'utf-8'));
-  // Handle both "principles" and "receptors" keys for backward compatibility
-  const principles = principlesData.principles || principlesData.receptors || [];
-  
   let principlesConverted = 0;
   principles.forEach(principle => {
     if (principle.id === 'unique_id') {
@@ -250,6 +276,7 @@ stahl_radar:
   console.log('✅ Migration completed successfully!');
   console.log('='.repeat(50));
   console.log(`📊 Summary:`);
+  console.log(`   - Source format: ${useNewFormat ? 'Lazy-loading (index + details)' : 'Monolithic'}`);
   console.log(`   - Drugs converted: ${drugsConverted}`);
   console.log(`   - Principles converted: ${principlesConverted}`);
   console.log(`   - Total files: ${drugsConverted + principlesConverted}`);
@@ -260,8 +287,6 @@ stahl_radar:
   console.log(`   3. Run "npm run sync" to convert back to JSON`);
   console.log(`   4. Refresh browser to see changes\n`);
 }
-
-// Run migration
 migrate().catch(error => {
   console.error('❌ Migration failed:', error);
   process.exit(1);

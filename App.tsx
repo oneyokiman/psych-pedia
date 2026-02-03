@@ -4,6 +4,22 @@ import DrugDetail from './components/DrugDetail';
 import PrincipleDetail from './components/PrincipleDetail';
 import { Drug, Principle } from './types';
 
+// Lightweight index types for sidebar
+interface DrugIndex {
+  id: string;
+  name_cn: string;
+  name_en: string;
+  category: string;
+  tags: string[];
+}
+
+interface PrincipleIndex {
+  id: string;
+  title: string;
+  type: string;
+  description?: string;
+}
+
 interface ViewState {
   type: 'drug' | 'principle';
   id: string;
@@ -12,10 +28,14 @@ interface ViewState {
 const App: React.FC = () => {
   // --- State ---
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-  const [drugs, setDrugs] = useState<Drug[]>([]);
+  const [drugIndex, setDrugIndex] = useState<DrugIndex[]>([]);
   const [drugsLoading, setDrugsLoading] = useState(true);
-  const [principles, setPrinciples] = useState<Principle[]>([]);
+  const [principleIndex, setPrincipleIndex] = useState<PrincipleIndex[]>([]);
   const [principlesLoading, setPrinciplesLoading] = useState(true);
+  
+  // Detail data cache
+  const [drugCache, setDrugCache] = useState<Map<string, Drug>>(new Map());
+  const [principleCache, setPrincipleCache] = useState<Map<string, Principle>>(new Map());
   
   // Router State
   const [currentView, setCurrentView] = useState<ViewState>({
@@ -28,50 +48,50 @@ const App: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Mobile: Closed by default
   const [isCollapsed, setIsCollapsed] = useState(false); // Desktop: Expanded by default
 
-  // --- Load Drugs from JSON ---
+  // --- Load Drugs Index from JSON ---
   useEffect(() => {
-    const loadDrugs = async () => {
+    const loadDrugsIndex = async () => {
       try {
-        const response = await fetch('/drugs.json');
-        if (!response.ok) throw new Error('Failed to load drugs.json');
+        const response = await fetch('/drugs-index.json');
+        if (!response.ok) throw new Error('Failed to load drugs-index.json');
         const data = await response.json();
-        setDrugs(data.drugs);
+        setDrugIndex(data.drugs);
         if (data.drugs.length > 0) {
           setCurrentView({ type: 'drug', id: data.drugs[0].id });
         }
       } catch (error) {
-        console.error('Error loading drugs:', error);
-        setDrugs([]);
+        console.error('Error loading drugs index:', error);
+        setDrugIndex([]);
       } finally {
         setDrugsLoading(false);
       }
     };
 
-    loadDrugs();
+    loadDrugsIndex();
   }, []);
 
-  // --- Load Principles from JSON ---
+  // --- Load Principles Index from JSON ---
   useEffect(() => {
-    const loadPrinciples = async () => {
+    const loadPrinciplesIndex = async () => {
       try {
-        const response = await fetch('/principles.json');
-        if (!response.ok) throw new Error('Failed to load principles.json');
+        const response = await fetch('/principles-index.json');
+        if (!response.ok) throw new Error('Failed to load principles-index.json');
         const data = await response.json();
         // Combine receptors and hypotheses into a single array
-        const allPrinciples: Principle[] = [
-          ...data.receptors.map((r: any) => ({ ...r, type: 'receptor' as const })),
-          ...data.hypotheses.map((h: any) => ({ ...h, type: 'hypothesis' as const }))
+        const allPrinciples: PrincipleIndex[] = [
+          ...data.receptors,
+          ...data.hypotheses
         ];
-        setPrinciples(allPrinciples);
+        setPrincipleIndex(allPrinciples);
       } catch (error) {
-        console.error('Error loading principles:', error);
-        setPrinciples([]);
+        console.error('Error loading principles index:', error);
+        setPrincipleIndex([]);
       } finally {
         setPrinciplesLoading(false);
       }
     };
 
-    loadPrinciples();
+    loadPrinciplesIndex();
   }, []);
 
   // --- Theme Logic ---
@@ -123,10 +143,10 @@ const App: React.FC = () => {
     const last = history[history.length - 1];
     
     if (last.type === 'drug') {
-      const d = drugs.find(x => x.id === last.id);
+      const d = drugIndex.find(x => x.id === last.id);
       return d ? d.name_cn : '药物详情';
     } else {
-      const p = principles.find(x => x.id === last.id);
+      const p = principleIndex.find(x => x.id === last.id);
       return p ? p.title : '上一页';
     }
   };
@@ -139,18 +159,24 @@ const App: React.FC = () => {
     }
 
     if (currentView.type === 'drug') {
-      const drug = drugs.find(d => d.id === currentView.id);
-      if (!drug) return <div className="p-10 text-center">Drug not found</div>;
-      return <DrugDetail drug={drug} isDarkMode={isDarkMode} onNavigate={handleNavigate} />;
+      return (
+        <DrugDetail 
+          drugId={currentView.id}
+          isDarkMode={isDarkMode} 
+          onNavigate={handleNavigate}
+          cache={drugCache}
+          setCache={setDrugCache}
+        />
+      );
     } else {
-      const principle = principles.find(p => p.id === currentView.id);
-      if (!principle) return <div className="p-10 text-center">Principle not found</div>;
       return (
         <PrincipleDetail 
-          principle={principle} 
+          principleId={currentView.id}
           onBack={history.length > 0 ? handleBack : undefined}
           backLabel={getBackLabel()}
           onNavigate={handleNavigate}
+          cache={principleCache}
+          setCache={setPrincipleCache}
         />
       );
     }
@@ -161,8 +187,8 @@ const App: React.FC = () => {
       
       {/* Sidebar */}
       <Sidebar 
-        drugs={drugs}
-        principles={principles}
+        drugs={drugIndex}
+        principles={principleIndex}
         currentView={currentView}
         onNavigate={handleSidebarNavigate} // Use Sidebar specific handler
         isOpen={isSidebarOpen}

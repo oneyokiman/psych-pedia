@@ -1,16 +1,72 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Drug } from '../types';
 import RadarViz from './RadarChart';
 import RichText from './RichText';
 import WikiContent from './WikiContent';
 
 interface DrugDetailProps {
-  drug: Drug;
+  drugId: string;
   isDarkMode: boolean;
   onNavigate: (type: 'principle', id: string) => void;
+  cache: Map<string, Drug>;
+  setCache: React.Dispatch<React.SetStateAction<Map<string, Drug>>>;
 }
 
-const DrugDetail: React.FC<DrugDetailProps> = ({ drug, isDarkMode, onNavigate }) => {
+const DrugDetail: React.FC<DrugDetailProps> = ({ drugId, isDarkMode, onNavigate, cache, setCache }) => {
+  const [drug, setDrug] = useState<Drug | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadDrugDetail = async () => {
+      // Check cache first
+      if (cache.has(drugId)) {
+        setDrug(cache.get(drugId)!);
+        setLoading(false);
+        return;
+      }
+
+      // Load from server
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await fetch(`/drugs/${drugId}.json`);
+        if (!response.ok) throw new Error(`Failed to load drug: ${drugId}`);
+        const data = await response.json();
+        setDrug(data);
+        
+        // Update cache
+        setCache(prev => new Map(prev).set(drugId, data));
+      } catch (err) {
+        console.error('Error loading drug detail:', err);
+        setError(err instanceof Error ? err.message : 'Unknown error');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadDrugDetail();
+  }, [drugId, cache, setCache]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-500 mx-auto mb-4"></div>
+          <p className="text-slate-500 dark:text-slate-400">加载药物详情中...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !drug) {
+    return (
+      <div className="p-10 text-center">
+        <div className="text-red-500 dark:text-red-400 mb-2">❌ 加载失败</div>
+        <p className="text-slate-500 dark:text-slate-400">{error || 'Drug not found'}</p>
+      </div>
+    );
+  }
   
   const getPearlColor = (type: string) => {
     switch (type) {

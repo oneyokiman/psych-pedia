@@ -1,17 +1,82 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Principle } from '../types';
 import RichText from './RichText';
 import WikiContent from './WikiContent';
 
 interface PrincipleDetailProps {
-  principle: Principle;
+  principleId: string;
   onBack?: () => void;
   backLabel?: string | null;
   onNavigate: (type: 'principle', id: string) => void;
   isDarkMode?: boolean;
+  cache: Map<string, Principle>;
+  setCache: React.Dispatch<React.SetStateAction<Map<string, Principle>>>;
 }
 
-const PrincipleDetail: React.FC<PrincipleDetailProps> = ({ principle, onBack, backLabel, onNavigate, isDarkMode = true }) => {
+const PrincipleDetail: React.FC<PrincipleDetailProps> = ({ 
+  principleId, 
+  onBack, 
+  backLabel, 
+  onNavigate, 
+  isDarkMode = true,
+  cache,
+  setCache
+}) => {
+  const [principle, setPrinciple] = useState<Principle | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadPrincipleDetail = async () => {
+      // Check cache first
+      if (cache.has(principleId)) {
+        setPrinciple(cache.get(principleId)!);
+        setLoading(false);
+        return;
+      }
+
+      // Load from server
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await fetch(`/principles/${principleId}.json`);
+        if (!response.ok) throw new Error(`Failed to load principle: ${principleId}`);
+        const data = await response.json();
+        setPrinciple(data);
+        
+        // Update cache
+        setCache(prev => new Map(prev).set(principleId, data));
+      } catch (err) {
+        console.error('Error loading principle detail:', err);
+        setError(err instanceof Error ? err.message : 'Unknown error');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadPrincipleDetail();
+  }, [principleId, cache, setCache]);
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-500 mx-auto mb-4"></div>
+          <p className="text-slate-500 dark:text-slate-400">加载原理详情中...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error || !principle) {
+    return (
+      <div className="p-10 text-center">
+        <div className="text-red-500 dark:text-red-400 mb-2">❌ 加载失败</div>
+        <p className="text-slate-500 dark:text-slate-400">{error || 'Principle not found'}</p>
+      </div>
+    );
+  }
+  
   return (
     <div className="max-w-4xl mx-auto py-8 animate-fade-in">
       

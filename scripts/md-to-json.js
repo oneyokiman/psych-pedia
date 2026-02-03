@@ -79,7 +79,7 @@ function readMarkdownFiles(dir, isPrinciples = false) {
 
 // Main sync function
 async function sync() {
-  console.log('🔄 Starting Markdown to JSON sync...\n');
+  console.log('🔄 Starting Markdown to JSON sync (Lazy Loading Mode)...\n');
   
   const projectRoot = path.resolve(__dirname, '..');
   const contentDir = path.join(projectRoot, 'content');
@@ -88,8 +88,18 @@ async function sync() {
   const drugsMdDir = path.join(contentDir, 'drugs');
   const principlesMdDir = path.join(contentDir, 'principles');
   
-  const drugsJsonPath = path.join(publicDir, 'drugs.json');
-  const principlesJsonPath = path.join(publicDir, 'principles.json');
+  const drugsIndexPath = path.join(publicDir, 'drugs-index.json');
+  const principlesIndexPath = path.join(publicDir, 'principles-index.json');
+  const drugsDetailDir = path.join(publicDir, 'drugs');
+  const principlesDetailDir = path.join(publicDir, 'principles');
+  
+  // Create detail directories if they don't exist
+  if (!fs.existsSync(drugsDetailDir)) {
+    fs.mkdirSync(drugsDetailDir, { recursive: true });
+  }
+  if (!fs.existsSync(principlesDetailDir)) {
+    fs.mkdirSync(principlesDetailDir, { recursive: true });
+  }
   
   // Check if content directory exists
   if (!fs.existsSync(contentDir)) {
@@ -98,41 +108,30 @@ async function sync() {
     process.exit(1);
   }
   
-  // Read existing JSON to preserve template and comments
-  let drugsTemplate = {};
-  let drugsInstructions = '';
-  if (fs.existsSync(drugsJsonPath)) {
-    const existingDrugs = JSON.parse(fs.readFileSync(drugsJsonPath, 'utf-8'));
-    drugsTemplate = existingDrugs._template || {};
-    drugsInstructions = existingDrugs._instructions || '';
-  }
-  
-  let principlesTemplate = {};
-  let principlesInstructions = '';
-  if (fs.existsSync(principlesJsonPath)) {
-    const existingPrinciples = JSON.parse(fs.readFileSync(principlesJsonPath, 'utf-8'));
-    principlesTemplate = existingPrinciples._template || {};
-    principlesInstructions = existingPrinciples._instructions || '';
-  }
-  
   // Read and parse drugs
   console.log('📦 Processing drugs...');
   const drugs = readMarkdownFiles(drugsMdDir, false);
+  
+  // Build drugs index (lightweight - only basic info for sidebar)
+  const drugsIndex = drugs.map(drug => ({
+    id: drug.id,
+    name_cn: drug.name_cn,
+    name_en: drug.name_en,
+    category: drug.category,
+    tags: drug.tags || []
+  })).sort((a, b) => a.id.localeCompare(b.id));
+  
+  // Write individual drug detail files
+  drugs.forEach(drug => {
+    const detailPath = path.join(drugsDetailDir, `${drug.id}.json`);
+    fs.writeFileSync(detailPath, JSON.stringify(drug, null, 2), 'utf-8');
+  });
   
   // Read and parse principles
   console.log('\n📚 Processing principles...');
   const principles = readMarkdownFiles(principlesMdDir, true);
   
-  // Build drugs.json
-  const drugsJson = {
-    "_comment": "==================== Psych-Pedia 药物数据库 ====================",
-    "_instructions": drugsInstructions || "如何添加新的药物条目：1. 编辑 content/drugs/ 中的 .md 文件，2. 运行 npm run sync 同步到 JSON，3. 刷新浏览器查看更改。所有字段请参考模板。",
-    "_template": drugsTemplate,
-    "drugs": drugs.sort((a, b) => a.id.localeCompare(b.id))
-  };
-  
-  // Build principles.json - separate by type for backward compatibility
-  // Separate receptors (includes receptor, transporter, ion_channel) from hypotheses
+  // Separate receptors and hypotheses
   const receptors = principles
     .filter(p => p.type === 'receptor' || p.type === 'transporter' || p.type === 'ion_channel')
     .sort((a, b) => a.id.localeCompare(b.id));
@@ -141,27 +140,52 @@ async function sync() {
     .filter(p => p.type === 'hypothesis')
     .sort((a, b) => a.id.localeCompare(b.id));
   
-  const principlesJson = {
-    "_comment": "==================== Psych-Pedia 原理数据库 ====================",
-    "_instructions": principlesInstructions || "本文件定义了药物雷达图(stahl_radar)中各维度的详细生物学含义及精神科核心假说。",
-    "_template": principlesTemplate,
-    "receptors": receptors,
-    "hypotheses": hypotheses
+  // Build principles index (lightweight)
+  const principlesIndex = {
+    receptors: receptors.map(p => ({
+      id: p.id,
+      title: p.title,
+      type: p.type,
+      description: p.description || ''
+    })),
+    hypotheses: hypotheses.map(p => ({
+      id: p.id,
+      title: p.title,
+      type: p.type,
+      description: p.description || ''
+    }))
   };
   
-  // Write JSON files
-  fs.writeFileSync(drugsJsonPath, JSON.stringify(drugsJson, null, 2), 'utf-8');
-  fs.writeFileSync(principlesJsonPath, JSON.stringify(principlesJson, null, 2), 'utf-8');
+  // Write individual principle detail files
+  principles.forEach(principle => {
+    const detailPath = path.join(principlesDetailDir, `${principle.id}.json`);
+    fs.writeFileSync(detailPath, JSON.stringify(principle, null, 2), 'utf-8');
+  });
+  
+  // Write index files
+  fs.writeFileSync(drugsIndexPath, JSON.stringify({
+    "_comment": "Drugs Index - Lightweight list for sidebar navigation",
+    "drugs": drugsIndex
+  }, null, 2), 'utf-8');
+  
+  fs.writeFileSync(principlesIndexPath, JSON.stringify({
+    "_comment": "Principles Index - Lightweight list for sidebar navigation",
+    ...principlesIndex
+  }, null, 2), 'utf-8');
   
   console.log('\n' + '='.repeat(50));
   console.log('✅ Sync completed successfully!');
   console.log('='.repeat(50));
   console.log(`📊 Summary:`);
-  console.log(`   - Drugs synced: ${drugs.length}`);
-  console.log(`   - Principles synced: ${principles.length}`);
+  console.log(`   - Drugs indexed: ${drugsIndex.length}`);
+  console.log(`   - Drug detail files: ${drugs.length}`);
+  console.log(`   - Principles indexed: ${principles.length}`);
+  console.log(`   - Principle detail files: ${principles.length}`);
   console.log(`\n📝 Output files:`);
-  console.log(`   - ${drugsJsonPath}`);
-  console.log(`   - ${principlesJsonPath}`);
+  console.log(`   - Index: ${drugsIndexPath}`);
+  console.log(`   - Index: ${principlesIndexPath}`);
+  console.log(`   - Details: ${drugsDetailDir}/*.json`);
+  console.log(`   - Details: ${principlesDetailDir}/*.json`);
   console.log(`\n🎉 You can now refresh your browser to see the changes!\n`);
 }
 

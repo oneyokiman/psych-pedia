@@ -1,0 +1,63 @@
+{
+  "id": "trazodone",
+  "name_cn": "曲唑酮",
+  "name_en": "Trazodone",
+  "category": "SARI",
+  "tags": [
+    "强效催眠",
+    "性功能保护",
+    "体位性低血压"
+  ],
+  "stahl_radar": {
+    "labels": [
+      "5HT2A",
+      "H1",
+      "Alpha1",
+      "SERT",
+      "5HT1A"
+    ],
+    "values": [
+      9.8,
+      8.5,
+      9,
+      5,
+      6
+    ],
+    "link_ids": [
+      "5ht2a",
+      "h1",
+      "alpha1",
+      "sert",
+      "5ht1a"
+    ]
+  },
+  "pearls": [
+    {
+      "title": "失眠联用金三角",
+      "type": "success",
+      "content": "低剂量（50-150mg）主要依赖 H1 和 Alpha1 阻断发挥强效催眠作用，常用于与其他抗抑郁药联用治疗失眠，且无依赖性。"
+    },
+    {
+      "title": "抗抑郁剂量",
+      "type": "info",
+      "content": "只有高剂量（200-400mg）时，对 SERT 的阻断作用才足够，用于治疗抑郁症。但此时副作用（如镇静、体位性低血压）显著增加。"
+    },
+    {
+      "title": "阴茎异常勃起",
+      "type": "danger",
+      "content": "罕见但严重的副作用，与 Alpha1 阻断相关。发生时需立即就医，若超过 4-6 小时可导致永久性损伤。"
+    }
+  ],
+  "pk_data": {
+    "half_life": "3-6h (分两次释放)",
+    "protein_binding": "90%",
+    "metabolism": "CYP3A4",
+    "peak_time": "1h (IR) / 4h (ER)"
+  },
+  "market_info": {
+    "price": "$",
+    "insurance": "甲类医保",
+    "pregnancy": "C类"
+  },
+  "wiki_content": "# 曲唑酮 (Trazodone)\n\n> 此药物尚无详细百科内容。请在此处添加详细信息。\n\n## 作用机制\n\n（待补充）\n\n## 临床应用\n\n（待补充）\n\n## 不良反应\n\n（待补充）"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "alprazolam",
+  "name_cn": "阿普唑仑",
+  "name_en": "Alprazolam",
+  "category": "Benzodiazepine",
+  "tags": [
+    "惊恐发作",
+    "短效",
+    "高成瘾性"
+  ],
+  "stahl_radar": {
+    "labels": [
+      "GABA-A",
+      "Alpha1",
+      "Alpha2",
+      "Alpha3",
+      "Alpha5"
+    ],
+    "values": [
+      9.5,
+      9,
+      9,
+      9,
+      9
+    ],
+    "link_ids": [
+      "gabaa",
+      "alpha1",
+      "alpha2",
+      "alpha3",
+      "alpha5"
+    ]
+  },
+  "pearls": [
+    {
+      "title": "惊恐阻断剂",
+      "type": "success",
+      "content": "起效极快（口服20分钟），是惊恐发作（Panic Attack）急性期的首选“灭火器”。"
+    },
+    {
+      "title": "“钟摆”效应",
+      "type": "danger",
+      "content": "由于半衰期短（12-15h），药效过后焦虑症状可能出现“反跳”（Rebound），导致患者产生强烈的心理依赖和频繁服药需求。"
+    },
+    {
+      "title": "抑郁伴焦虑",
+      "type": "info",
+      "content": "说明书提示对伴有精神抑郁的病人应慎用，因可能加重抑郁或导致自杀倾向（去抑制效应）。"
+    }
+  ],
+  "pk_data": {
+    "half_life": "12-15h",
+    "protein_binding": "80%",
+    "metabolism": "CYP3A4",
+    "peak_time": "1-2h"
+  },
+  "market_info": {
+    "price": "$",
+    "insurance": "甲类医保",
+    "pregnancy": "D类"
+  },
+  "wiki_content": "# 阿普唑仑 (Alprazolam)\n\n> 此药物尚无详细百科内容。请在此处添加详细信息。\n\n## 作用机制\n\n（待补充）\n\n## 临床应用\n\n（待补充）\n\n## 不良反应\n\n（待补充）"
+}

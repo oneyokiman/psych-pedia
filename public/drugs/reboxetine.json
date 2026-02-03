@@ -1,0 +1,63 @@
+{
+  "id": "reboxetine",
+  "name_cn": "瑞波西汀",
+  "name_en": "Reboxetine",
+  "category": "NRI",
+  "tags": [
+    "纯NRI",
+    "激活",
+    "心率/血压"
+  ],
+  "stahl_radar": {
+    "labels": [
+      "NET",
+      "DAT",
+      "SERT",
+      "Alpha1",
+      "M1"
+    ],
+    "values": [
+      9.5,
+      1,
+      0.5,
+      6,
+      1
+    ],
+    "link_ids": [
+      "net",
+      "dat",
+      "sert",
+      "alpha1",
+      "m1"
+    ]
+  },
+  "pearls": [
+    {
+      "title": "纯粹的兴奋剂",
+      "type": "info",
+      "content": "高度选择性的去甲肾上腺素再摄取抑制剂（NRI），主要用于改善抑郁症中的兴趣缺乏、动力不足等症状。"
+    },
+    {
+      "title": "难治性联用",
+      "type": "success",
+      "content": "常用于与 SSRI 联用（“双通道”策略），以引入 NE 神经递质，增强抗抑郁效果，适用于对单一 SSRI 无效的患者。"
+    },
+    {
+      "title": "NE副作用",
+      "type": "danger",
+      "content": "由于其纯粹的 NE 增强作用，常见副作用包括心率加快、出汗增多、失眠、排尿困难（Alpha1 阻断）和血压升高。"
+    }
+  ],
+  "pk_data": {
+    "half_life": "13h",
+    "protein_binding": "97%",
+    "metabolism": "CYP3A4",
+    "peak_time": "2h"
+  },
+  "market_info": {
+    "price": "$$",
+    "insurance": "乙类医保",
+    "pregnancy": "C类"
+  },
+  "wiki_content": "# 瑞波西汀 (Reboxetine)\n\n> 此药物尚无详细百科内容。请在此处添加详细信息。\n\n## 作用机制\n\n（待补充）\n\n## 临床应用\n\n（待补充）\n\n## 不良反应\n\n（待补充）"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "atomoxetine",
+  "name_cn": "托莫西汀",
+  "name_en": "Atomoxetine",
+  "category": "ADHD Non-Stimulant",
+  "tags": [
+    "非兴奋剂",
+    "全天有效",
+    "自杀警示"
+  ],
+  "stahl_radar": {
+    "labels": [
+      "NET",
+      "DAT(PFC)",
+      "SERT",
+      "M1",
+      "H1"
+    ],
+    "values": [
+      9,
+      6,
+      1,
+      1,
+      0.5
+    ],
+    "link_ids": [
+      "net",
+      "dat_pfc",
+      "sert",
+      "m1",
+      "h1"
+    ]
+  },
+  "pearls": [
+    {
+      "title": "前额叶特异性",
+      "type": "info",
+      "content": "作为NRI，它在前额叶（缺乏DAT）通过阻断NET来增加多巴胺，但在纹状体（富含DAT）不增加多巴胺。因此不引起成瘾或抽动。"
+    },
+    {
+      "title": "起效缓冲期",
+      "type": "warning",
+      "content": "与兴奋剂的“即刻起效”不同，托莫西汀需要2-4周甚至更久才能发挥最大疗效。需告知家长耐心等待。"
+    },
+    {
+      "title": "黑框警告",
+      "type": "danger",
+      "content": "说明书提示可能增加儿童和青少年的自杀意念（发生率约0.4%），尤其在治疗初期。极少数病例可能出现严重肝损伤。"
+    }
+  ],
+  "pk_data": {
+    "half_life": "5h (慢代谢者24h)",
+    "protein_binding": "98%",
+    "metabolism": "CYP2D6",
+    "peak_time": "1-2h"
+  },
+  "market_info": {
+    "price": "$$",
+    "insurance": "乙类医保",
+    "pregnancy": "C类"
+  },
+  "wiki_content": "# 托莫西汀 (Atomoxetine)\n\n> 此药物尚无详细百科内容。请在此处添加详细信息。\n\n## 作用机制\n\n（待补充）\n\n## 临床应用\n\n（待补充）\n\n## 不良反应\n\n（待补充）"
+}
