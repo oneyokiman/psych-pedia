@@ -2,7 +2,7 @@
 id: "escitalopram"
 name_cn: "艾司西酞普兰"
 name_en: "Escitalopram"
-category: "SSRI"
+category: "选择性血清素转运体抑制剂（SSRI）"
 tags:
   - "高选择性"
   - "起效快"

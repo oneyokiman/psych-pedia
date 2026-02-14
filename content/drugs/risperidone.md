@@ -2,7 +2,7 @@
 id: "risperidone"
 name_cn: "利培酮"
 name_en: "Risperidone"
-category: "SGA"
+category: "第二代抗精神病药（SGA）"
 tags:
   - "经典SGA"
   - "高泌乳素"

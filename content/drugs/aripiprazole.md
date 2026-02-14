@@ -2,7 +2,7 @@
 id: "aripiprazole"
 name_cn: "阿立哌唑"
 name_en: "Aripiprazole"
-category: "SGA"
+category: "第二代抗精神病药（SGA）"
 tags:
   - "D2部分激动剂"
   - "不镇静"

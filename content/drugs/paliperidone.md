@@ -2,7 +2,7 @@
 id: "paliperidone"
 name_cn: "帕利哌酮"
 name_en: "Paliperidone"
-category: "SGA"
+category: "第二代抗精神病药（SGA）"
 tags:
   - "肝脏安全"
   - "OROS技术"

@@ -2,7 +2,7 @@
 id: "clonazepam"
 name_cn: "氯硝西泮"
 name_en: "Clonazepam"
-category: "Benzodiazepine"
+category: "苯二氮䓬类（BZD）"
 tags:
   - "长效"
   - "强效"
@@ -57,6 +57,8 @@ market_info:
 ## 作用机制
 
 （待补充）
+
+
 
 ## 临床应用
 

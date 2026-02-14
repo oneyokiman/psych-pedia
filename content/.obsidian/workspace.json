@@ -4,136 +4,23 @@
     "type": "split",
     "children": [
       {
-        "id": "f9ae33725abbb398",
+        "id": "57fb8de0dafdd2f7",
         "type": "tabs",
         "children": [
           {
-            "id": "file-explorer",
+            "id": "dc31730a1212a527",
             "type": "leaf",
             "state": {
-              "type": "file-explorer",
+              "type": "bases",
               "state": {
-                "sortOrder": "alphabetical",
-                "autoReveal": false
+                "file": "未命名 2.base",
+                "viewName": "表格"
               },
-              "icon": "lucide-folder-closed",
-              "title": "文件列表"
-            }
-          },
-          {
-            "id": "fa5ff4fa0f1a629d",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "principles/5ht1a.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "5ht1a"
-            }
-          },
-          {
-            "id": "a71479659a2073c7",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "README"
-            }
-          },
-          {
-            "id": "e2a74b97412328cf",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "drugs/agomelatine.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "agomelatine"
-            }
-          },
-          {
-            "id": "2ca22b7a10697966",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "drugs/aripiprazole.md",
-                "mode": "preview",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "aripiprazole"
-            }
-          },
-          {
-            "id": "46b4be7c5ed09dcb",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "drugs/KarXT.md",
-                "mode": "source",
-                "source": true
-              },
-              "icon": "lucide-file",
-              "title": "KarXT"
-            }
-          },
-          {
-            "id": "ce85148f187591e3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "README"
-            }
-          },
-          {
-            "id": "5957eb54694d9b58",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "principles/d2.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "d2"
-            }
-          },
-          {
-            "id": "1fd8b15d0aee2272",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "principles/5ht2c.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "5ht2c"
+              "icon": "lucide-table",
+              "title": "未命名 2"
             }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "vertical"
@@ -172,13 +59,25 @@
               "icon": "lucide-bookmark",
               "title": "书签"
             }
+          },
+          {
+            "id": "f636282e4ea9be13",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "fecf667a6c3820c1",
@@ -194,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "drugs/aripiprazole.md",
+                "file": "未命名 2.base",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -204,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "aripiprazole 的反向链接列表"
+              "title": "未命名 2 的反向链接列表"
             }
           },
           {
@@ -274,6 +173,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "templater-obsidian:Templater": false,
       "switcher:打开快速切换": false,
       "graph:查看关系图谱": false,
       "canvas:新建白板": false,
@@ -283,16 +183,38 @@
       "bases:新建数据库": false
     }
   },
-  "active": "46b4be7c5ed09dcb",
+  "active": "dc31730a1212a527",
   "lastOpenFiles": [
-    "principles/5ht2c.md",
-    "drugs/KarXT.md",
-    "drugs/aripiprazole.md",
-    "drugs/agomelatine.md",
+    "principles/dat.md",
+    "未命名 2.canvas",
+    "drugs/clonazepam.md",
+    "2026-02-08.md",
+    "未命名 1.canvas",
+    "未命名 2.base",
+    "未命名.canvas",
+    "drugs/quetiapine.md",
+    "drugs/clozapine.md",
+    "open.md",
+    "drugs/assets/quetiapine/file-20260203221141532.png",
+    "drugs/assets/clonazepam/file-20260203215243891.png",
+    "drugs/assets/clonazepam/file-20260203215213896.png",
+    "drugs/assets/clonazepam",
+    "drugs/assets/quetiapine/file-20260203215141053.png",
+    "drugs/assets/quetiapine/706fc0143db636ccb94bfea38b6941a2 1.jpeg",
+    "drugs/assets/quetiapine/706fc0143db636ccb94bfea38b6941a2.jpeg",
+    "principles/5ht1a.md",
+    "drugs/assets/quetiapine",
+    "drugs/assets",
+    "706fc0143db636ccb94bfea38b6941a2.jpeg",
+    "未命名 1.base",
+    "未命名.base",
     "README.md",
-    "principles/d2.md",
-    "drugs/alprazolam.md",
     "Pasted image 20260201172235.png",
-    "principles/5ht1a.md"
+    "drugs/agomelatine.md",
+    "drugs/KarXT.md",
+    "principles/5ht2c.md",
+    "drugs/aripiprazole.md",
+    "principles/d2.md",
+    "drugs/alprazolam.md"
   ]
 }

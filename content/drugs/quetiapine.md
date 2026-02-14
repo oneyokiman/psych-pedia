@@ -2,7 +2,7 @@
 id: "quetiapine"
 name_cn: "喹硫平"
 name_en: "Quetiapine"
-category: "SGA"
+category: "第二代抗精神病药（SGA）"
 tags:
   - "镇静"
   - "低EPS"
@@ -52,9 +52,11 @@ market_info:
 
 # 喹硫平 (Quetiapine)
 
-> 此药物尚无详细百科内容。请在此处添加详细信息。
+> 喹硫平的作用随着剂量呈现出三个不同的效应。低剂量安眠，中剂量抗抑郁、焦虑，高剂量抗精神病。
 
-## 作用机制
+机制
+![706fc0143db636ccb94bfea38b6941a2.jpeg](https://gcore.jsdelivr.net/gh/oneyokiman/obsidian-images@main/26/1121111922061182542041857525416313910565162_gopic_.jpg)
+
 
 （待补充）
 

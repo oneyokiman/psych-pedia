@@ -2,7 +2,7 @@
 id: "carbamazepine"
 name_cn: "卡马西平"
 name_en: "Carbamazepine"
-category: "Mood Stabilizer"
+category: "情绪稳定剂"
 tags:
   - "双相躁狂"
   - "肝酶诱导"

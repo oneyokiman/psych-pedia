@@ -2,30 +2,11 @@
 id: "valproate"
 name_cn: "丙戊酸钠"
 name_en: "Sodium Valproate"
-category: "Mood Stabilizer"
+category: "情绪稳定剂"
 tags:
   - "广谱"
   - "致畸"
   - "GABA增强"
-stahl_radar:
-  labels:
-    - "GABA-T"
-    - "Na+Channel"
-    - "T-Type Ca"
-    - "Glu"
-    - "H1"
-  values:
-    - 8.5
-    - 8
-    - 6
-    - 5
-    - 1
-  link_ids:
-    - "gabat"
-    - "nachannel"
-    - "ttypeca"
-    - "glu"
-    - "h1"
 pearls:
   -
       title: "快速起效"

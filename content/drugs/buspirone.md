@@ -2,7 +2,7 @@
 id: "buspirone"
 name_cn: "丁螺环酮"
 name_en: "Buspirone"
-category: "Anxiolytic"
+category: "抗焦虑药"
 tags:
   - "5-HT1A激动"
   - "不镇静"

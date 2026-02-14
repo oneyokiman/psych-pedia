@@ -2,7 +2,7 @@
 id: "vortioxetine"
 name_cn: "伏硫西汀"
 name_en: "Vortioxetine"
-category: "SMS"
+category: "血清素调制剂（SMS）"
 tags:
   - "多模式"
   - "改善认知"

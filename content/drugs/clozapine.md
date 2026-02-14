@@ -2,7 +2,7 @@
 id: "clozapine"
 name_cn: "氯氮平"
 name_en: "Clozapine"
-category: "SGA"
+category: "第二代抗精神病药（SGA）"
 tags:
   - "难治性金标准"
   - "自杀干预"

@@ -2,7 +2,7 @@
 id: "alprazolam"
 name_cn: "阿普唑仑"
 name_en: "Alprazolam"
-category: "Benzodiazepine"
+category: "苯二氮䓬类（BZD）"
 tags:
   - "惊恐发作"
   - "短效"

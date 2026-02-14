@@ -16,7 +16,7 @@
       "id": "alprazolam",
       "name_cn": "阿普唑仑",
       "name_en": "Alprazolam",
-      "category": "Benzodiazepine",
+      "category": "苯二氮䓬类（BZD）",
       "tags": [
         "惊恐发作",
         "短效",
@@ -27,7 +27,7 @@
       "id": "amisulpride",
       "name_cn": "氨磺必利",
       "name_en": "Amisulpride",
-      "category": "SGA",
+      "category": "第二代抗精神病药（SGA）",
       "tags": [
         "D2/D3阻断",
         "不经肝脏代谢",
@@ -38,7 +38,7 @@
       "id": "aripiprazole",
       "name_cn": "阿立哌唑",
       "name_en": "Aripiprazole",
-      "category": "SGA",
+      "category": "第二代抗精神病药（SGA）",
       "tags": [
         "D2部分激动剂",
         "不镇静",
@@ -49,7 +49,7 @@
       "id": "atomoxetine",
       "name_cn": "托莫西汀",
       "name_en": "Atomoxetine",
-      "category": "ADHD Non-Stimulant",
+      "category": "ADHD 非刺激类药物",
       "tags": [
         "非兴奋剂",
         "全天有效",
@@ -60,7 +60,7 @@
       "id": "bupropion",
       "name_cn": "安非他酮",
       "name_en": "Bupropion",
-      "category": "NDRI",
+      "category": "去甲肾-多巴胺转运体抑制剂（NDRI）",
       "tags": [
         "激活",
         "戒烟",
@@ -71,7 +71,7 @@
       "id": "buspirone",
       "name_cn": "丁螺环酮",
       "name_en": "Buspirone",
-      "category": "Anxiolytic",
+      "category": "抗焦虑药",
       "tags": [
         "5-HT1A激动",
         "不镇静",
@@ -82,7 +82,7 @@
       "id": "carbamazepine",
       "name_cn": "卡马西平",
       "name_en": "Carbamazepine",
-      "category": "Mood Stabilizer",
+      "category": "情绪稳定剂",
       "tags": [
         "双相躁狂",
         "肝酶诱导",
@@ -105,7 +105,7 @@
       "id": "clomipramine",
       "name_cn": "氯米帕明",
       "name_en": "Clomipramine",
-      "category": "TCA",
+      "category": "三环抗抑郁药（TCA）",
       "tags": [
         "OCD金标准",
         "强抗胆碱",
@@ -116,7 +116,7 @@
       "id": "clonazepam",
       "name_cn": "氯硝西泮",
       "name_en": "Clonazepam",
-      "category": "Benzodiazepine",
+      "category": "苯二氮䓬类（BZD）",
       "tags": [
         "长效",
         "强效",
@@ -127,7 +127,7 @@
       "id": "clozapine",
       "name_cn": "氯氮平",
       "name_en": "Clozapine",
-      "category": "SGA",
+      "category": "第二代抗精神病药（SGA）",
       "tags": [
         "难治性金标准",
         "自杀干预",
@@ -138,7 +138,7 @@
       "id": "duloxetine",
       "name_cn": "度洛西汀",
       "name_en": "Duloxetine",
-      "category": "SNRI",
+      "category": "血清素-去甲肾上腺素转运体抑制剂（SNRI）",
       "tags": [
         "抗抑郁",
         "镇痛",
@@ -149,7 +149,7 @@
       "id": "escitalopram",
       "name_cn": "艾司西酞普兰",
       "name_en": "Escitalopram",
-      "category": "SSRI",
+      "category": "选择性血清素转运体抑制剂（SSRI）",
       "tags": [
         "高选择性",
         "起效快",
@@ -160,7 +160,7 @@
       "id": "eszopiclone",
       "name_cn": "右佐匹克隆",
       "name_en": "Eszopiclone",
-      "category": "Z-Drug",
+      "category": "非苯二氮䓬类催眠药（Z-Drug）",
       "tags": [
         "早醒",
         "金属味",
@@ -171,7 +171,7 @@
       "id": "fluoxetine",
       "name_cn": "氟西汀",
       "name_en": "Fluoxetine",
-      "category": "SSRI",
+      "category": "选择性血清素转运体抑制剂（SSRI）",
       "tags": [
         "长半衰期",
         "激活效应",
@@ -194,7 +194,7 @@
       "id": "fluvoxamine",
       "name_cn": "氟伏沙明",
       "name_en": "Fluvoxamine",
-      "category": "SSRI",
+      "category": "选择性血清素转运体抑制剂（SSRI）",
       "tags": [
         "Sigma1激动",
         "强迫症",
@@ -227,7 +227,7 @@
       "id": "lamotrigine",
       "name_cn": "拉莫三嗪",
       "name_en": "Lamotrigine",
-      "category": "Mood Stabilizer",
+      "category": "情绪稳定剂",
       "tags": [
         "双相抑郁",
         "慢滴定",
@@ -238,7 +238,7 @@
       "id": "lithium",
       "name_cn": "碳酸锂",
       "name_en": "Lithium Carbonate",
-      "category": "Mood Stabilizer",
+      "category": "情绪稳定剂",
       "tags": [
         "自杀预防",
         "治疗窗窄",
@@ -249,7 +249,7 @@
       "id": "lurasidone",
       "name_cn": "鲁拉西酮",
       "name_en": "Lurasidone",
-      "category": "SGA",
+      "category": "第二代抗精神病药（SGA）",
       "tags": [
         "必须餐后",
         "双相抑郁",
@@ -260,7 +260,7 @@
       "id": "methylphenidate",
       "name_cn": "哌甲酯",
       "name_en": "Methylphenidate",
-      "category": "ADHD Stimulant",
+      "category": "ADHD 刺激类药物",
       "tags": [
         "多巴胺阻断",
         "专注力",
@@ -271,7 +271,7 @@
       "id": "midazolam",
       "name_cn": "咪达唑仑",
       "name_en": "Midazolam",
-      "category": "Benzodiazepine",
+      "category": "苯二氮䓬类（BZD）",
       "tags": [
         "超短效",
         "术前镇静",
@@ -282,7 +282,7 @@
       "id": "mirtazapine",
       "name_cn": "米氮平",
       "name_en": "Mirtazapine",
-      "category": "NaSSA",
+      "category": "去甲肾-特异性血清素抗抑郁药（NaSSA）",
       "tags": [
         "增食欲",
         "助眠",
@@ -293,7 +293,7 @@
       "id": "olanzapine",
       "name_cn": "奥氮平",
       "name_en": "Olanzapine",
-      "category": "SGA",
+      "category": "第二代抗精神病药（SGA）",
       "tags": [
         "强效",
         "镇静",
@@ -304,7 +304,7 @@
       "id": "oxcarbazepine",
       "name_cn": "奥卡西平",
       "name_en": "Oxcarbazepine",
-      "category": "Mood Stabilizer",
+      "category": "情绪稳定剂",
       "tags": [
         "钠通道阻滞",
         "低钠血症",
@@ -315,7 +315,7 @@
       "id": "paliperidone",
       "name_cn": "帕利哌酮",
       "name_en": "Paliperidone",
-      "category": "SGA",
+      "category": "第二代抗精神病药（SGA）",
       "tags": [
         "肝脏安全",
         "OROS技术",
@@ -326,7 +326,7 @@
       "id": "paroxetine",
       "name_cn": "帕罗西汀",
       "name_en": "Paroxetine",
-      "category": "SSRI",
+      "category": "选择性血清素转运体抑制剂（SSRI）",
       "tags": [
         "强效抗焦虑",
         "抗胆碱能",
@@ -337,7 +337,7 @@
       "id": "pregabalin",
       "name_cn": "普瑞巴林",
       "name_en": "Pregabalin",
-      "category": "Anxiolytic/Analgesic",
+      "category": "抗焦虑/镇痛药",
       "tags": [
         "GAD",
         "神经痛",
@@ -348,7 +348,7 @@
       "id": "quetiapine",
       "name_cn": "喹硫平",
       "name_en": "Quetiapine",
-      "category": "SGA",
+      "category": "第二代抗精神病药（SGA）",
       "tags": [
         "镇静",
         "低EPS",
@@ -359,7 +359,7 @@
       "id": "reboxetine",
       "name_cn": "瑞波西汀",
       "name_en": "Reboxetine",
-      "category": "NRI",
+      "category": "去甲肾上腺素转运体抑制剂（NRI）",
       "tags": [
         "纯NRI",
         "激活",
@@ -370,7 +370,7 @@
       "id": "risperidone",
       "name_cn": "利培酮",
       "name_en": "Risperidone",
-      "category": "SGA",
+      "category": "第二代抗精神病药（SGA）",
       "tags": [
         "经典SGA",
         "高泌乳素",
@@ -381,7 +381,7 @@
       "id": "sertindole",
       "name_cn": "舍吲哚",
       "name_en": "Sertindole",
-      "category": "SGA",
+      "category": "第二代抗精神病药（SGA）",
       "tags": [
         "高D2/5HT2A",
         "低EPS",
@@ -392,7 +392,7 @@
       "id": "sertraline",
       "name_cn": "舍曲林",
       "name_en": "Sertraline",
-      "category": "SSRI",
+      "category": "选择性血清素转运体抑制剂（SSRI）",
       "tags": [
         "DAT抑制",
         "心脏安全",
@@ -414,7 +414,7 @@
       "id": "tianeptine",
       "name_cn": "噻奈普汀",
       "name_en": "Tianeptine",
-      "category": "SSRE",
+      "category": "选择性血清素转运体抑制剂（SSRE）",
       "tags": [
         "独特机制",
         "应激保护",
@@ -425,7 +425,7 @@
       "id": "topiramate",
       "name_cn": "托吡酯",
       "name_en": "Topiramate",
-      "category": "Mood Stabilizer Adjunct",
+      "category": "情绪稳定剂辅助药物",
       "tags": [
         "减肥",
         "认知减退",
@@ -436,7 +436,7 @@
       "id": "trazodone",
       "name_cn": "曲唑酮",
       "name_en": "Trazodone",
-      "category": "SARI",
+      "category": "5-HT2A拮抗剂/再摄取抑制剂（SARI）",
       "tags": [
         "强效催眠",
         "性功能保护",
@@ -447,7 +447,7 @@
       "id": "valproate",
       "name_cn": "丙戊酸钠",
       "name_en": "Sodium Valproate",
-      "category": "Mood Stabilizer",
+      "category": "情绪稳定剂",
       "tags": [
         "广谱",
         "致畸",
@@ -458,7 +458,7 @@
       "id": "venlafaxine",
       "name_cn": "文拉法辛",
       "name_en": "Venlafaxine",
-      "category": "SNRI",
+      "category": "血清素-去甲肾上腺素转运体抑制剂（SNRI）",
       "tags": [
         "双重机制",
         "剂量依赖",
@@ -469,7 +469,7 @@
       "id": "vortioxetine",
       "name_cn": "伏硫西汀",
       "name_en": "Vortioxetine",
-      "category": "SMS",
+      "category": "血清素调制剂（SMS）",
       "tags": [
         "多模式",
         "改善认知",
@@ -480,7 +480,7 @@
       "id": "ziprasidone",
       "name_cn": "齐拉西酮",
       "name_en": "Ziprasidone",
-      "category": "SGA",
+      "category": "第二代抗精神病药（SGA）",
       "tags": [
         "餐后服用",
         "QTc延长",
@@ -491,7 +491,7 @@
       "id": "zolpidem",
       "name_cn": "唑吡坦",
       "name_en": "Zolpidem",
-      "category": "Z-Drug",
+      "category": "非苯二氮䓬类催眠药（Z-Drug）",
       "tags": [
         "入睡困难",
         "短效",
@@ -502,7 +502,7 @@
       "id": "zopiclone",
       "name_cn": "佐匹克隆",
       "name_en": "Zopiclone",
-      "category": "Z-Drug",
+      "category": "非苯二氮䓬类催眠药（Z-Drug）",
       "tags": [
         "广谱GABA-A",
         "入睡/维持",

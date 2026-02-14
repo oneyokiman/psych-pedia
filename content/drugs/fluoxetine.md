@@ -2,7 +2,7 @@
 id: "fluoxetine"
 name_cn: "氟西汀"
 name_en: "Fluoxetine"
-category: "SSRI"
+category: "选择性血清素转运体抑制剂（SSRI）"
 tags:
   - "长半衰期"
   - "激活效应"

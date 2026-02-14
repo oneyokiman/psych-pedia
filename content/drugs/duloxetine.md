@@ -2,7 +2,7 @@
 id: "duloxetine"
 name_cn: "度洛西汀"
 name_en: "Duloxetine"
-category: "SNRI"
+category: "血清素-去甲肾上腺素转运体抑制剂（SNRI）"
 tags:
   - "抗抑郁"
   - "镇痛"

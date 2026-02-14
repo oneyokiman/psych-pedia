@@ -2,7 +2,7 @@
 id: "sertraline"
 name_cn: "舍曲林"
 name_en: "Sertraline"
-category: "SSRI"
+category: "选择性血清素转运体抑制剂（SSRI）"
 tags:
   - "DAT抑制"
   - "心脏安全"

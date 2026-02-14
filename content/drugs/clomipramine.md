@@ -2,7 +2,7 @@
 id: "clomipramine"
 name_cn: "氯米帕明"
 name_en: "Clomipramine"
-category: "TCA"
+category: "三环抗抑郁药（TCA）"
 tags:
   - "OCD金标准"
   - "强抗胆碱"

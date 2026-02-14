@@ -2,7 +2,7 @@
 id: "eszopiclone"
 name_cn: "右佐匹克隆"
 name_en: "Eszopiclone"
-category: "Z-Drug"
+category: "非苯二氮䓬类催眠药（Z-Drug）"
 tags:
   - "早醒"
   - "金属味"

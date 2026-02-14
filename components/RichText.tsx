@@ -1,11 +1,12 @@
 import React from 'react';
 import { PRINCIPLES } from '../constants';
+import { NavigateType } from '../types';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 interface RichTextProps {
   content: string;
-  onNavigate: (type: 'principle', id: string) => void;
+  onNavigate: (type: NavigateType, id: string) => void;
 }
 
 const RichText: React.FC<RichTextProps> = ({ content, onNavigate }) => {

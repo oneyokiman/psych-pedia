@@ -2,7 +2,7 @@
 id: "trazodone"
 name_cn: "曲唑酮"
 name_en: "Trazodone"
-category: "SARI"
+category: "5-HT2A拮抗剂/再摄取抑制剂（SARI）"
 tags:
   - "强效催眠"
   - "性功能保护"

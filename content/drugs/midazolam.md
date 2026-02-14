@@ -2,7 +2,7 @@
 id: "midazolam"
 name_cn: "咪达唑仑"
 name_en: "Midazolam"
-category: "Benzodiazepine"
+category: "苯二氮䓬类（BZD）"
 tags:
   - "超短效"
   - "术前镇静"

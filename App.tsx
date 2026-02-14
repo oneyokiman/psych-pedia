@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Sidebar from './components/Sidebar';
 import DrugDetail from './components/DrugDetail';
 import PrincipleDetail from './components/PrincipleDetail';
-import { Drug, Principle } from './types';
+import EnzymeSummary from './components/EnzymeSummary';
+import { Drug, NavigateType, Principle } from './types';
 
 // Lightweight index types for sidebar
 interface DrugIndex {
@@ -21,7 +22,7 @@ interface PrincipleIndex {
 }
 
 interface ViewState {
-  type: 'drug' | 'principle';
+  type: NavigateType;
   id: string;
 }
 
@@ -106,7 +107,7 @@ const App: React.FC = () => {
   // --- Router Handlers ---
   
   // Drill-down navigation (Links, Radar) - Pushes to history
-  const handleNavigate = (type: 'drug' | 'principle', id: string) => {
+  const handleNavigate = (type: NavigateType, id: string) => {
     if (currentView.type === type && currentView.id === id) return;
     
     setHistory(prev => [...prev, currentView]);
@@ -119,7 +120,7 @@ const App: React.FC = () => {
   // Top-level navigation (Sidebar) - Resets history (Standard App Behavior)
   // or Pushes to history? For this app, sidebar clicks usually mean a new context.
   // We will reset history to avoid "Back" hell when switching between major drugs.
-  const handleSidebarNavigate = (type: 'drug' | 'principle', id: string) => {
+  const handleSidebarNavigate = (type: NavigateType, id: string) => {
     if (currentView.type === type && currentView.id === id) return;
     
     setHistory([]); // Reset history on major sidebar nav
@@ -145,10 +146,11 @@ const App: React.FC = () => {
     if (last.type === 'drug') {
       const d = drugIndex.find(x => x.id === last.id);
       return d ? d.name_cn : '药物详情';
-    } else {
+    } else if (last.type === 'principle') {
       const p = principleIndex.find(x => x.id === last.id);
       return p ? p.title : '上一页';
     }
+    return '酶汇总';
   };
 
   // --- Render Logic ---
@@ -168,7 +170,9 @@ const App: React.FC = () => {
           setCache={setDrugCache}
         />
       );
-    } else {
+    }
+
+    if (currentView.type === 'principle') {
       return (
         <PrincipleDetail 
           principleId={currentView.id}
@@ -180,6 +184,16 @@ const App: React.FC = () => {
         />
       );
     }
+
+    return (
+      <EnzymeSummary
+        enzymeId={currentView.id}
+        onBack={history.length > 0 ? handleBack : undefined}
+        backLabel={getBackLabel()}
+        onNavigate={handleNavigate}
+        isDarkMode={isDarkMode}
+      />
+    );
   };
 
   return (

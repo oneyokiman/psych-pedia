@@ -2,35 +2,12 @@
   "id": "lithium",
   "name_cn": "碳酸锂",
   "name_en": "Lithium Carbonate",
-  "category": "Mood Stabilizer",
+  "category": "情绪稳定剂",
   "tags": [
     "自杀预防",
     "治疗窗窄",
     "甲状腺"
   ],
-  "stahl_radar": {
-    "labels": [
-      "IMPase",
-      "GSK-3",
-      "Glu",
-      "GABA",
-      "DA"
-    ],
-    "values": [
-      8,
-      8,
-      5,
-      4,
-      3
-    ],
-    "link_ids": [
-      "impase",
-      "gsk3",
-      "glu",
-      "gaba",
-      "da"
-    ]
-  },
   "pearls": [
     {
       "title": "双相基石",

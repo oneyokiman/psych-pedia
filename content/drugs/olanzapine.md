@@ -2,7 +2,7 @@
 id: "olanzapine"
 name_cn: "奥氮平"
 name_en: "Olanzapine"
-category: "SGA"
+category: "第二代抗精神病药（SGA）"
 tags:
   - "强效"
   - "镇静"

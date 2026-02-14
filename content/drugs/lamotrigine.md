@@ -2,7 +2,7 @@
 id: "lamotrigine"
 name_cn: "拉莫三嗪"
 name_en: "Lamotrigine"
-category: "Mood Stabilizer"
+category: "情绪稳定剂"
 tags:
   - "双相抑郁"
   - "慢滴定"

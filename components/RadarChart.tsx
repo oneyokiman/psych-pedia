@@ -117,6 +117,20 @@ const RadarViz: React.FC<RadarVizProps> = ({ data, onLabelClick, isDarkMode }) =
     const item = chartData.find(d => d.subject === payload.value);
     const linkId = item ? item.linkId : '';
 
+    const formatRadarLabel = (label: string) => {
+      if (!label) return label;
+      const superscriptPlus = '\u207A';
+      const superscriptTwo = '\u00B2';
+      let formatted = label;
+
+      formatted = formatted.replace(/Na\+Channel/gi, `Na${superscriptPlus}通道`);
+      formatted = formatted.replace(/Ca2\+Channel/gi, `Ca${superscriptTwo}${superscriptPlus}通道`);
+      formatted = formatted.replace(/Ca\+Channel/gi, `Ca${superscriptTwo}${superscriptPlus}通道`);
+      formatted = formatted.replace(/Channel/gi, '通道');
+
+      return formatted;
+    };
+
     return (
       <g 
         className="cursor-pointer" 
@@ -132,7 +146,7 @@ const RadarViz: React.FC<RadarVizProps> = ({ data, onLabelClick, isDarkMode }) =
           fontFamily="system-ui, -apple-system, sans-serif"
           className="hover:fill-cyan-500 transition-colors duration-200"
         >
-          {payload.value}
+          {formatRadarLabel(payload.value)}
         </text>
       </g>
     );
@@ -164,7 +178,17 @@ const RadarViz: React.FC<RadarVizProps> = ({ data, onLabelClick, isDarkMode }) =
           }}
         >
           <p className="font-semibold text-sm text-slate-900 dark:text-slate-100 mb-1">
-            {data.subject}
+            {(() => {
+              const label = data.subject as string;
+              const superscriptPlus = '\u207A';
+              const superscriptTwo = '\u00B2';
+              let formatted = label;
+              formatted = formatted.replace(/Na\+Channel/gi, `Na${superscriptPlus}通道`);
+              formatted = formatted.replace(/Ca2\+Channel/gi, `Ca${superscriptTwo}${superscriptPlus}通道`);
+              formatted = formatted.replace(/Ca\+Channel/gi, `Ca${superscriptTwo}${superscriptPlus}通道`);
+              formatted = formatted.replace(/Channel/gi, '通道');
+              return formatted;
+            })()}
           </p>
           <p className="text-xs text-cyan-600 dark:text-cyan-400 mb-1">
             亲和力: <span className="font-mono font-bold">{data.A.toFixed(1)}</span>

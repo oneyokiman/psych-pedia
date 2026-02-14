@@ -40,6 +40,13 @@ export interface Pearl {
   content: string;
 }
 
+export type NavigateType = 'drug' | 'principle' | 'enzyme';
+
+export interface ImageData {
+  alt: string;
+  url: string;
+}
+
 export interface PKData {
   half_life: string;
   protein_binding: string;
@@ -64,6 +71,7 @@ export interface Drug {
   pearls: Pearl[];
   market_info: MarketInfo;
   pk_data: PKData;
+  images?: ImageData[]; // Images extracted from markdown content
   wiki_content?: string; // Markdown format encyclopedic content
 }
 
@@ -76,5 +84,6 @@ export interface Principle {
   subtitle?: string;
   content: string;
   visual_guide?: string; // Placeholder for image URL
+  images?: ImageData[]; // Images extracted from markdown content
   wiki_content?: string; // Markdown format encyclopedic content
 }

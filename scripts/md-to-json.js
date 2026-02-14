@@ -22,15 +22,46 @@ import matter from 'gray-matter';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Normalize image paths from Obsidian format to web format
+function normalizeImagePath(imagePath) {
+  // Convert Obsidian relative path: ../../public/images/file.png → /images/file.png
+  if (imagePath.includes('../../public/images')) {
+    return imagePath.replace(/.*\/public\/images\//, '/images/');
+  }
+  // Already a web path or URL, keep as-is
+  return imagePath;
+}
+
+// Extract image URLs from Markdown content
+function extractImages(content) {
+  // Regex to match Markdown images: ![alt text](url)
+  const imageRegex = /!\[([^\]]*)\]\(([^)]+)\)/g;
+  const images = [];
+  let match;
+  
+  while ((match = imageRegex.exec(content)) !== null) {
+    images.push({
+      alt: match[1] || '图片',
+      url: normalizeImagePath(match[2])
+    });
+  }
+  
+  return images.length > 0 ? images : undefined;
+}
+
 // Parse Markdown file with frontmatter using gray-matter
 function parseMarkdown(content) {
   try {
     const { data, content: bodyContent } = matter(content);
     
-    // Return parsed frontmatter with wiki_content
+    // Extract images from content
+    const images = extractImages(bodyContent);
+    
+    // Return parsed frontmatter with wiki_content and images
     return {
       ...data,
-      wiki_content: bodyContent.trim() || undefined
+      wiki_content: bodyContent.trim() || undefined,
+      ...(images && { images })
     };
   } catch (error) {
     console.error('❌ Failed to parse frontmatter:', error.message);

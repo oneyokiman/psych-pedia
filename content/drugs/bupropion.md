@@ -2,7 +2,7 @@
 id: "bupropion"
 name_cn: "安非他酮"
 name_en: "Bupropion"
-category: "NDRI"
+category: "去甲肾-多巴胺转运体抑制剂（NDRI）"
 tags:
   - "激活"
   - "戒烟"

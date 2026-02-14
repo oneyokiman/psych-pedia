@@ -2,7 +2,7 @@
 id: "zopiclone"
 name_cn: "佐匹克隆"
 name_en: "Zopiclone"
-category: "Z-Drug"
+category: "非苯二氮䓬类催眠药（Z-Drug）"
 tags:
   - "广谱GABA-A"
   - "入睡/维持"

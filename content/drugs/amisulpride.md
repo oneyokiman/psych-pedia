@@ -2,7 +2,7 @@
 id: "amisulpride"
 name_cn: "氨磺必利"
 name_en: "Amisulpride"
-category: "SGA"
+category: "第二代抗精神病药（SGA）"
 tags:
   - "D2/D3阻断"
   - "不经肝脏代谢"

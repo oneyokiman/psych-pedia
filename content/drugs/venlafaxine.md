@@ -2,7 +2,7 @@
 id: "venlafaxine"
 name_cn: "文拉法辛"
 name_en: "Venlafaxine"
-category: "SNRI"
+category: "血清素-去甲肾上腺素转运体抑制剂（SNRI）"
 tags:
   - "双重机制"
   - "剂量依赖"

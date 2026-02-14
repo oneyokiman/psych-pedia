@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Drug } from '../types';
+import { Drug, NavigateType } from '../types';
+import { ENZYME_REGEX } from '../utils';
 import RadarViz from './RadarChart';
 import RichText from './RichText';
 import WikiContent from './WikiContent';
@@ -7,7 +8,7 @@ import WikiContent from './WikiContent';
 interface DrugDetailProps {
   drugId: string;
   isDarkMode: boolean;
-  onNavigate: (type: 'principle', id: string) => void;
+  onNavigate: (type: NavigateType, id: string) => void;
   cache: Map<string, Drug>;
   setCache: React.Dispatch<React.SetStateAction<Map<string, Drug>>>;
 }
@@ -94,6 +95,48 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drugId, isDarkMode, onNavigate,
     }
   }
 
+  const renderMetabolism = (metabolism: string) => {
+    if (!metabolism) return null;
+    const regex = new RegExp(ENZYME_REGEX.source, 'gi');
+    const parts: React.ReactNode[] = [];
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+
+    while ((match = regex.exec(metabolism)) !== null) {
+      if (match.index > lastIndex) {
+        parts.push(metabolism.slice(lastIndex, match.index));
+      }
+
+      const enzyme = match[0].toUpperCase();
+      parts.push(
+        <button
+          key={`enzyme-${match.index}-${enzyme}`}
+          type="button"
+          onClick={(event) => {
+            event.stopPropagation();
+            onNavigate('enzyme', enzyme);
+          }}
+          className="text-cyan-600 dark:text-cyan-400 font-bold hover:underline hover:text-cyan-500"
+        >
+          {enzyme}
+        </button>
+      );
+
+      lastIndex = regex.lastIndex;
+    }
+
+    if (lastIndex < metabolism.length) {
+      parts.push(metabolism.slice(lastIndex));
+    }
+
+    return parts.length > 0 ? parts : metabolism;
+  };
+
+  const hasRadar = Boolean(
+    drug.stahl_radar?.bindings?.length ||
+    (drug.stahl_radar?.labels?.length && drug.stahl_radar?.values?.length)
+  );
+
   return (
     <div className="space-y-8 animate-fade-in">
         {/* Header Section */}
@@ -120,6 +163,29 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drugId, isDarkMode, onNavigate,
             </div>
         </div>
 
+        {/* Images Section */}
+        {drug.images && drug.images.length > 0 && (
+            <div className="space-y-4">
+                <h3 className="font-bold text-lg text-slate-800 dark:text-cyan-400">图像资料</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {drug.images.map((img, idx) => (
+                        <div key={idx} className="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
+                            <img 
+                                src={img.url} 
+                                alt={img.alt} 
+                                className="w-full h-auto max-h-96 object-contain"
+                                onError={(e) => {
+                                    // Fallback if image fails to load
+                                    (e.target as HTMLImageElement).style.display = 'none';
+                                }}
+                            />
+                            {img.alt && <p className="p-2 text-xs text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">{img.alt}</p>}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        )}
+
         {/* PK Dashboard */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
              <div className="bg-slate-100 dark:bg-medical-surface p-4 rounded-lg border border-slate-200 dark:border-slate-700 flex flex-col items-center text-center">
@@ -132,52 +198,53 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drugId, isDarkMode, onNavigate,
              </div>
              <div className="bg-slate-100 dark:bg-medical-surface p-4 rounded-lg border border-slate-200 dark:border-slate-700 flex flex-col items-center text-center">
                  <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">主要代谢途径</span>
-                 <span className="text-xl font-bold text-slate-800 dark:text-cyan-400 font-mono">{drug.pk_data.metabolism}</span>
+                 <span className="text-xl font-bold text-slate-800 dark:text-cyan-400 font-mono">
+                   {renderMetabolism(drug.pk_data.metabolism)}
+                 </span>
              </div>
         </div>
 
         {/* Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            
-            {/* Left: Visualization */}
+        <div className={hasRadar ? 'grid grid-cols-1 lg:grid-cols-2 gap-8' : 'space-y-4'}>
+          {hasRadar && (
             <div className="bg-white dark:bg-medical-surface rounded-xl p-2 sm:p-3 shadow-sm border border-slate-200 dark:border-slate-800 flex flex-col">
-                <div className="mb-1 flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-1">
-                    <h3 className="font-bold text-sm sm:text-base text-slate-800 dark:text-cyan-400 flex items-center gap-2">
-                            <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
-                            功能靶点雷达 (Functional Target Profile)
-                    </h3>
+              <div className="mb-1 flex justify-between items-center border-b border-slate-100 dark:border-slate-700 pb-1">
+                <h3 className="font-bold text-sm sm:text-base text-slate-800 dark:text-cyan-400 flex items-center gap-2">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                    功能靶点雷达 (Functional Target Profile)
+                </h3>
 
-                </div>
-                <div className="h-64 sm:h-96">
-                    <RadarViz 
-                        data={drug.stahl_radar} 
-                        onLabelClick={(linkId) => onNavigate('principle', linkId)} 
-                        isDarkMode={isDarkMode}
-                    />
-                </div>
+              </div>
+              <div className="h-64 sm:h-96">
+                <RadarViz 
+                  data={drug.stahl_radar} 
+                  onLabelClick={(linkId) => onNavigate('principle', linkId)} 
+                  isDarkMode={isDarkMode}
+                />
+              </div>
             </div>
+          )}
 
-            {/* Right: Clinical Pearls / Practice Notes */}
-            <div className="space-y-4">
-                    <div className="flex items-center gap-2 mb-2">
-                    <svg className="w-5 h-5 text-slate-500 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                    <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">临床实战笔记 (Practice Notes)</h3>
-                    </div>
-                    
-                    {drug.pearls?.map((pearl, idx) => (
-                        <div key={idx} className={`p-4 rounded-lg border-l-4 shadow-sm ${getPearlColor(pearl.type)} hover:shadow-md transition-shadow`}>
-                            <div className="flex items-start gap-3">
-                                <div className="mt-1 flex-shrink-0">
-                                    {getPearlIcon(pearl.type)}
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-sm uppercase tracking-wide opacity-90 mb-1">{pearl.title}</h4>
-                                    <RichText content={pearl.content} onNavigate={onNavigate} />
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2 mb-2">
+              <svg className="w-5 h-5 text-slate-500 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+              <h3 className="font-bold text-lg text-slate-800 dark:text-slate-200">临床实战笔记 (Practice Notes)</h3>
             </div>
+                
+            {drug.pearls?.map((pearl, idx) => (
+              <div key={idx} className={`p-4 rounded-lg border-l-4 shadow-sm ${getPearlColor(pearl.type)} hover:shadow-md transition-shadow`}>
+                <div className="flex items-start gap-3">
+                  <div className="mt-1 flex-shrink-0">
+                    {getPearlIcon(pearl.type)}
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-sm uppercase tracking-wide opacity-90 mb-1">{pearl.title}</h4>
+                    <RichText content={pearl.content} onNavigate={onNavigate} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Market Info */}

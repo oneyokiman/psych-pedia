@@ -2,7 +2,7 @@
 id: "topiramate"
 name_cn: "托吡酯"
 name_en: "Topiramate"
-category: "Mood Stabilizer Adjunct"
+category: "情绪稳定剂辅助药物"
 tags:
   - "减肥"
   - "认知减退"

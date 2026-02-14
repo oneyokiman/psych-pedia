@@ -2,7 +2,7 @@
 id: "fluvoxamine"
 name_cn: "氟伏沙明"
 name_en: "Fluvoxamine"
-category: "SSRI"
+category: "选择性血清素转运体抑制剂（SSRI）"
 tags:
   - "Sigma1激动"
   - "强迫症"

@@ -1,12 +1,12 @@
 import React, { useMemo, useState, useEffect } from 'react';
 import PinyinMatch from 'pinyin-match';
-import { Drug, Principle } from '../types';
+import { Drug, NavigateType, Principle } from '../types';
 
 interface SidebarProps {
   drugs: Drug[];
   principles: Principle[];
-  currentView: { type: 'drug' | 'principle', id: string };
-  onNavigate: (type: 'drug' | 'principle', id: string) => void;
+  currentView: { type: NavigateType, id: string };
+  onNavigate: (type: NavigateType, id: string) => void;
   isOpen: boolean;
   setIsOpen: (open: boolean) => void;
   isCollapsed: boolean;
@@ -93,7 +93,7 @@ const Sidebar: React.FC<SidebarProps> = ({ drugs, principles, currentView, onNav
       if (drug) {
         newExpanded.add(drug.category);
       }
-    } else {
+    } else if (currentView.type === 'principle') {
       const principle = principles.find(p => p.id === currentView.id);
       if (principle) {
         const cat = principle.type === 'receptor' ? '受体百科' : '生物学假说';
@@ -104,7 +104,7 @@ const Sidebar: React.FC<SidebarProps> = ({ drugs, principles, currentView, onNav
     setExpandedCategories(newExpanded);
   }, [currentView, drugs, principles, searchTerm, filteredDrugs, filteredPrinciples, drugGroups, principleGroups]);
 
-  const handleItemClick = (type: 'drug' | 'principle', id: string) => {
+  const handleItemClick = (type: NavigateType, id: string) => {
     onNavigate(type, id);
     if (window.innerWidth < 768) setIsOpen(false);
   };
@@ -169,10 +169,10 @@ const Sidebar: React.FC<SidebarProps> = ({ drugs, principles, currentView, onNav
                 <div key={category} className="mb-6">
                   <button 
                     onClick={() => toggleCategory(category)}
-                    className="w-full flex items-center justify-between px-3 mb-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider hover:text-slate-600 dark:hover:text-slate-400 transition-colors"
+                    className="w-full flex items-center justify-between px-3 mb-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider hover:text-slate-600 dark:hover:text-slate-400 transition-colors gap-2"
                   >
-                    <span>{category}</span>
-                    <svg className={`w-4 h-4 transition-transform duration-200 ${expandedCategories.has(category) ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span className="text-left flex-1 break-words">{category}</span>
+                    <svg className={`w-4 h-4 transition-transform duration-200 flex-shrink-0 ${expandedCategories.has(category) ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
                   </button>
                   {expandedCategories.has(category) && (
                     <div className="space-y-1">
@@ -202,10 +202,10 @@ const Sidebar: React.FC<SidebarProps> = ({ drugs, principles, currentView, onNav
                 <div key={category} className="mb-6">
                   <button 
                     onClick={() => toggleCategory(category)}
-                    className="w-full flex items-center justify-between px-3 mb-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider hover:text-slate-600 dark:hover:text-slate-400 transition-colors"
+                    className="w-full flex items-center justify-between px-3 mb-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider hover:text-slate-600 dark:hover:text-slate-400 transition-colors gap-2"
                   >
-                    <span>{category}</span>
-                    <svg className={`w-4 h-4 transition-transform duration-200 ${expandedCategories.has(category) ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
+                    <span className="text-left flex-1 break-words">{category}</span>
+                    <svg className={`w-4 h-4 transition-transform duration-200 flex-shrink-0 ${expandedCategories.has(category) ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
                   </button>
                   {expandedCategories.has(category) && (
                     <div className="space-y-1">

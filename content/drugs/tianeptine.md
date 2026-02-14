@@ -2,7 +2,7 @@
 id: "tianeptine"
 name_cn: "噻奈普汀"
 name_en: "Tianeptine"
-category: "SSRE"
+category: "选择性血清素转运体抑制剂（SSRE）"
 tags:
   - "独特机制"
   - "应激保护"

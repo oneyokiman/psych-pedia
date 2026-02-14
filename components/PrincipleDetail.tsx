@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Principle } from '../types';
+import { NavigateType, Principle } from '../types';
 import RichText from './RichText';
 import WikiContent from './WikiContent';
 
@@ -7,7 +7,7 @@ interface PrincipleDetailProps {
   principleId: string;
   onBack?: () => void;
   backLabel?: string | null;
-  onNavigate: (type: 'principle', id: string) => void;
+  onNavigate: (type: NavigateType, id: string) => void;
   isDarkMode?: boolean;
   cache: Map<string, Principle>;
   setCache: React.Dispatch<React.SetStateAction<Map<string, Principle>>>;
@@ -22,6 +22,8 @@ const PrincipleDetail: React.FC<PrincipleDetailProps> = ({
   cache,
   setCache
 }) => {
+  const isReceptorLike = (type?: string) =>
+    type === 'receptor' || type === 'transporter' || type === 'ion_channel';
   const [principle, setPrinciple] = useState<Principle | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -78,7 +80,7 @@ const PrincipleDetail: React.FC<PrincipleDetailProps> = ({
   }
   
   return (
-    <div className="max-w-4xl mx-auto py-8 animate-fade-in">
+    <div className="w-full px-6 md:px-10 py-8 animate-fade-in">
       
       {/* Back Button */}
       {onBack && backLabel && (
@@ -91,12 +93,12 @@ const PrincipleDetail: React.FC<PrincipleDetailProps> = ({
         </button>
       )}
 
-      <div className="bg-white dark:bg-medical-surface rounded-2xl shadow-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+      <div>
         {/* Header */}
-        <div className="bg-gradient-to-r from-slate-100 to-slate-50 dark:from-slate-800 dark:to-medical-panel p-8 border-b border-slate-200 dark:border-slate-700">
+        <div className="mb-6">
            <div className="flex items-center gap-3 mb-2">
-             <span className={`px-3 py-1 rounded text-xs font-bold uppercase tracking-wider ${principle.type === 'receptor' ? 'bg-cyan-100 text-cyan-800' : 'bg-purple-100 text-purple-800'}`}>
-               {principle.type === 'receptor' ? '基础受体' : '生物学假说'}
+             <span className={`px-3 py-1 rounded text-xs font-bold uppercase tracking-wider ${isReceptorLike(principle.type) ? 'bg-cyan-100 text-cyan-800' : 'bg-purple-100 text-purple-800'}`}>
+               {isReceptorLike(principle.type) ? '基础受体' : '生物学假说'}
              </span>
            </div>
            <h1 className="text-4xl font-black text-slate-900 dark:text-white mb-2">{principle.title}</h1>
@@ -106,41 +108,37 @@ const PrincipleDetail: React.FC<PrincipleDetailProps> = ({
         </div>
 
         {/* Content */}
-        <div className="p-8 space-y-8">
+        <div className="space-y-8">
            {/* Short Introduction Section */}
            <div className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-300">
              <RichText content={principle.content} onNavigate={onNavigate} />
            </div>
-           
-           {/* Visual Guide */}
-           {principle.visual_guide ? (
-              <div>
-                 <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 mb-4 flex items-center gap-2">
-                    <svg className="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    图示说明
-                 </h3>
-                 <div className="bg-slate-50 dark:bg-black/20 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden flex justify-center items-center p-4">
-                    <img 
-                       src={principle.visual_guide} 
-                       alt={principle.title}
-                       className="max-w-full max-h-[70vh] h-auto object-contain"
+
+           {/* Images Section */}
+           {principle.images && principle.images.length > 0 && (
+             <div className="space-y-4">
+               <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                 <svg className="w-5 h-5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                 图像资料
+               </h3>
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                 {principle.images.map((img, idx) => (
+                   <div key={idx} className="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
+                     <img 
+                       src={img.url} 
+                       alt={img.alt} 
+                       className="w-full h-auto max-h-96 object-contain"
                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          const parent = e.currentTarget.parentElement;
-                          if (parent) {
-                             parent.innerHTML = '<div class="p-8 text-center"><p class="text-sm text-slate-500">图片加载失败</p><p class="text-xs text-slate-400">图片 URL: ' + principle.visual_guide + '</p></div>';
-                          }
+                         (e.target as HTMLImageElement).style.display = 'none';
                        }}
-                    />
-                 </div>
-              </div>
-           ) : (
-              <div className="p-8 bg-slate-50 dark:bg-black/20 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 text-center">
-                 <svg className="w-16 h-16 mx-auto text-slate-300 dark:text-slate-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                 <p className="text-sm text-slate-500">图示占位符 (Visual Guide Placeholder)</p>
-                 <p className="text-xs text-slate-400">暂无图示，可在 JSON 中添加 visual_guide 字段</p>
-              </div>
-            )}
+                     />
+                     {img.alt && <p className="p-2 text-xs text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">{img.alt}</p>}
+                   </div>
+                 ))}
+               </div>
+             </div>
+           )}
+           
          </div>
       </div>
 

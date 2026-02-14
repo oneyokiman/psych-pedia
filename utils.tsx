@@ -22,3 +22,11 @@ export const formatSubscriptNumbers = (text: string): React.ReactNode => {
     return <span key={index}>{part}</span>;
   });
 };
+
+export const ENZYME_REGEX = /\b(?:CYP|UGT|MAO|COMT|FMO|CES)\d+[A-Z0-9]*\b/gi;
+
+export const extractEnzymes = (text?: string): string[] => {
+  if (!text) return [];
+  const matches = text.match(ENZYME_REGEX) ?? [];
+  return Array.from(new Set(matches.map(match => match.toUpperCase())));
+};
