@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MarkdownEditor from './MarkdownEditor';
+import TableOfContents from './TableOfContents';
 
 interface WikiContentProps {
   content?: string;
@@ -109,7 +110,8 @@ const WikiContent: React.FC<WikiContentProps> = ({
 
       {/* Content Area */}
       {isExpanded || isEditing ? (
-        <div className={isExpanded && !isEditing ? 'animate-fade-in' : ''}>
+        <div className={isExpanded && !isEditing ? 'animate-fade-in relative' : 'relative'}>
+          {isExpanded && !isEditing && <TableOfContents content={content} />}
           {isEditing ? (
             <MarkdownEditor
               content={editContent}

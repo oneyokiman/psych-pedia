@@ -11,6 +11,40 @@ interface MarkdownEditorProps {
   readOnly?: boolean;
 }
 
+// 提取文本内容用于生成 ID
+const extractTextFromNode = (node: any): string => {
+  if (!node) return '';
+  if (typeof node === 'string') return node;
+  if (Array.isArray(node)) return node.map(extractTextFromNode).join('');
+  if (node.props && node.props.children) return extractTextFromNode(node.props.children);
+  if (node.children) return extractTextFromNode(node.children);
+  if (node.value) return node.value;
+  return '';
+};
+
+const getHeadingId = (children: any) => {
+  const text = extractTextFromNode(children).trim();
+  return 'h-' + encodeURIComponent(text.toLowerCase().replace(/\s+/g, '-'));
+};
+
+const Heading = ({ level, children, ...props }: any) => {
+  const id = getHeadingId(children);
+  const Tag = `h${level}` as any;
+  const baseClass = "scroll-mt-20 text-slate-900 dark:text-white";
+  
+  const getClassName = (l: number) => {
+    switch(l) {
+      case 1: return `text-xl sm:text-3xl font-bold mt-6 mb-4 pb-2 border-b-2 border-slate-200 dark:border-slate-700 ${baseClass}`;
+      case 2: return `text-2xl font-bold mt-5 mb-3 pb-1 border-b border-slate-200 dark:border-slate-700 ${baseClass}`;
+      case 3: return `text-xl font-bold mt-4 mb-2 text-slate-800 dark:text-slate-200 scroll-mt-20`;
+      case 4: return `text-lg font-semibold mt-3 mb-2 text-slate-800 dark:text-slate-200 scroll-mt-20`;
+      default: return `font-semibold mt-2 mb-2 text-slate-800 dark:text-slate-200 scroll-mt-20`;
+    }
+  };
+
+  return <Tag id={id} className={getClassName(level)} {...props}>{children}</Tag>;
+};
+
 const MarkdownEditor: React.FC<MarkdownEditorProps> = ({ 
   content, 
   onChange, 
@@ -90,18 +124,12 @@ const MarkdownEditor: React.FC<MarkdownEditorProps> = ({
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[rehypeRaw, rehypeSanitize]}
             components={{
-              h1: ({ node, ...props }) => (
-                <h1 className="text-xl sm:text-3xl font-bold text-slate-900 dark:text-white mt-6 mb-4 pb-2 border-b-2 border-slate-200 dark:border-slate-700" {...props} />
-              ),
-              h2: ({ node, ...props }) => (
-                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mt-5 mb-3 pb-1 border-b border-slate-200 dark:border-slate-700" {...props} />
-              ),
-              h3: ({ node, ...props }) => (
-                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mt-4 mb-2" {...props} />
-              ),
-              h4: ({ node, ...props }) => (
-                <h4 className="text-lg font-semibold text-slate-800 dark:text-slate-200 mt-3 mb-2" {...props} />
-              ),
+              h1: (props) => <Heading level={1} {...props} />,
+              h2: (props) => <Heading level={2} {...props} />,
+              h3: (props) => <Heading level={3} {...props} />,
+              h4: (props) => <Heading level={4} {...props} />,
+              h5: (props) => <Heading level={5} {...props} />,
+              h6: (props) => <Heading level={6} {...props} />,
               p: ({ node, ...props }) => (
                 <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-3" {...props} />
               ),
