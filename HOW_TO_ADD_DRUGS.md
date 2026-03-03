@@ -63,10 +63,17 @@
      - `type`：`danger`（红）/ `warning`（黄）/ `success`（绿）/ `info`（蓝）
      - `content`：笔记内容（文本）
    - `pk_data`：药动学数据
-     - `half_life`：半衰期（如：`30-33h`）
+     - **单剂型药物**：使用 `half_life`、`peak_time` 字段
+       - `half_life`：半衰期（如：`30-33h`）
+       - `peak_time`（可选）：达峰时间
+     - **多剂型药物**：使用 `dosage_forms` 数组（速释片、缓释片等）
+       - 每个剂型包含：`formulation`（剂型名称）、`half_life`（该剂型的半衰期）、`peak_time`（可选）
      - `protein_binding`：蛋白结合率（如：`93%`）
      - `metabolism`：主要代谢途径（如：`CYP1A2 (主), CYP2D6`）
-     - `peak_time`（可选）：达峰时间
+   - `category` / `categories`：药物分类
+     - **单个分类**：使用 `category` 字符串（如：`"category": "SSRI"`）
+     - **多个分类**：使用 `categories` 数组（如：`"categories": ["NDRI", "非5HT机制抗抑郁药"]`）
+     - 注意：同一药物可以属于多个分类，将在目录中的不同分类下都显示
    - `market_info`：市场信息
      - `price`：`$` 或 `$$` 或 `$$$`
      - `insurance`：医保分类
@@ -111,6 +118,70 @@
     "pregnancy": "C类"
   }
 }
+```
+
+### ✅ 高级特性示例 - 多分类和多剂型
+以下是添加"安非他酮"的例子（支持多个分类和多个剂型）：
+
+```json
+{
+  "id": "bupropion",
+  "name_cn": "安非他酮",
+  "name_en": "Bupropion",
+  "categories": [
+    "去甲肾-多巴胺转运体抑制剂（NDRI）",
+    "非5HT机制抗抑郁药"
+  ],
+  "tags": ["戒烟", "无性功能副作用", "激活剂"],
+  "stahl_radar": {
+    "labels": ["DAT", "NET", "nAChR", "H1", "SERT"],
+    "values": [6, 6, 8, 1, 0],
+    "link_ids": ["dat", "net", "nachr", "h1", "sert"]
+  },
+  "pearls": [
+    {
+      "title": "性功能保护伞",
+      "type": "success",
+      "content": "几乎不引起性功能障碍，常用于SSRI引起性冷淡时的换药或联用策略。"
+    },
+    {
+      "title": "癫痫禁忌",
+      "type": "danger",
+      "content": "降低癫痫阈值，剂量大于450mg/d时风险显著。禁用于癫痫患者。"
+    }
+  ],
+  "pk_data": {
+    "dosage_forms": [
+      {
+        "formulation": "速释片(IR)",
+        "half_life": "11h",
+        "peak_time": "1.5h"
+      },
+      {
+        "formulation": "缓释片(SR)",
+        "half_life": "21h",
+        "peak_time": "3h"
+      },
+      {
+        "formulation": "控释片(XL)",
+        "half_life": "21h",
+        "peak_time": "5h"
+      }
+    ],
+    "protein_binding": "84%",
+    "metabolism": "CYP2B6"
+  },
+  "market_info": {
+    "price": "$$",
+    "insurance": "乙类医保",
+    "pregnancy": "C类"
+  }
+}
+```
+
+**新特性说明：**
+- **多分类（`categories`）**：安非他酮将同时出现在"NDRI"和"非5HT机制抗抑郁药"两个分类下
+- **多剂型（`dosage_forms`）**：用户可以在药物详情页切换不同剂型，查看对应的半衰期和达峰时间
 ```
 
 ### ⚠️ 常见错误提示和修复

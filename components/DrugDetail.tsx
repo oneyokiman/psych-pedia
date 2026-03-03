@@ -17,12 +17,18 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drugId, isDarkMode, onNavigate,
   const [drug, setDrug] = useState<Drug | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedFormulation, setSelectedFormulation] = useState<string>('');
 
   useEffect(() => {
     const loadDrugDetail = async () => {
       // Check cache first
       if (cache.has(drugId)) {
-        setDrug(cache.get(drugId)!);
+        const cachedDrug = cache.get(drugId)!;
+        setDrug(cachedDrug);
+        // Initialize selected formulation
+        if (cachedDrug.pk_data?.dosage_forms?.length > 0) {
+          setSelectedFormulation(cachedDrug.pk_data.dosage_forms[0].formulation);
+        }
         setLoading(false);
         return;
       }
@@ -35,6 +41,10 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drugId, isDarkMode, onNavigate,
         if (!response.ok) throw new Error(`Failed to load drug: ${drugId}`);
         const data = await response.json();
         setDrug(data);
+        // Initialize selected formulation
+        if (data.pk_data?.dosage_forms?.length > 0) {
+          setSelectedFormulation(data.pk_data.dosage_forms[0].formulation);
+        }
         
         // Update cache
         setCache(prev => new Map(prev).set(drugId, data));
@@ -137,6 +147,20 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drugId, isDarkMode, onNavigate,
     (drug.stahl_radar?.labels?.length && drug.stahl_radar?.values?.length)
   );
 
+  const dosageForms = drug.pk_data?.dosage_forms || [];
+  const hasMultipleDosageForms = dosageForms.length > 1;
+  const activeDosageForm = dosageForms.find(f => f.formulation === selectedFormulation) || dosageForms[0];
+  const halfLifeValue = hasMultipleDosageForms
+    ? `${activeDosageForm?.half_life || drug.pk_data?.half_life || 'N/A'} ${activeDosageForm?.formulation || ''}`
+    : (drug.pk_data?.half_life || 'N/A');
+
+  const handleHalfLifeToggle = () => {
+    if (!hasMultipleDosageForms) return;
+    const currentIndex = dosageForms.findIndex(f => f.formulation === selectedFormulation);
+    const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % dosageForms.length : 0;
+    setSelectedFormulation(dosageForms[nextIndex].formulation);
+  };
+
   return (
     <div className="space-y-8 animate-fade-in">
         {/* Header Section */}
@@ -149,9 +173,19 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drugId, isDarkMode, onNavigate,
                     <span className="text-xl text-slate-500 dark:text-slate-400 font-medium font-mono">
                         {drug.name_en}
                     </span>
-                    <span className="px-2 py-0.5 rounded text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
-                        {drug.category}
-                    </span>
+                    <div className="flex flex-wrap gap-2">
+                        {drug.categories && drug.categories.length > 0
+                          ? drug.categories.map(cat => (
+                              <span key={cat} className="px-2 py-0.5 rounded text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+                                {cat}
+                              </span>
+                            ))
+                          : drug.category && (
+                              <span className="px-2 py-0.5 rounded text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+                                {drug.category}
+                              </span>
+                            )}
+                    </div>
                 </div>
             </div>
              <div className="flex flex-wrap gap-2 md:ml-auto">
@@ -163,34 +197,22 @@ const DrugDetail: React.FC<DrugDetailProps> = ({ drugId, isDarkMode, onNavigate,
             </div>
         </div>
 
-        {/* Images Section */}
-        {drug.images && drug.images.length > 0 && (
-            <div className="space-y-4">
-                <h3 className="font-bold text-lg text-slate-800 dark:text-cyan-400">图像资料</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {drug.images.map((img, idx) => (
-                        <div key={idx} className="rounded-lg overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
-                            <img 
-                                src={img.url} 
-                                alt={img.alt} 
-                                className="w-full h-auto max-h-96 object-contain"
-                                onError={(e) => {
-                                    // Fallback if image fails to load
-                                    (e.target as HTMLImageElement).style.display = 'none';
-                                }}
-                            />
-                            {img.alt && <p className="p-2 text-xs text-slate-600 dark:text-slate-400 border-t border-slate-200 dark:border-slate-700">{img.alt}</p>}
-                        </div>
-                    ))}
-                </div>
-            </div>
-        )}
-
         {/* PK Dashboard */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
              <div className="bg-slate-100 dark:bg-medical-surface p-4 rounded-lg border border-slate-200 dark:border-slate-700 flex flex-col items-center text-center">
                  <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">半衰期 (T1/2)</span>
-                 <span className="text-2xl font-black text-slate-800 dark:text-white font-mono">{drug.pk_data.half_life}</span>
+                 {hasMultipleDosageForms ? (
+                   <button
+                     type="button"
+                     onClick={handleHalfLifeToggle}
+                     className="text-2xl font-black text-cyan-600 dark:text-cyan-400 font-mono hover:underline hover:text-cyan-500 transition"
+                     title="点击切换剂型"
+                   >
+                     {halfLifeValue}
+                   </button>
+                 ) : (
+                   <span className="text-2xl font-black text-slate-800 dark:text-white font-mono">{halfLifeValue}</span>
+                 )}
              </div>
              <div className="bg-slate-100 dark:bg-medical-surface p-4 rounded-lg border border-slate-200 dark:border-slate-700 flex flex-col items-center text-center">
                  <span className="text-xs uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-2">蛋白结合率</span>

@@ -240,10 +240,19 @@ Frontmatter 之后的内容为 \`wiki_content\`（百科内容）。
 id: aripiprazole
 name_cn: 阿立哌唑
 name_en: Aripiprazole
-category: SGA
+categories:
+  - "SGA"
+  - "D2部分激动剂"
 tags:
   - "D2部分激动剂"
   - "不镇静"
+pk_data:
+  dosage_forms:
+    -
+      formulation: "普通片"
+      half_life: "75h"
+  protein_binding: ">99%"
+  metabolism: "CYP3A4"
 stahl_radar:
   bindings:
     - label: D2

@@ -1,11 +1,15 @@
 {
   "_comment": "==================== Psych-Pedia 药物数据库 ====================",
-  "_instructions": "如何添加新的药物条目：1. 复制下方 '示例模板' 中的整个 {} 对象，2. 修改各字段的值，3. 将新对象添加到 'drugs' 数组末尾，4. 保存文件即可。所有字段为必填。radar 数据中的 link_ids 必须与 PRINCIPLES 中的 id 相对应。Category 字段已标准化，请勿随意更改，否则会影响侧边栏分组。特性请写在 tags 中。",
+  "_instructions": "如何添加新的药物条目：1. 复制下方 '示例模板' 中的整个 {} 对象，2. 修改各字段的值，3. 将新对象添加到 'drugs' 数组末尾，4. 保存文件即可。所有字段为必填。radar 数据中的 link_ids 必须与 PRINCIPLES 中的 id 相对应。Category 字段已标准化，请勿随意更改，否则会影响侧边栏分组。特性请写在 tags 中。支持多个分类（categories数组）和多个剂型（pk_data.dosage_forms）。",
   "_template": {
     "id": "示例药名英文小写（如：fluoxetine）- 用作唯一标识符，不能重复",
     "name_cn": "示例药名（中文）",
     "name_en": "示例药名（英文）",
-    "category": "SGA / FGA / SSRI / SNRI / NaSSA / Mood Stabilizer",
+    "category": "（向后兼容）单个分类",
+    "categories": [
+      "分类1（如：SSRI）",
+      "分类2（如：非5HT机制抗抑郁药）- 可选，一个药物可以属于多个分类"
+    ],
     "tags": [
       "标签1",
       "标签2",
@@ -42,7 +46,19 @@
       }
     ],
     "pk_data": {
-      "half_life": "半衰期（如：75h）",
+      "half_life": "半衰期（如：75h）- 单剂型药物使用这个字段",
+      "dosage_forms": [
+        {
+          "formulation": "平片",
+          "half_life": "21h",
+          "peak_time": "2-4h（可选）"
+        },
+        {
+          "formulation": "缓释片",
+          "half_life": "21h (缓释)",
+          "peak_time": "6-8h（可选）"
+        }
+      ],
       "protein_binding": "蛋白结合率（如：>99%）",
       "metabolism": "主要代谢途径（如：CYP2D6, CYP3A4）",
       "peak_time": "达峰时间（可选，如：3-5h）"

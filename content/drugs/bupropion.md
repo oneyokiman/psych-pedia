@@ -2,11 +2,14 @@
 id: "bupropion"
 name_cn: "安非他酮"
 name_en: "Bupropion"
-category: "去甲肾-多巴胺转运体抑制剂（NDRI）"
+categories:
+  - "去甲肾-多巴胺转运体抑制剂（NDRI）"
+  - "非5HT机制抗抑郁药"
 tags:
-  - "激活"
   - "戒烟"
   - "无性功能副作用"
+  - "非5HT机制抗抑郁药"
+  - "激活剂"
 stahl_radar:
   labels:
     - "DAT"
@@ -30,7 +33,7 @@ pearls:
   -
       title: "性功能保护伞"
       type: "success"
-      content: "几乎不引起性功能障碍，常用于SSRI引起性冷淡时的换药或联用策略（Well-loft 组合）。"
+      content: "几乎不引起性功能障碍，常用于SSRI引起性冷淡时的换药或联用策略（Well-loft 组合，即安非他酮wellbutrin+舍曲林zoloft）。"
   -
       title: "快乐与动力"
       type: "info"
@@ -40,10 +43,21 @@ pearls:
       type: "danger"
       content: "降低癫痫阈值，剂量大于450mg/d时风险显著。禁用于癫痫患者及进食障碍（贪食/厌食）患者。"
 pk_data:
-  half_life: "21h (缓释)"
+  dosage_forms:
+    -
+          formulation: "速释片(IR)"
+          half_life: "11h"
+          peak_time: "1.5h"
+    -
+          formulation: "缓释片(SR)"
+          half_life: "21h"
+          peak_time: "3h"
+    -
+          formulation: "控释片(XL)"
+          half_life: "21h"
+          peak_time: "5h"
   protein_binding: "84%"
   metabolism: "CYP2B6"
-  peak_time: "3h"
 market_info:
   price: "$$"
   insurance: "乙类医保"
@@ -52,16 +66,34 @@ market_info:
 
 # 安非他酮 (Bupropion)
 
-> 此药物尚无详细百科内容。请在此处添加详细信息。
+> 安非他酮是一个被低估的药物(编者留)
 
-## 作用机制
 
-（待补充）
+## 药理学 
+### 剂型和药物代谢
+安非他酮分为  平片/速释片immidiate release, IR
+			缓释片 sustained release, SR
+			长效缓释片/控释片 extended release, XL
+
 
 ## 临床应用
 
-（待补充）
+### FDA批准的适应症
+1. 抑郁症(MDD)
+2. 戒烟
+3. 联合纳洛酮减重
+
+### 超说明书使用 off-label use
+1.**成人ADHD** 
 
 ## 不良反应
+1. **癫痫风险** 早期速释剂型（IR）大剂量给药导致许多癫痫报道。但根据2018年的一项meta分析，普通人群的癫痫发生率是0.07~0.09%，安非他酮缓释片和控释片的癫痫风险为0.1%，与安慰剂组基本无异。而安非他酮速释片组则较高（0.4%)，这提示既往临床可能高估了安非他酮的癫痫风险。
+2. **失眠** 由于NE和DA的激动作用，建议早晨服药减少失眠效应
+3. **加重焦虑** NDRI升高NE和DA水平，可能导致焦虑加重。而文献提示长期使用不会加重焦虑，说明安非他酮可能只增加 吧短期焦虑。
 
-（待补充）
+## 最适合的病人（理想病人画像）
+
+1. 非典型抑郁表现（嗜睡、贪食、精力不足）
+2. 想戒烟，伴有烟酒依赖的成年人
+3. 很在意抑郁症的副作用，如影响性功能，增加体重。
+4. 炎症指标高，基线C反应蛋白（CRP）升高

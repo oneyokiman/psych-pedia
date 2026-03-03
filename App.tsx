@@ -211,18 +211,6 @@ const App: React.FC = () => {
         setIsCollapsed={setIsCollapsed}
       />
 
-      {/* Floating Expand Button - Shows when sidebar is collapsed */}
-      {isCollapsed && (
-        <button
-          onClick={() => setIsCollapsed(false)}
-          className="hidden md:flex fixed left-0 top-4 z-40 p-2 rounded-r-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors shadow-lg"
-          title="Expand Sidebar"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 5l7 7-7 7M5 5l7 7-7 7"></path>
-          </svg>
-        </button>
-      )}
 
       <main 
         id="main-content"

@@ -4,23 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "57fb8de0dafdd2f7",
+        "id": "c42232e08567fc95",
         "type": "tabs",
         "children": [
           {
-            "id": "dc31730a1212a527",
+            "id": "480cb9e103863fd2",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "未命名 2.base",
-                "viewName": "表格"
+                "file": "drugs/alprazolam.md",
+                "mode": "source",
+                "source": true
               },
-              "icon": "lucide-table",
-              "title": "未命名 2"
+              "icon": "lucide-file",
+              "title": "alprazolam"
+            }
+          },
+          {
+            "id": "2b939e67ecce183c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "benzodiazepines.md",
+                "mode": "source",
+                "source": true
+              },
+              "icon": "lucide-file",
+              "title": "benzodiazepines"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -73,7 +89,8 @@
               "title": "文件列表"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -183,18 +200,38 @@
       "bases:新建数据库": false
     }
   },
-  "active": "dc31730a1212a527",
+  "active": "2b939e67ecce183c",
   "lastOpenFiles": [
-    "principles/dat.md",
-    "未命名 2.canvas",
-    "drugs/clonazepam.md",
-    "2026-02-08.md",
-    "未命名 1.canvas",
-    "未命名 2.base",
-    "未命名.canvas",
+    "drugs/alprazolam.md",
+    "benzodiazepines.md",
+    "principles/gabaa.md",
+    "principles/h1.md",
+    "principles/d3.md",
+    "drugs/buspirone.md",
+    "drugs/propranolol.md",
+    "drugs/pregabalin.md",
+    "drugs/paliperidone.md",
+    "drugs/paroxetine.md",
+    "drugs/KarXT.md",
+    "drugs/fluvoxamine.md",
+    "drugs/amisulpride.md",
+    "drugs/atomoxetine.md",
+    "drugs/bupropion.md",
+    "drugs/sulpiride.md",
     "drugs/quetiapine.md",
-    "drugs/clozapine.md",
-    "open.md",
+    "drugs/reboxetine.md",
+    "drugs/sertraline.md",
+    "drugs/tianeptine.md",
+    "drugs/valproate.md",
+    "drugs/ziprasidone.md",
+    "drugs/methylphenidate.md",
+    "drugs/lamotrigine.md",
+    "drugs/flupentixol.md",
+    "drugs/escitalopram.md",
+    "未命名 2.base",
+    "未命名 2.canvas",
+    "未命名 1.canvas",
+    "未命名.canvas",
     "drugs/assets/quetiapine/file-20260203221141532.png",
     "drugs/assets/clonazepam/file-20260203215243891.png",
     "drugs/assets/clonazepam/file-20260203215213896.png",
@@ -202,19 +239,11 @@
     "drugs/assets/quetiapine/file-20260203215141053.png",
     "drugs/assets/quetiapine/706fc0143db636ccb94bfea38b6941a2 1.jpeg",
     "drugs/assets/quetiapine/706fc0143db636ccb94bfea38b6941a2.jpeg",
-    "principles/5ht1a.md",
     "drugs/assets/quetiapine",
     "drugs/assets",
     "706fc0143db636ccb94bfea38b6941a2.jpeg",
     "未命名 1.base",
     "未命名.base",
-    "README.md",
-    "Pasted image 20260201172235.png",
-    "drugs/agomelatine.md",
-    "drugs/KarXT.md",
-    "principles/5ht2c.md",
-    "drugs/aripiprazole.md",
-    "principles/d2.md",
-    "drugs/alprazolam.md"
+    "Pasted image 20260201172235.png"
   ]
 }

@@ -6,7 +6,7 @@
 
 ```
 content/
-├── drugs/          # 药物条目 (46 个文件)
+├── drugs/          # 药物条目 (47 个文件)
 ├── principles/     # 原理/受体条目 (21 个文件)
 └── README.md       # 本文件
 ```
@@ -29,10 +29,19 @@ Frontmatter 之后的内容为 `wiki_content`（百科内容）。
 id: aripiprazole
 name_cn: 阿立哌唑
 name_en: Aripiprazole
-category: SGA
+categories:
+  - "SGA"
+  - "D2部分激动剂"
 tags:
   - "D2部分激动剂"
   - "不镇静"
+pk_data:
+  dosage_forms:
+    -
+      formulation: "普通片"
+      half_life: "75h"
+  protein_binding: ">99%"
+  metabolism: "CYP3A4"
 stahl_radar:
   bindings:
     - label: D2
@@ -54,4 +63,4 @@ stahl_radar:
 
 ---
 
-生成时间: 2026/2/3 20:38:22
+生成时间: 2026/3/3 12:42:12

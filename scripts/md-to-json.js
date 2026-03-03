@@ -148,7 +148,8 @@ async function sync() {
     id: drug.id,
     name_cn: drug.name_cn,
     name_en: drug.name_en,
-    category: drug.category,
+    // Support both new 'categories' (array) and legacy 'category' (string)
+    ...(drug.categories ? { categories: drug.categories } : { category: drug.category }),
     tags: drug.tags || []
   })).sort((a, b) => a.id.localeCompare(b.id));
   

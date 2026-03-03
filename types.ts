@@ -47,8 +47,15 @@ export interface ImageData {
   url: string;
 }
 
+export interface DosageFormPK {
+  formulation: string;      // 剂型名称 e.g. "平片", "缓释片", "控释片"
+  half_life: string;        // 该剂型的半衰期
+  peak_time?: string;       // 可选：该剂型的达峰时间
+}
+
 export interface PKData {
-  half_life: string;
+  half_life?: string;       // 向后兼容：默认/通用半衰期
+  dosage_forms?: DosageFormPK[];  // 多剂型支持
   protein_binding: string;
   metabolism: string;
   peak_time?: string;
@@ -65,7 +72,8 @@ export interface Drug {
   id: string;
   name_cn: string;
   name_en: string;
-  category: string;
+  category?: string;        // 向后兼容：单个分类
+  categories?: string[];    // 新增：多个分类
   tags: string[];
   stahl_radar: StahlRadarData;
   pearls: Pearl[];

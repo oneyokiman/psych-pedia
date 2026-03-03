@@ -48,6 +48,10 @@ market_info:
   price: "$"
   insurance: "甲类医保"
   pregnancy: "C类"
+images:
+  -
+      alt: "706fc0143db636ccb94bfea38b6941a2.jpeg"
+      url: "https://gcore.jsdelivr.net/gh/oneyokiman/obsidian-images@main/26/1121111922061182542041857525416313910565162_gopic_.jpg"
 ---
 
 # 喹硫平 (Quetiapine)

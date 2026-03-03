@@ -15,7 +15,7 @@
     {
       "id": "alprazolam",
       "name_cn": "阿普唑仑",
-      "name_en": "Alprazolam",
+      "name_en": "Alprazolam (Xanax)",
       "category": "苯二氮䓬类（BZD）",
       "tags": [
         "惊恐发作",
@@ -60,11 +60,15 @@
       "id": "bupropion",
       "name_cn": "安非他酮",
       "name_en": "Bupropion",
-      "category": "去甲肾-多巴胺转运体抑制剂（NDRI）",
+      "categories": [
+        "去甲肾-多巴胺转运体抑制剂（NDRI）",
+        "非5HT机制抗抑郁药"
+      ],
       "tags": [
-        "激活",
         "戒烟",
-        "无性功能副作用"
+        "无性功能副作用",
+        "非5HT机制抗抑郁药",
+        "激活剂"
       ]
     },
     {
@@ -342,6 +346,17 @@
         "GAD",
         "神经痛",
         "肾排泄"
+      ]
+    },
+    {
+      "id": "propranolol",
+      "name_cn": "普萘洛尔",
+      "name_en": "Propranolol",
+      "category": "抗焦虑药",
+      "tags": [
+        "β受体阻滞剂",
+        "缓解震颤",
+        "缓解心动过速"
       ]
     },
     {

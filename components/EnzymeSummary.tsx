@@ -112,7 +112,7 @@ const EnzymeSummary: React.FC<EnzymeSummaryProps> = ({
                       <p className="text-sm text-slate-500 dark:text-slate-400 font-mono">{drug.name_en}</p>
                     </div>
                     <span className="text-xs font-semibold px-2 py-1 rounded bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
-                      {drug.category}
+                      {drug.categories && drug.categories.length > 0 ? drug.categories[0] : drug.category}
                     </span>
                   </div>
                   {drug.pk_data?.metabolism && (
